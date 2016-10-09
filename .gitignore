@@ -1,5 +1,7 @@
 # Ignore literature
 *.pdf
+*.doc
+*.docx
 
 ###################
 *.rsp
