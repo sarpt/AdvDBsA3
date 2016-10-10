@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="tU_CATEGORY" directorySegmentName="seg_0" id="4ED7E322-CE7C-CC44-40BA-5CE50AF81A1A">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:28 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<actions>UPDATE</actions>
+<body>-- ERwin Builtin Trigger&lt;br&gt;-- UPDATE trigger on CATEGORY &lt;br&gt;DECLARE NUMROWS INTEGER;&lt;br&gt;BEGIN&lt;br&gt;  /* CATEGORY  RECIPE on parent update set null */&lt;br&gt;  /* ERWIN_RELATION:CHECKSUM=&quot;0000d47d&quot;, PARENT_OWNER=&quot;&quot;, PARENT_TABLE=&quot;CATEGORY&quot;&lt;br&gt;    CHILD_OWNER=&quot;&quot;, CHILD_TABLE=&quot;RECIPE&quot;&lt;br&gt;    P2C_VERB_PHRASE=&quot;&quot;, C2P_VERB_PHRASE=&quot;&quot;, &lt;br&gt;    FK_CONSTRAINT=&quot;R_12&quot;, FK_COLUMNS=&quot;CategoryID&quot; */&lt;br&gt;  IF&lt;br&gt;    /* %JoinPKPK(:%Old,:%New,&quot; &lt;&gt; &quot;,&quot; OR &quot;) */&lt;br&gt;    :old.CategoryID &lt;&gt; :new.CategoryID&lt;br&gt;  THEN&lt;br&gt;    UPDATE RECIPE&lt;br&gt;      SET&lt;br&gt;        /* %SetFK(RECIPE,NULL) */&lt;br&gt;        RECIPE.CategoryID = NULL&lt;br&gt;      WHERE&lt;br&gt;        /* %JoinFKPK(RECIPE,:%Old,&quot; = &quot;,&quot;,&quot;) */&lt;br&gt;        RECIPE.CategoryID = :old.CategoryID;&lt;br&gt;  END IF;&lt;br&gt;&lt;br&gt;&lt;br&gt;-- ERwin Builtin Trigger&lt;br&gt;END;</body>
+<triggerTime>AFTER</triggerTime>
+<table>5E76DFAA-C63E-0ECA-11C7-F03CBCFC4DDF</table>
+</TriggerOraclev10g>

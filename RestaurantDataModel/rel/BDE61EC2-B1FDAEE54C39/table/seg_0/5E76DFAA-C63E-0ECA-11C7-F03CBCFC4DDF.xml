@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5E76DFAA-C63E-0ECA-11C7-F03CBCFC4DDF" name="CATEGORY">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>E5C4BD46-776D-6E24-CAA7-C1737379FF6F</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CategoryID" id="E194EC76-B02C-6442-A33B-A7A5E5BBB1C9">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>FC0B6D18-BCA5-5553-2B28-0AA00ED7114F</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>F2F6385B-085B-79D8-F3A3-66B37C91BB4B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Title" id="947F8475-3ACA-2996-F39A-246DEB5B14A9">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>00449FFF-0341-4ED2-5276-A1272D4C9867</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>DE06EFD3-998D-FEFA-075A-D5CD5A1C4A8D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DateCreated" id="2F818E0C-CA3D-1D8E-06D7-680D3089AB33">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>DF9208B6-9B92-09EF-94E7-904049A0A8EE</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>A9F594AF-AAE9-899B-133F-D49C6895A18B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="00A14B1C-540D-3D61-166D-AD953B14E7F4" name="XPKCATEGORY">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>9DCF2338-ECBF-4CCD-1DF0-F3554946D9D8</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E194EC76-B02C-6442-A33B-A7A5E5BBB1C9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D8584C3A-C089-46FD-9795-37D757E1D0D7" name="XPKCATEGORY">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>3EFC3C45-1EC6-8BBB-33D7-6D2B1C0D0C98</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E194EC76-B02C-6442-A33B-A7A5E5BBB1C9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

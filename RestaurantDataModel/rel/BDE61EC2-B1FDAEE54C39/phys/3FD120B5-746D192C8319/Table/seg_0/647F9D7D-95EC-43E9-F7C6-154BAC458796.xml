@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="SUPPLIER_STOCK" directorySegmentName="seg_0" id="647F9D7D-95EC-43E9-F7C6-154BAC458796">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="SupplierID" id="07FCC65B-52C8-5F03-9B8C-F4D840169C4C">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SupplierStockID" id="51BA9428-E2D7-B70F-83B8-C686AB4DB1B2">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="WeightAvail" id="B59AB3A5-B9FA-F506-C8CF-F8B9F8D72B58">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Price" id="E4CC4FA4-ED2C-52A6-BB18-4F475A5070A4">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="XPKRAW_INGR_SUPL" id="4FA0ABB0-1392-BF19-7D59-15F216BB0BFF">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="R_10" id="A0E8D1C5-8191-2CFD-096F-77D33966520A">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="R_11" id="B44D11C3-C460-AEAC-5158-37C23E130D9D">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="XPKRAW_INGR_SUPL" id="222DC1EC-BF8A-2450-9FED-B9E4D4F91725">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

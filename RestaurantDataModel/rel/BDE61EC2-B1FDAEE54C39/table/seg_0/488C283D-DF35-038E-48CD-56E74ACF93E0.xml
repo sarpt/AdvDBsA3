@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="488C283D-DF35-038E-48CD-56E74ACF93E0" name="JOB">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>2B15CFA3-DBD2-C66A-9293-5163A7EE4E0C</importedID>
+<ordsAlias>position</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="JobID" id="5F6940C5-057F-DCC2-B62F-277F60CE0DB4">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>F7C411E0-48F3-5FFC-BC8D-F7D6C2EE0BB9</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>F2F6385B-085B-79D8-F3A3-66B37C91BB4B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Title" id="B42430EC-8AD5-80FA-DC8C-B5BABF7BFC3D">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>294D8BCA-CAB2-4F44-DFF5-FD718C176792</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>DE06EFD3-998D-FEFA-075A-D5CD5A1C4A8D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Salary" id="139AC950-5656-F909-C585-BFE30654B77A">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>4244A797-78A9-65ED-06A1-BA00FB345BC0</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<domain>E766CCFE-B4BD-7C08-5F7F-9C5067BFA92F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="918449F5-B33C-9469-46D1-4A1D5C898CF5" name="XPKPOSITION">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>C2D037AA-7673-C6DA-8444-A1783783FBE5</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5F6940C5-057F-DCC2-B62F-277F60CE0DB4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="76114D92-47C1-9DFB-8F6A-C138E6ED0D00" name="XPKPOSITION">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>44C2D839-7730-A653-3CCA-7FE6D52C569C</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5F6940C5-057F-DCC2-B62F-277F60CE0DB4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

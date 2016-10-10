@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BB652434-3383-DA27-5DC7-B3C65903A653" name="RECIPE_COOK">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>A55BCE11-95F3-0B2F-CC3C-1D3796F178C9</importedID>
+<ordsAlias>recipe_author</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="RecipeCookID" id="12E9C043-D5F2-6007-3A24-055BA1852E77">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>46D99BE4-03F1-46CD-965A-CF80914350BC</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>F2F6385B-085B-79D8-F3A3-66B37C91BB4B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="04A78DA5-75EF-4416-F990-13A7A19E7931" referredColumn="68DFCC5C-9275-EF1C-804F-A0178901CB2E"/>
+</associations>
+</Column>
+<Column name="RecipeID" id="6E66F2D7-6487-71FE-ABB0-8EA25CE34EB6">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>87D20A0D-BE8C-7072-7CE7-1740B7D686B6</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>F2F6385B-085B-79D8-F3A3-66B37C91BB4B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1E6685AA-B837-961D-577C-EDD7C035D387" referredColumn="229DE68B-7779-18A3-BCC7-D66515B0B3C6"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="705D694F-34CB-B470-B485-BF10887CA61D" name="XPKRECIPE_AUTHOR">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>D76C2870-9029-2EF6-9320-AE86DC29E35D</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="12E9C043-D5F2-6007-3A24-055BA1852E77"/>
+<colUsage columnID="6E66F2D7-6487-71FE-ABB0-8EA25CE34EB6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EF7421AE-698D-3556-3F47-7DCFA99E0142" name="XPKRECIPE_AUTHOR">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>096F15F6-1FE4-93E5-DB77-AE12CBD12C85</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="12E9C043-D5F2-6007-3A24-055BA1852E77"/>
+<colUsage columnID="6E66F2D7-6487-71FE-ABB0-8EA25CE34EB6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="ABC8FD81-A7ED-B968-86F1-09C1AEC6B74C" name="R_7">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="12E9C043-D5F2-6007-3A24-055BA1852E77"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="75ECD17B-1F11-4434-270B-BE72097E94E9" name="R_8">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6E66F2D7-6487-71FE-ABB0-8EA25CE34EB6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

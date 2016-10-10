@@ -1,0 +1,43 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="CATEGORY" directorySegmentName="seg_0" id="5E76DFAA-C63E-0ECA-11C7-F03CBCFC4DDF">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="DateCreated" id="2F818E0C-CA3D-1D8E-06D7-680D3089AB33">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Title" id="947F8475-3ACA-2996-F39A-246DEB5B14A9">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CategoryID" id="E194EC76-B02C-6442-A33B-A7A5E5BBB1C9">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="XPKCATEGORY" id="D8584C3A-C089-46FD-9795-37D757E1D0D7">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<logging></logging>
+</IndexProxy>
+</indexProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="XPKCATEGORY" id="00A14B1C-540D-3D61-166D-AD953B14E7F4">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

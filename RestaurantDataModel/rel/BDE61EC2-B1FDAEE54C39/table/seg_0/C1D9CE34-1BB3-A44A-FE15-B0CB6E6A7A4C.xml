@@ -1,0 +1,102 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C1D9CE34-1BB3-A44A-FE15-B0CB6E6A7A4C" name="STOCK">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:31 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>6BE97021-0FF7-CC44-A119-8F82D268EEB9</importedID>
+<ordsAlias>raw_ingredient</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="StockID" id="CBE6EEA0-F26D-B2A5-DC14-F5EB15145A45">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>4309E84A-6EFE-D42D-9303-4C2558627021</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>F2F6385B-085B-79D8-F3A3-66B37C91BB4B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SupplyLogID" id="6FD6B772-E124-7902-FB07-AB6C8400B90C">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>53409FBE-6153-ECDB-4B1C-D099DAD07815</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>F2F6385B-085B-79D8-F3A3-66B37C91BB4B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="04AD16D8-603D-513A-8FBD-B6678A183BFA" referredColumn="6879739E-EEC8-E349-259B-B4052F85A66E"/>
+</associations>
+</Column>
+<Column name="Title" id="15AFEC2F-74E4-0AAE-AEF8-1DFD4A121D8C">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>CF5AFD4E-067D-ABC3-FEE2-BEE19C66EC06</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>DE06EFD3-998D-FEFA-075A-D5CD5A1C4A8D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="WeightAvail" id="EDF8A524-B4A7-A4E6-AC9C-BA17A4A763B1">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>777038DB-1405-776B-ECA6-E1D2B0E6AA7D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<domain>81CF2D28-8AA0-8EC4-CEDC-00EDBAEC18A1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BFED4B10-A786-9F99-B261-28C116732EBC" name="XPKRAW_INGREDIENT">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>3996864E-62F6-EF55-BCDD-6245DD059D60</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CBE6EEA0-F26D-B2A5-DC14-F5EB15145A45"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B4AA0879-6E11-7F5E-3FC8-9E68B8B772C3" name="XPKRAW_INGREDIENT">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>F71B5CA8-C307-6828-918E-AD259761E8C7</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CBE6EEA0-F26D-B2A5-DC14-F5EB15145A45"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1D594EA2-767A-B0B0-5087-AEBF2225C175" name="R_13">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6FD6B772-E124-7902-FB07-AB6C8400B90C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

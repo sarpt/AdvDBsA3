@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="tD_CATEGORY" directorySegmentName="seg_0" id="D24E00B2-56E7-1EF3-96E7-EF26ABFB03FB">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:28 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<actions>DELETE</actions>
+<body>-- ERwin Builtin Trigger&lt;br&gt;-- DELETE trigger on CATEGORY &lt;br&gt;DECLARE NUMROWS INTEGER;&lt;br&gt;BEGIN&lt;br&gt;    /* ERwin Builtin Trigger */&lt;br&gt;    /* CATEGORY  RECIPE on parent delete set null */&lt;br&gt;    /* ERWIN_RELATION:CHECKSUM=&quot;0000a476&quot;, PARENT_OWNER=&quot;&quot;, PARENT_TABLE=&quot;CATEGORY&quot;&lt;br&gt;    CHILD_OWNER=&quot;&quot;, CHILD_TABLE=&quot;RECIPE&quot;&lt;br&gt;    P2C_VERB_PHRASE=&quot;&quot;, C2P_VERB_PHRASE=&quot;&quot;, &lt;br&gt;    FK_CONSTRAINT=&quot;R_12&quot;, FK_COLUMNS=&quot;CategoryID&quot; */&lt;br&gt;    UPDATE RECIPE&lt;br&gt;      SET&lt;br&gt;        /* %SetFK(RECIPE,NULL) */&lt;br&gt;        RECIPE.CategoryID = NULL&lt;br&gt;      WHERE&lt;br&gt;        /* %JoinFKPK(RECIPE,:%Old,&quot; = &quot;,&quot; AND&quot;) */&lt;br&gt;        RECIPE.CategoryID = :old.CategoryID;&lt;br&gt;&lt;br&gt;&lt;br&gt;-- ERwin Builtin Trigger&lt;br&gt;END;</body>
+<triggerTime>AFTER</triggerTime>
+<table>5E76DFAA-C63E-0ECA-11C7-F03CBCFC4DDF</table>
+</TriggerOraclev10g>

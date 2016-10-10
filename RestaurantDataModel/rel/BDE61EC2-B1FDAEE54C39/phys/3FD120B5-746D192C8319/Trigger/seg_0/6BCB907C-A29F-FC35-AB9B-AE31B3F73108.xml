@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="tI_AUTHOR" directorySegmentName="seg_0" id="6BCB907C-A29F-FC35-AB9B-AE31B3F73108">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 17:19:28 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<actions>INSERT</actions>
+<body>-- ERwin Builtin Trigger&lt;br&gt;-- INSERT trigger on AUTHOR &lt;br&gt;DECLARE NUMROWS INTEGER;&lt;br&gt;BEGIN&lt;br&gt;    /* ERwin Builtin Trigger */&lt;br&gt;    /* POSITION  AUTHOR on child insert set null */&lt;br&gt;    /* ERWIN_RELATION:CHECKSUM=&quot;0000d6f2&quot;, PARENT_OWNER=&quot;&quot;, PARENT_TABLE=&quot;POSITION&quot;&lt;br&gt;    CHILD_OWNER=&quot;&quot;, CHILD_TABLE=&quot;AUTHOR&quot;&lt;br&gt;    P2C_VERB_PHRASE=&quot;&quot;, C2P_VERB_PHRASE=&quot;&quot;, &lt;br&gt;    FK_CONSTRAINT=&quot;R_9&quot;, FK_COLUMNS=&quot;PositionID&quot; */&lt;br&gt;    UPDATE AUTHOR&lt;br&gt;      SET&lt;br&gt;        /* %SetFK(AUTHOR,NULL) */&lt;br&gt;        AUTHOR.PositionID = NULL&lt;br&gt;      WHERE&lt;br&gt;        NOT EXISTS (&lt;br&gt;          SELECT * FROM POSITION&lt;br&gt;            WHERE&lt;br&gt;              /* %JoinFKPK(:%New,POSITION,&quot; = &quot;,&quot; AND&quot;) */&lt;br&gt;              :new.PositionID = POSITION.PositionID&lt;br&gt;        ) &lt;br&gt;        /* %JoinPKPK(AUTHOR,:%New,&quot; = &quot;,&quot; AND&quot;) */&lt;br&gt;         and AUTHOR.AuthorID = :new.AuthorID;&lt;br&gt;&lt;br&gt;&lt;br&gt;-- ERwin Builtin Trigger&lt;br&gt;END;</body>
+<triggerTime>BEFORE</triggerTime>
+<table>847A0865-2DEA-7EFE-AE09-E601E9EDF31B</table>
+</TriggerOraclev10g>

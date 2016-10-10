@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DomainFile class="oracle.dbtools.crest.model.design.DomainFileWrapper" fileName="script_Domains">
+   <domains>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_300" id="7D9764AF-B6C3-0447-C113-C8F6DE4174FD">
+         <createdBy>Mike</createdBy>
+         <createdTime>2016-10-10 17:19:32 UTC</createdTime>
+         <ownerDesignName>RestaurantDataModel</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>300</dataTypeSize>
+         <fileName>script_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="FLOAT_0_0_0" id="81CF2D28-8AA0-8EC4-CEDC-00EDBAEC18A1">
+         <createdBy>Mike</createdBy>
+         <createdTime>2016-10-10 17:19:31 UTC</createdTime>
+         <ownerDesignName>RestaurantDataModel</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>script_Domains</fileName>
+         <logicalDatatype>LOGDT021</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="Date_0_0_0" id="A9F594AF-AAE9-899B-133F-D49C6895A18B">
+         <createdBy>Mike</createdBy>
+         <createdTime>2016-10-10 17:19:31 UTC</createdTime>
+         <ownerDesignName>RestaurantDataModel</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>script_Domains</fileName>
+         <logicalDatatype>LOGDT007</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="VARCHAR_0_0_20" id="DE06EFD3-998D-FEFA-075A-D5CD5A1C4A8D">
+         <createdBy>Mike</createdBy>
+         <createdTime>2016-10-10 17:19:31 UTC</createdTime>
+         <ownerDesignName>RestaurantDataModel</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <dataTypePrecision>0</dataTypePrecision>
+         <dataTypeScale>0</dataTypeScale>
+         <dataTypeSize>20</dataTypeSize>
+         <fileName>script_Domains</fileName>
+         <logicalDatatype>LOGDT024</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="DECIMAL_0_0_0" id="E766CCFE-B4BD-7C08-5F7F-9C5067BFA92F">
+         <createdBy>Mike</createdBy>
+         <createdTime>2016-10-10 17:19:32 UTC</createdTime>
+         <ownerDesignName>RestaurantDataModel</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>script_Domains</fileName>
+         <logicalDatatype>LOGDT026</logicalDatatype>
+      </Domain>
+      <Domain class="oracle.dbtools.crest.model.design.Domain" name="Integer_0_0_0" id="F2F6385B-085B-79D8-F3A3-66B37C91BB4B">
+         <createdBy>Mike</createdBy>
+         <createdTime>2016-10-10 17:19:31 UTC</createdTime>
+         <ownerDesignName>RestaurantDataModel</ownerDesignName>
+         <avTSortOrder>0</avTSortOrder>
+         <fileName>script_Domains</fileName>
+         <logicalDatatype>LOGDT011</logicalDatatype>
+      </Domain>
+   </domains>
+</DomainFile>

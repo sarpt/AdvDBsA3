@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="SHIFT" directorySegmentName="seg_0" id="DB3DEFE3-EC75-5819-EC7F-F80960B8AB8C">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 21:36:18 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="StartHour" id="2479AD54-ACA7-ACEE-9155-B82011730897">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 21:39:17 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EndDate" id="2EAB66A7-47BC-D9DF-0E03-889DBE71ECFF">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 21:39:17 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EndHour" id="30EF122A-6706-9CCA-8E60-A77F6AF34AB5">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 21:39:25 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="StartDate" id="404C53D3-87C4-EBEB-2F94-B30198FF10F2">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 21:39:17 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ShiftID" id="AFA909D7-D8D0-C173-9C03-26D3C80800D7">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 21:39:17 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EmployeeID" id="B772C466-F841-FCAA-ADCD-B2370DF83E12">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 21:39:17 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SHIFT_EMPLOYEE_FK" id="10FBC8D7-5C6F-7DB8-07C1-C2BE94DE7D9F">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 21:39:54 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="SHIFT_PK" id="6ADFA521-49B5-4F04-1DB1-333E8235BEEA">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-10 21:40:03 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>
