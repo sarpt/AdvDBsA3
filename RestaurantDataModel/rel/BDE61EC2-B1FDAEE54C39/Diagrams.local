@@ -1,4 +1,4 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.relational.RelationalDesign>
-   <object objectType="main_view" objectID="39EF4815-F9D5-7789-A9EC-D8A80530C47F" name="script" visible="true"/>
+   <object objectType="main_view" objectID="39EF4815-F9D5-7789-A9EC-D8A80530C47F" name="Restaurant" visible="true"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>

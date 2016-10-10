@@ -74,7 +74,7 @@
 <colUsage columnID="6879739E-EEC8-E349-259B-B4052F85A66E"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="459D1370-7AA9-D241-BA28-ADD8EF410D44" name="SupplierID">
+<ind_PK_UK id="459D1370-7AA9-D241-BA28-ADD8EF410D44" name="SUPPLY_LOG_SUPPLIER_FK">
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 20:24:31 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>

@@ -80,7 +80,7 @@
 <colUsage columnID="AD33AB04-3D58-ACF6-6280-09A542124999"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="DB3939FA-30FA-B020-653C-4E67835B0B5B" name="R_4">
+<ind_PK_UK id="DB3939FA-30FA-B020-653C-4E67835B0B5B" name="INGREDIENT_STOCK_FK">
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:32 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>
@@ -90,7 +90,7 @@
 <colUsage columnID="F21CD916-2475-B417-076B-ECCB8E0051F8"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B9E46850-C459-2B48-044C-0404C093052F" name="R_5">
+<ind_PK_UK id="B9E46850-C459-2B48-044C-0404C093052F" name="INGREDIENT_RECIPE_FK">
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:32 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>

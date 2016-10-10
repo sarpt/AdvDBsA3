@@ -93,7 +93,7 @@
 <colUsage columnID="07FCC65B-52C8-5F03-9B8C-F4D840169C4C"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="A0E8D1C5-8191-2CFD-096F-77D33966520A" name="R_10">
+<ind_PK_UK id="A0E8D1C5-8191-2CFD-096F-77D33966520A" name="SUPPLIER_STOCK_STOCK_FK">
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:32 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>
@@ -103,7 +103,7 @@
 <colUsage columnID="51BA9428-E2D7-B70F-83B8-C686AB4DB1B2"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B44D11C3-C460-AEAC-5158-37C23E130D9D" name="R_11">
+<ind_PK_UK id="B44D11C3-C460-AEAC-5158-37C23E130D9D" name="SUPPLIER_STOCK_SUPPLIER_FK">
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:32 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>

@@ -69,7 +69,7 @@
 <colUsage columnID="6E66F2D7-6487-71FE-ABB0-8EA25CE34EB6"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="ABC8FD81-A7ED-B968-86F1-09C1AEC6B74C" name="R_7">
+<ind_PK_UK id="ABC8FD81-A7ED-B968-86F1-09C1AEC6B74C" name="RECIPE_COOK_EMPLOYEE_FK">
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:32 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>
@@ -79,7 +79,7 @@
 <colUsage columnID="12E9C043-D5F2-6007-3A24-055BA1852E77"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="75ECD17B-1F11-4434-270B-BE72097E94E9" name="R_8">
+<ind_PK_UK id="75ECD17B-1F11-4434-270B-BE72097E94E9" name="RECIPE_COOK_RECIPE_FK">
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:32 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>

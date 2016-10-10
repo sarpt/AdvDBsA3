@@ -112,7 +112,7 @@
 <colUsage columnID="229DE68B-7779-18A3-BCC7-D66515B0B3C6"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="97E83DAF-4552-19AD-1F4C-25B3D583F386" name="R_12">
+<ind_PK_UK id="97E83DAF-4552-19AD-1F4C-25B3D583F386" name="RECIPE_CATEGORY_FK">
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:32 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>

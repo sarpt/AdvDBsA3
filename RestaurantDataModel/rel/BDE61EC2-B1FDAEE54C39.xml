@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="script" id="BDE61EC2-F6B1-BDC0-BBDD-B1FDAEE54C39" mainViewID="39EF4815-F9D5-7789-A9EC-D8A80530C47F">
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Restaurant" id="BDE61EC2-F6B1-BDC0-BBDD-B1FDAEE54C39" mainViewID="39EF4815-F9D5-7789-A9EC-D8A80530C47F">
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:28 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>

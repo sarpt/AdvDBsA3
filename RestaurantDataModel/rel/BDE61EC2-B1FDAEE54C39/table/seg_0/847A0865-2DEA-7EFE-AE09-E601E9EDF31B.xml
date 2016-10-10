@@ -102,7 +102,7 @@
 <colUsage columnID="68DFCC5C-9275-EF1C-804F-A0178901CB2E"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="1C4F6D82-3FD7-D983-B868-08401ABF8C06" name="R_9">
+<ind_PK_UK id="1C4F6D82-3FD7-D983-B868-08401ABF8C06" name="EMPLOYEE_JOB_FK">
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:32 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>
