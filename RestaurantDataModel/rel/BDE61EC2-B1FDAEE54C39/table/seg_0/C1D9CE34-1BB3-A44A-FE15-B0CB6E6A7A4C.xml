@@ -63,7 +63,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="BFED4B10-A786-9F99-B261-28C116732EBC" name="XPKRAW_INGREDIENT">
+<ind_PK_UK id="BFED4B10-A786-9F99-B261-28C116732EBC" name="STOCK_PK">
 <sourceDDLFile>script.ddl</sourceDDLFile>
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:32 UTC</createdTime>
@@ -88,7 +88,7 @@
 <colUsage columnID="CBE6EEA0-F26D-B2A5-DC14-F5EB15145A45"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="1D594EA2-767A-B0B0-5087-AEBF2225C175" name="R_13">
+<ind_PK_UK id="1D594EA2-767A-B0B0-5087-AEBF2225C175" name="STOCK_SUPPLY_LOG_FK">
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:32 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>

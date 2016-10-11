@@ -48,7 +48,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="00A14B1C-540D-3D61-166D-AD953B14E7F4" name="XPKCATEGORY">
+<ind_PK_UK id="00A14B1C-540D-3D61-166D-AD953B14E7F4" name="CATEGORY_PK">
 <sourceDDLFile>script.ddl</sourceDDLFile>
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:31 UTC</createdTime>

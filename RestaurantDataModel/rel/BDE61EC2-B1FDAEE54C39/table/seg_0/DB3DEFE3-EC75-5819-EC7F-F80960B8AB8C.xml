@@ -32,49 +32,18 @@
 <colAssociation fkAssociation="DF8F70DE-97A0-E814-5E2A-770D33EDA002" referredColumn="68DFCC5C-9275-EF1C-804F-A0178901CB2E"/>
 </associations>
 </Column>
-<Column name="StartDate" id="404C53D3-87C4-EBEB-2F94-B30198FF10F2">
+<Column name="DayID" id="404C53D3-87C4-EBEB-2F94-B30198FF10F2">
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 21:39:17 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<domain>A9F594AF-AAE9-899B-133F-D49C6895A18B</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="EndDate" id="2EAB66A7-47BC-D9DF-0E03-889DBE71ECFF">
-<createdBy>Mike</createdBy>
-<createdTime>2016-10-10 21:39:17 UTC</createdTime>
-<ownerDesignName>RestaurantDataModel</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<domain>A9F594AF-AAE9-899B-133F-D49C6895A18B</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="StartHour" id="2479AD54-ACA7-ACEE-9155-B82011730897">
-<createdBy>Mike</createdBy>
-<createdTime>2016-10-10 21:39:17 UTC</createdTime>
-<ownerDesignName>RestaurantDataModel</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <use>0</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
 <domain>F2F6385B-085B-79D8-F3A3-66B37C91BB4B</domain>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="EndHour" id="30EF122A-6706-9CCA-8E60-A77F6AF34AB5">
-<createdBy>Mike</createdBy>
-<createdTime>2016-10-10 21:39:25 UTC</createdTime>
-<ownerDesignName>RestaurantDataModel</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<domain>F2F6385B-085B-79D8-F3A3-66B37C91BB4B</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="533E5A89-3147-3E2F-FC24-7B0BCF7EBFE6" referredColumn="B14C18FB-9BC0-7898-AE55-24AB563C2B29"/>
+</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
@@ -97,6 +66,16 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="B772C466-F841-FCAA-ADCD-B2370DF83E12"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="58A167C0-5908-6687-8691-2FC20A540319" name="SHIFT_DAYS_FK">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-11 15:53:02 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="404C53D3-87C4-EBEB-2F94-B30198FF10F2"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

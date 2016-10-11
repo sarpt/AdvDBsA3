@@ -66,7 +66,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="222DC1EC-BF8A-2450-9FED-B9E4D4F91725" name="XPKRAW_INGR_SUPL">
+<ind_PK_UK id="222DC1EC-BF8A-2450-9FED-B9E4D4F91725" name="SUPPLIER_STOCK_PK">
 <sourceDDLFile>script.ddl</sourceDDLFile>
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:32 UTC</createdTime>

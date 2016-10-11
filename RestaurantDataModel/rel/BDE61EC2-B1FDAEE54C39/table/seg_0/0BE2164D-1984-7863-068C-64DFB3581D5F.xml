@@ -49,7 +49,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="07B0BF33-DC24-3781-3F8C-8112AEBEEED3" name="XPKORDER_SUPPLY">
+<ind_PK_UK id="07B0BF33-DC24-3781-3F8C-8112AEBEEED3" name="SUPPLY_LOG_PK">
 <sourceDDLFile>script.ddl</sourceDDLFile>
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:31 UTC</createdTime>

@@ -50,7 +50,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="918449F5-B33C-9469-46D1-4A1D5C898CF5" name="XPKPOSITION">
+<ind_PK_UK id="918449F5-B33C-9469-46D1-4A1D5C898CF5" name="JOB_PK">
 <sourceDDLFile>script.ddl</sourceDDLFile>
 <createdBy>Mike</createdBy>
 <createdTime>2016-10-10 17:19:32 UTC</createdTime>

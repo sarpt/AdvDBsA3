@@ -42,17 +42,6 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Amount" id="B1180FFC-9BBA-7245-EB1D-EF60DBB46DA5">
-<createdBy>Mike</createdBy>
-<createdTime>2016-10-10 21:53:06 UTC</createdTime>
-<ownerDesignName>RestaurantDataModel</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<domain>F2F6385B-085B-79D8-F3A3-66B37C91BB4B</domain>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="D962F127-0B8B-552B-07AD-D170794440C3" name="CLIENT_ORDER_PK">

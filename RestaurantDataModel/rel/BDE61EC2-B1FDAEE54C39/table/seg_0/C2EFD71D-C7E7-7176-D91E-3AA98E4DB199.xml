@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C2EFD71D-C7E7-7176-D91E-3AA98E4DB199" name="MONTHLY_INCOME">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-11 15:43:32 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MonthlyIncomeID" id="1654169E-A528-8196-CDBA-12FC0FAEBCA7">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-11 15:43:57 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>F2F6385B-085B-79D8-F3A3-66B37C91BB4B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DateOfClosure" id="C2AB02EF-8358-352A-EAB2-CF1CCE32873C">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-11 15:44:15 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>A9F594AF-AAE9-899B-133F-D49C6895A18B</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="OrdersIncome" id="FAA82D84-8F3E-10D1-C752-3A7212735273">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-11 15:45:04 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<domain>81CF2D28-8AA0-8EC4-CEDC-00EDBAEC18A1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Payments" id="A52BB07E-9B70-2906-2823-059DF9C123F7">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-11 15:45:24 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<domain>81CF2D28-8AA0-8EC4-CEDC-00EDBAEC18A1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FinalIncome" id="16932ECC-C61D-80C7-DEB7-6DE69C1599CD">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-11 15:44:49 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<domain>81CF2D28-8AA0-8EC4-CEDC-00EDBAEC18A1</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="99E67703-BBB8-5E95-5927-3C9C3FF0E937" name="MONTHLY_INCOME_PK">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-11 15:43:57 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1654169E-A528-8196-CDBA-12FC0FAEBCA7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
