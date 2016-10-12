@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="4F6C14DE-E6DC-15C1-4BBB-049A17FAEC9A" mainViewID="24979B38-DAB7-AEE4-7B31-AB14E55DFA1F">
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="7AC23D9B-507D-A476-9FD2-3B7DD8AF1EFC" mainViewID="FDADCC26-B3E3-6F8C-8AF9-198175D54D96">
 <createdBy>Mike</createdBy>
-<createdTime>2016-10-10 17:17:27 UTC</createdTime>
+<createdTime>2016-10-12 14:50:04 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>
 <shouldBeOpen>false</shouldBeOpen>
 </LogicalDesign>

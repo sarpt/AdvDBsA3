@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Restaurant" id="268AAC73-7852-35D8-3ACD-E65A601D98E5" mainViewID="7A763EBF-0E4A-B469-F3BE-21FAAADC4DFF">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:09 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>3FD120B5-9F4E-6278-D5E2-746D192C8319</selectedRDBMSSite>
+<importDDLFileStamps>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>script.ddl</fileName>
+<pathName>C:\Users\Mike\Dysk Google\uczelnia\__2_sem1\advanced databases\AdvDBsA3\batch</pathName>
+<dbType>11</dbType>
+</importDDLFileStamp>
+</importDDLFileStamps>
+</relationalModel>

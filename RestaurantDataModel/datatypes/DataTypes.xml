@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<DataTypesDesign class="oracle.dbtools.crest.model.design.datatypes.DataTypesDesign" name="DataTypes" id="322AFB49-E7C8-7743-51B1-7680E5E91205" mainViewID="E8C6F6EB-3890-91EE-EE9F-77EFC488604B">
+<DataTypesDesign class="oracle.dbtools.crest.model.design.datatypes.DataTypesDesign" name="DataTypes" id="EF53C2AC-9760-6098-DD49-3878FB651C90" mainViewID="C50C97A6-7734-5318-3F34-8BA7375E48FF">
 <createdBy>Mike</createdBy>
-<createdTime>2016-10-10 17:17:27 UTC</createdTime>
+<createdTime>2016-10-12 14:50:05 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>
 <shouldBeOpen>false</shouldBeOpen>
 <collectionOfRefsPrefix>array_ref_</collectionOfRefsPrefix>

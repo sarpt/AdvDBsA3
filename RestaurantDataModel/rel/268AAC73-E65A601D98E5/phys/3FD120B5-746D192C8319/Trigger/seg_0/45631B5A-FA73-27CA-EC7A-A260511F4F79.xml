@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="tU_POSITION" directorySegmentName="seg_0" id="45631B5A-FA73-27CA-EC7A-A260511F4F79">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:09 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<actions>UPDATE</actions>
+<body>-- ERwin Builtin Trigger&lt;br&gt;-- UPDATE trigger on POSITION &lt;br&gt;DECLARE NUMROWS INTEGER;&lt;br&gt;BEGIN&lt;br&gt;  /* POSITION  EMPLOYEE on parent update set null */&lt;br&gt;  /* ERWIN_RELATION:CHECKSUM=&quot;0000d02b&quot;, PARENT_OWNER=&quot;&quot;, PARENT_TABLE=&quot;POSITION&quot;&lt;br&gt;    CHILD_OWNER=&quot;&quot;, CHILD_TABLE=&quot;EMPLOYEE&quot;&lt;br&gt;    P2C_VERB_PHRASE=&quot;&quot;, C2P_VERB_PHRASE=&quot;&quot;, &lt;br&gt;    FK_CONSTRAINT=&quot;R_19&quot;, FK_COLUMNS=&quot;PositionID&quot; */&lt;br&gt;  IF&lt;br&gt;    /* %JoinPKPK(:%Old,:%New,&quot; &lt;&gt; &quot;,&quot; OR &quot;) */&lt;br&gt;    :old.PositionID &lt;&gt; :new.PositionID&lt;br&gt;  THEN&lt;br&gt;    UPDATE EMPLOYEE&lt;br&gt;      SET&lt;br&gt;        /* %SetFK(EMPLOYEE,NULL) */&lt;br&gt;        EMPLOYEE.PositionID = NULL&lt;br&gt;      WHERE&lt;br&gt;        /* %JoinFKPK(EMPLOYEE,:%Old,&quot; = &quot;,&quot;,&quot;) */&lt;br&gt;        EMPLOYEE.PositionID = :old.PositionID;&lt;br&gt;  END IF;&lt;br&gt;&lt;br&gt;&lt;br&gt;-- ERwin Builtin Trigger&lt;br&gt;END;</body>
+<triggerTime>AFTER</triggerTime>
+<table>CBCBB8A4-F504-3E57-D816-2C20BE293781</table>
+</TriggerOraclev10g>

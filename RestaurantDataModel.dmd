@@ -1,12 +1,15 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="RestaurantDataModel" id="8E9B87E6-DAB8-2681-07FE-80BBF7C195B5" version="3.5">
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="RestaurantDataModel" id="CBCF3974-2394-D27C-10F9-AB9CFCD0A751" version="3.5">
 <createdBy>Mike</createdBy>
-<createdTime>2016-10-10 17:17:27 UTC</createdTime>
+<createdTime>2016-10-12 14:50:04 UTC</createdTime>
 <ownerDesignName>RestaurantDataModel</ownerDesignName>
 <capitalNames>false</capitalNames>
-<designId>8E9B87E6-DAB8-2681-07FE-80BBF7C195B5</designId>
+<designId>CBCF3974-2394-D27C-10F9-AB9CFCD0A751</designId>
 <usedDesignStorageDescriptors>
-<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="6A17CB0E-F74A-6D80-0DF4-F78474B3E095">
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="34A74A36-889F-2C47-EFC0-E0215F30C65E">
+<designStoragePath>C:\script</designStoragePath>
+</designDescr>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="243C0C7A-B197-B7F4-577A-4BD36FD06177">
 <designStoragePath>C:\script</designStoragePath>
 </designDescr>
 </usedDesignStorageDescriptors>
