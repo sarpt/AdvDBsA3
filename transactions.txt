@@ -8,7 +8,9 @@
 		and their Hours are available for the current time
   
 	If STOCKS are sufficient FOR EVERY INGREDIENT then
-		INSERT INTO RECIPE_LOG
+		INSERT INTO COOK_LOG
+		
+		INSERT the income INTO RESOURCES
 	Else
 		UPDATE WeightMissing for INGREDIENT_STOCK
 
@@ -25,18 +27,26 @@
 
 3)Make a request for SUPPLY:
 	//pseudo sql here
-	SupplierID = (SELECT SupplierID, MIN(Price),MAX(Reliability) FROM SUPPLIER_STOCK 
-		JOIN INGREDIENT_STOCK 
-		JOIN SUPPLY_REQUEST ON IngrStockID 
-		WHERE State 'NOTSATISFIED'
-		AND WeightAvail >= WeightMissing)
-	
-	INSERT INTO SUPPLY_LOG
-	
-	UPDATE SUPPLY_REQUEST State for 'SATISFIED'
-	UPDATE WeightAvail in RECIPE_STOCK
-	
-	//we should alse update SUPPLIER_STOCK but not in this transaction i guess
+	If SUPPLY_REQUEST has rows with 'NONSATISFIED':
+		For each such row:
+			//choose the best supplier
+			SupplierID,suppl_price = (SELECT SupplierID, MIN(Price),MAX(Reliability) 
+								FROM SUPPLIER_STOCK 
+								JOIN INGREDIENT_STOCK
+								JOIN SUPPLY_REQUEST ON IngrStockID 
+								WHERE State 'NOTSATISFIED'
+								AND WeightAvail >= WeightMissing
+								AND WeightMissing >= 0)
+			
+			If SupplierID is not null:
+				restourantTotal = SELECT SUM(Total) FROM RESOURCES
+				If restourantTotal >= suppl_price:				
+					INSERT INTO SUPPLY_LOG
+			
+					UPDATE SUPPLY_REQUEST State for 'SATISFIED'
+					UPDATE WeightAvail in RECIPE_STOCK
+			
+			//we should alse update SUPPLIER_STOCK but not in this transaction i guess
 	
 4)Create new recipe:
 	//pseudo sql here
@@ -44,17 +54,17 @@
 	INSERT INTO INGREDIENT
   
 	//update availability of the menu
-	SELECT IngrStockID FROM INGREDIENT_STOCK 
-	JOIN INGREDIENT ON IngrStockID
-	GROUP BY IngrStockID, WeightRecp
-	HAVING SUM(WeightRecp) > WeightAvail
+	Buf =(SELECT IngrStockID FROM INGREDIENT_STOCK 
+		JOIN INGREDIENT ON IngrStockID
+		GROUP BY IngrStockID, WeightRecp
+		HAVING SUM(WeightRecp) > WeightAvail)
   
-	UPDATE WeightMissing in INGREDIENT_STOCK
+	If Buf not empty:
+		UPDATE WeightMissing in INGREDIENT_STOCK
 	
-	INSERT INTO SUPPLY_REQUEST to make pending request for SUPPLY
-	
-	//kinda duplication here!!!!!
+		INSERT INTO SUPPLY_REQUEST to make pending request for SUPPLY
 
 ######## calculation of income is not a transaction
 ######## transaction is moving the DB from one stable state to another
 ######## shift rearangement is just a update not a transaction
+5)
