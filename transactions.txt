@@ -10,7 +10,7 @@
 	If STOCKS are sufficient FOR EVERY INGREDIENT then
 		INSERT INTO COOK_LOG
 		
-		INSERT the income INTO RESOURCES
+		INSERT the income (price*amount) INTO RESOURCES
 	Else
 		UPDATE WeightMissing for INGREDIENT_STOCK
 
@@ -67,4 +67,29 @@
 ######## calculation of income is not a transaction
 ######## transaction is moving the DB from one stable state to another
 ######## shift rearangement is just a update not a transaction
-5)
+5)Hire Chef:
+	INPUT Salary	
+	INPUT RecipeTitle that Chef can cook
+	
+	all_salaries = SELECT SUM(Salary) FROM EMPLOYEE
+	total = SELECT Total FROM RESOURCES
+	
+	If all_salaries + salarie < total:
+		INSERT INTO EMPLOYEE
+		INSERT INTO RECIPE_CHEF RecipeID, EmployeeID
+		INSERT INTO SCHEDULE
+		
+		UPDATE RecipeFlow
+		
+6)Remove Chef:
+	SELECT all recipes in which chef participated
+	UPDATE their RecipeFlow
+	DELETE FROM RECIPE_CHEF
+	DELETE FROM SCHEDULE
+	DELETE FROM EMPLOYEE
+
+7)Update Stocks:
+	INSERT new_supplies with new DateFreshSupply INTO SUPPLIER_STOCK with some SupplierID
+	SELECT previous DateFreshSupply for SupplierID and check if it is less than 2 days
+	If DateFreshSupply_new - DateFreshSupply_old < 2:
+		UPDATE SUPPLIER INC(Reliability )
