@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="tU_SUPPLIER" directorySegmentName="seg_0" id="F0FF10E4-C2FD-625C-FEDA-705BA5E6C2A2">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:09 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<actions>UPDATE</actions>
+<body>-- ERwin Builtin Trigger&lt;br&gt;-- UPDATE trigger on SUPPLIER &lt;br&gt;DECLARE NUMROWS INTEGER;&lt;br&gt;BEGIN&lt;br&gt;  /* ERwin Builtin Trigger */&lt;br&gt;  /* SUPPLIER  SUPPLIER_STOCK on parent update restrict */&lt;br&gt;  /* ERWIN_RELATION:CHECKSUM=&quot;000111ef&quot;, PARENT_OWNER=&quot;&quot;, PARENT_TABLE=&quot;SUPPLIER&quot;&lt;br&gt;    CHILD_OWNER=&quot;&quot;, CHILD_TABLE=&quot;SUPPLIER_STOCK&quot;&lt;br&gt;    P2C_VERB_PHRASE=&quot;&quot;, C2P_VERB_PHRASE=&quot;&quot;, &lt;br&gt;    FK_CONSTRAINT=&quot;R_11&quot;, FK_COLUMNS=&quot;SupplierID&quot; */&lt;br&gt;  IF&lt;br&gt;    /* %JoinPKPK(:%Old,:%New,&quot; &lt;&gt; &quot;,&quot; OR &quot;) */&lt;br&gt;    :old.SupplierID &lt;&gt; :new.SupplierID&lt;br&gt;  THEN&lt;br&gt;    SELECT count(*) INTO NUMROWS&lt;br&gt;      FROM SUPPLIER_STOCK&lt;br&gt;      WHERE&lt;br&gt;        /*  %JoinFKPK(SUPPLIER_STOCK,:%Old,&quot; = &quot;,&quot; AND&quot;) */&lt;br&gt;        SUPPLIER_STOCK.SupplierID = :old.SupplierID;&lt;br&gt;    IF (NUMROWS &gt; 0)&lt;br&gt;    THEN &lt;br&gt;      raise_application_error(&lt;br&gt;        -20005,&lt;br&gt;        &apos;Cannot update SUPPLIER because SUPPLIER_STOCK exists.&apos;&lt;br&gt;      );&lt;br&gt;    END IF;&lt;br&gt;  END IF;&lt;br&gt;&lt;br&gt;&lt;br&gt;-- ERwin Builtin Trigger&lt;br&gt;END;</body>
+<triggerTime>AFTER</triggerTime>
+<table>C168ED93-81FC-6008-A303-3C35192C3C0E</table>
+</TriggerOraclev10g>

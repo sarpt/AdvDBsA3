@@ -1,0 +1,6 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<StorageDesignOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.StorageDesignOraclev12c" name="Oracle Database 12c" id="883071CC-495F-9C0C-D391-6ED85A00CB2B" siteID="3FD120B5-9F4E-6278-D5E2-746D192C8319" siteName="Oracle Database 12c" siteType="11">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:10 UTC</createdTime>
+<ownerDesignName>script</ownerDesignName>
+</StorageDesignOraclev12c>

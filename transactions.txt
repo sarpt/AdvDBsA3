@@ -41,8 +41,7 @@
 			If SupplierID is not null:
 				restourantTotal = SELECT SUM(Total) FROM RESOURCES
 				If restourantTotal >= suppl_price:				
-					INSERT INTO SUPPLY_LOG
-			
+
 					UPDATE SUPPLY_REQUEST State for 'SATISFIED'
 					UPDATE WeightAvail in RECIPE_STOCK
 			
@@ -76,15 +75,13 @@
 	
 	If all_salaries + salarie < total:
 		INSERT INTO EMPLOYEE
-		INSERT INTO RECIPE_CHEF RecipeID, EmployeeID
+		UPDATE RECIPE_DUTIES 
 		INSERT INTO SCHEDULE
 		
-		UPDATE RecipeFlow
 		
 6)Remove Chef:
 	SELECT all recipes in which chef participated
-	UPDATE their RecipeFlow
-	DELETE FROM RECIPE_CHEF
+	UPDATE RECIPE_DUTIES 
 	DELETE FROM SCHEDULE
 	DELETE FROM EMPLOYEE
 

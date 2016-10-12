@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="tU_SCHEDULE" directorySegmentName="seg_0" id="1A86100A-B86F-2FB3-860D-BFB691F5A843">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:09 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<actions>UPDATE</actions>
+<body>-- ERwin Builtin Trigger&lt;br&gt;-- UPDATE trigger on SCHEDULE &lt;br&gt;DECLARE NUMROWS INTEGER;&lt;br&gt;BEGIN&lt;br&gt;  /* ERwin Builtin Trigger */&lt;br&gt;  /* EMPLOYEE  SCHEDULE on child update no action */&lt;br&gt;  /* ERWIN_RELATION:CHECKSUM=&quot;0001003a&quot;, PARENT_OWNER=&quot;&quot;, PARENT_TABLE=&quot;EMPLOYEE&quot;&lt;br&gt;    CHILD_OWNER=&quot;&quot;, CHILD_TABLE=&quot;SCHEDULE&quot;&lt;br&gt;    P2C_VERB_PHRASE=&quot;&quot;, C2P_VERB_PHRASE=&quot;&quot;, &lt;br&gt;    FK_CONSTRAINT=&quot;R_16&quot;, FK_COLUMNS=&quot;EmployeeID&quot; */&lt;br&gt;  SELECT count(*) INTO NUMROWS&lt;br&gt;    FROM EMPLOYEE&lt;br&gt;    WHERE&lt;br&gt;      /* %JoinFKPK(:%New,EMPLOYEE,&quot; = &quot;,&quot; AND&quot;) */&lt;br&gt;      :new.EmployeeID = EMPLOYEE.EmployeeID;&lt;br&gt;  IF (&lt;br&gt;    /* %NotnullFK(:%New,&quot; IS NOT NULL AND&quot;) */&lt;br&gt;    :new.EmployeeID IS NOT NULL AND&lt;br&gt;    NUMROWS = 0&lt;br&gt;  )&lt;br&gt;  THEN&lt;br&gt;    raise_application_error(&lt;br&gt;      -20007,&lt;br&gt;      &apos;Cannot update SCHEDULE because EMPLOYEE does not exist.&apos;&lt;br&gt;    );&lt;br&gt;  END IF;&lt;br&gt;&lt;br&gt;&lt;br&gt;-- ERwin Builtin Trigger&lt;br&gt;END;</body>
+<triggerTime>AFTER</triggerTime>
+<table>554DB3B1-4DBB-6CDA-2C03-2777B45C7A31</table>
+</TriggerOraclev10g>

@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="71C77D15-DB99-A070-DD78-2A17F3FB0230" name="SUPPLIER_STOCK">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:13 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>4F572F9B-AF56-ADEB-93EA-735AA5349EA1</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SupplierID" id="DB894A79-D3A0-5288-D982-C416AE1950AC">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:13 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>F7A2DB67-045C-2D0B-9F29-513A009FEF3A</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>32FB0489-4C8E-9DDF-B319-7A36FF331E29</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="716A4FE1-1926-1E84-30F9-F74B18AC8E1E" referredColumn="430114AD-2AC4-B6D3-6219-A9A8DC3E3C5E"/>
+</associations>
+</Column>
+<Column name="Price" id="249197CA-4B24-78A6-205D-97BCE2CF7247">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:13 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>2449DF3F-3E61-5459-0EFE-78F251AC645E</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<domain>901BFD9A-A88A-E780-F57E-1D499D68B3C9</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="WeightAvail" id="6ECCA08F-3441-737B-0683-A09C80C69568">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:13 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>E96AAFB6-DAFD-E283-15EE-DD0A707D9B58</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<domain>B215E20F-D7F8-C861-446B-B1364869E9AD</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IngrStockID" id="0D352E6B-2DD4-AADA-0E76-737E908D4FF2">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:13 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>72BAF84F-D066-DC77-4F56-35F9DEBB4570</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<domain>32FB0489-4C8E-9DDF-B319-7A36FF331E29</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7B11AB87-C70E-8754-A5CA-461D1F96B87A" referredColumn="8A19C5E3-2B95-FC0E-5E9F-A5120F16330A"/>
+</associations>
+</Column>
+<Column name="DateFreshSupply" id="2E819967-59A0-31DF-0EA5-3D37EF5DD829">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:13 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>25178B53-CD11-B2DB-D062-4898D9F8A11C</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>515B8081-6F87-ACA9-D23F-D9ECE159057F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B0829CFF-F626-A6FD-BBDE-F7A1016A7F71" name="XPKSUPPLIER_STOCK">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:13 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>98601E1F-159D-ECDF-A51B-A5F686BC3C9D</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DB894A79-D3A0-5288-D982-C416AE1950AC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3F654E31-D342-07E1-0050-0FD7717CBC0C" name="XPKSUPPLIER_STOCK">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:13 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<importedID>0FE1F385-4D4B-0C80-36E7-C005C7935179</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DB894A79-D3A0-5288-D982-C416AE1950AC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="90FC0FF8-501E-A463-B5EB-AC39401A399E" name="R_11">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:13 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DB894A79-D3A0-5288-D982-C416AE1950AC"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="02A7CBDA-CFEB-D338-3783-4E6E80012A48" name="R_18">
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:13 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0D352E6B-2DD4-AADA-0E76-737E908D4FF2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

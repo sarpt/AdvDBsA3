@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="tI_SCHEDULE" directorySegmentName="seg_0" id="0D0C89E1-A4EE-F53D-1957-8FCAC4038BF1">
+<sourceDDLFile>script.ddl</sourceDDLFile>
+<createdBy>Mike</createdBy>
+<createdTime>2016-10-12 16:14:09 UTC</createdTime>
+<ownerDesignName>RestaurantDataModel</ownerDesignName>
+<actions>INSERT</actions>
+<body>-- ERwin Builtin Trigger&lt;br&gt;-- INSERT trigger on SCHEDULE &lt;br&gt;DECLARE NUMROWS INTEGER;&lt;br&gt;BEGIN&lt;br&gt;    /* ERwin Builtin Trigger */&lt;br&gt;    /* EMPLOYEE  SCHEDULE on child insert set null */&lt;br&gt;    /* ERWIN_RELATION:CHECKSUM=&quot;0000eecd&quot;, PARENT_OWNER=&quot;&quot;, PARENT_TABLE=&quot;EMPLOYEE&quot;&lt;br&gt;    CHILD_OWNER=&quot;&quot;, CHILD_TABLE=&quot;SCHEDULE&quot;&lt;br&gt;    P2C_VERB_PHRASE=&quot;&quot;, C2P_VERB_PHRASE=&quot;&quot;, &lt;br&gt;    FK_CONSTRAINT=&quot;R_16&quot;, FK_COLUMNS=&quot;EmployeeID&quot; */&lt;br&gt;    UPDATE SCHEDULE&lt;br&gt;      SET&lt;br&gt;        /* %SetFK(SCHEDULE,NULL) */&lt;br&gt;        SCHEDULE.EmployeeID = NULL&lt;br&gt;      WHERE&lt;br&gt;        NOT EXISTS (&lt;br&gt;          SELECT * FROM EMPLOYEE&lt;br&gt;            WHERE&lt;br&gt;              /* %JoinFKPK(:%New,EMPLOYEE,&quot; = &quot;,&quot; AND&quot;) */&lt;br&gt;              :new.EmployeeID = EMPLOYEE.EmployeeID&lt;br&gt;        ) &lt;br&gt;        /* %JoinPKPK(SCHEDULE,:%New,&quot; = &quot;,&quot; AND&quot;) */&lt;br&gt;         and SCHEDULE.ScheduleID = :new.ScheduleID;&lt;br&gt;&lt;br&gt;&lt;br&gt;-- ERwin Builtin Trigger&lt;br&gt;END;</body>
+<triggerTime>BEFORE</triggerTime>
+<table>554DB3B1-4DBB-6CDA-2C03-2777B45C7A31</table>
+</TriggerOraclev10g>
