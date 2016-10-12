@@ -5,8 +5,7 @@ CREATE TABLE EMPLOYEE
 	FirstName            VARCHAR(20) NULL ,
 	LastName             VARCHAR2(20) NOT NULL ,
 	DateContractFin      DATE NULL ,
-	Position             VARCHAR2(20) NOT NULL ,
-	Salary               DECIMAL NULL 
+	PositionID           INTEGER NULL 
 );
 
 CREATE UNIQUE INDEX XPKEMPLOYEE ON EMPLOYEE
@@ -51,7 +50,7 @@ CREATE TABLE RECIPE
 	RecipeFlow           VARCHAR2(300) NULL ,
 	Price                DECIMAL NOT NULL ,
 	DateCreated          DATE NOT NULL ,
-	Category             INTEGER NULL 
+	Category             VARCHAR2(20) NULL 
 );
 
 CREATE UNIQUE INDEX XPKRECIPE ON RECIPE
@@ -170,14 +169,30 @@ CREATE UNIQUE INDEX XPKSUPPLY_REQUEST ON SUPPLY_REQUEST
 ALTER TABLE SUPPLY_REQUEST
 	ADD CONSTRAINT  XPKSUPPLY_REQUEST PRIMARY KEY (RequestID,IngrStockID);
 
+CREATE TABLE POSITION
+(
+	PositionID           INTEGER NOT NULL ,
+	Title                VARCHAR2(20) NULL ,
+	Salary               DECIMAL NULL 
+);
+
+CREATE UNIQUE INDEX XPKPOSITION ON POSITION
+(PositionID   ASC);
+
+ALTER TABLE POSITION
+	ADD CONSTRAINT  XPKPOSITION PRIMARY KEY (PositionID);
+
+ALTER TABLE EMPLOYEE
+	ADD (CONSTRAINT R_19 FOREIGN KEY (PositionID) REFERENCES POSITION (PositionID) ON DELETE SET NULL);
+
 ALTER TABLE SCHEDULE
 	ADD (CONSTRAINT R_16 FOREIGN KEY (EmployeeID) REFERENCES EMPLOYEE (EmployeeID) ON DELETE SET NULL);
 
 ALTER TABLE RECIPE_CHEF
-	ADD (CONSTRAINT R_7 FOREIGN KEY (EmployeeID) REFERENCES EMPLOYEE (EmployeeID));
+	ADD (CONSTRAINT R_8 FOREIGN KEY (RecipeID) REFERENCES RECIPE (RecipeID));
 
 ALTER TABLE RECIPE_CHEF
-	ADD (CONSTRAINT R_8 FOREIGN KEY (RecipeID) REFERENCES RECIPE (RecipeID));
+	ADD (CONSTRAINT R_7 FOREIGN KEY (EmployeeID) REFERENCES EMPLOYEE (EmployeeID));
 
 ALTER TABLE INGREDIENT
 	ADD (CONSTRAINT R_4 FOREIGN KEY (IngrStockID) REFERENCES INGREDIENT_STOCK (IngrStockID));
@@ -243,13 +258,43 @@ BEGIN
 END;
 /
 
+CREATE  TRIGGER tI_EMPLOYEE BEFORE INSERT ON EMPLOYEE for each row
+-- ERwin Builtin Trigger
+-- INSERT trigger on EMPLOYEE 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* POSITION  EMPLOYEE on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="0000e77d", PARENT_OWNER="", PARENT_TABLE="POSITION"
+    CHILD_OWNER="", CHILD_TABLE="EMPLOYEE"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_19", FK_COLUMNS="PositionID" */
+    UPDATE EMPLOYEE
+      SET
+        /* %SetFK(EMPLOYEE,NULL) */
+        EMPLOYEE.PositionID = NULL
+      WHERE
+        NOT EXISTS (
+          SELECT * FROM POSITION
+            WHERE
+              /* %JoinFKPK(:%New,POSITION," = "," AND") */
+              :new.PositionID = POSITION.PositionID
+        ) 
+        /* %JoinPKPK(EMPLOYEE,:%New," = "," AND") */
+         and EMPLOYEE.EmployeeID = :new.EmployeeID;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
 CREATE  TRIGGER tU_EMPLOYEE AFTER UPDATE ON EMPLOYEE for each row
 -- ERwin Builtin Trigger
 -- UPDATE trigger on EMPLOYEE 
 DECLARE NUMROWS INTEGER;
 BEGIN
   /* EMPLOYEE  SCHEDULE on parent update set null */
-  /* ERWIN_RELATION:CHECKSUM="0001f505", PARENT_OWNER="", PARENT_TABLE="EMPLOYEE"
+  /* ERWIN_RELATION:CHECKSUM="00030dbb", PARENT_OWNER="", PARENT_TABLE="EMPLOYEE"
     CHILD_OWNER="", CHILD_TABLE="SCHEDULE"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="R_16", FK_COLUMNS="EmployeeID" */
@@ -288,6 +333,29 @@ BEGIN
         'Cannot update EMPLOYEE because RECIPE_CHEF exists.'
       );
     END IF;
+  END IF;
+
+  /* ERwin Builtin Trigger */
+  /* POSITION  EMPLOYEE on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="POSITION"
+    CHILD_OWNER="", CHILD_TABLE="EMPLOYEE"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_19", FK_COLUMNS="PositionID" */
+  SELECT count(*) INTO NUMROWS
+    FROM POSITION
+    WHERE
+      /* %JoinFKPK(:%New,POSITION," = "," AND") */
+      :new.PositionID = POSITION.PositionID;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    :new.PositionID IS NOT NULL AND
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update EMPLOYEE because POSITION does not exist.'
+    );
   END IF;
 
 
@@ -1271,6 +1339,59 @@ BEGIN
       -20007,
       'Cannot update SUPPLY_REQUEST because INGREDIENT_STOCK does not exist.'
     );
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER  tD_POSITION AFTER DELETE ON POSITION for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on POSITION 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* POSITION  EMPLOYEE on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000af96", PARENT_OWNER="", PARENT_TABLE="POSITION"
+    CHILD_OWNER="", CHILD_TABLE="EMPLOYEE"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_19", FK_COLUMNS="PositionID" */
+    UPDATE EMPLOYEE
+      SET
+        /* %SetFK(EMPLOYEE,NULL) */
+        EMPLOYEE.PositionID = NULL
+      WHERE
+        /* %JoinFKPK(EMPLOYEE,:%Old," = "," AND") */
+        EMPLOYEE.PositionID = :old.PositionID;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_POSITION AFTER UPDATE ON POSITION for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on POSITION 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* POSITION  EMPLOYEE on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0000d02b", PARENT_OWNER="", PARENT_TABLE="POSITION"
+    CHILD_OWNER="", CHILD_TABLE="EMPLOYEE"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_19", FK_COLUMNS="PositionID" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.PositionID <> :new.PositionID
+  THEN
+    UPDATE EMPLOYEE
+      SET
+        /* %SetFK(EMPLOYEE,NULL) */
+        EMPLOYEE.PositionID = NULL
+      WHERE
+        /* %JoinFKPK(EMPLOYEE,:%Old," = ",",") */
+        EMPLOYEE.PositionID = :old.PositionID;
   END IF;
 
 
