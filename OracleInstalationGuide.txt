@@ -1,0 +1,12 @@
+Installing and configuring Oracle 11g
+
+1)Install Oracle Database software (download from webpage, run setup)
+2)Create listener using Net Configuration Assistant
+3)Create Database using Database Configuration Assistant
+4)Install Oracle Client
+4)Setup Net Manager for DB and Client so they are the same (TCP & IPC protocols + Dedicated Server + Add Database)
+5)Install Toad and connect
+
+********************************************************
+Connection to dbserver via sqlplus
+sqlplus.exe SYSTEM/1@ORARSOL
