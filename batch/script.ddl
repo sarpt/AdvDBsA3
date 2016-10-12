@@ -98,6 +98,19 @@ CREATE UNIQUE INDEX XPKCOOK_LOG ON COOK_LOG
 ALTER TABLE COOK_LOG
 	ADD CONSTRAINT  XPKCOOK_LOG PRIMARY KEY (CookLogID);
 
+CREATE TABLE POSITION
+(
+	PositionID           INTEGER NOT NULL ,
+	Title                VARCHAR2(20) NULL ,
+	Salary               DECIMAL NULL 
+);
+
+CREATE UNIQUE INDEX XPKPOSITION ON POSITION
+(PositionID   ASC);
+
+ALTER TABLE POSITION
+	ADD CONSTRAINT  XPKPOSITION PRIMARY KEY (PositionID);
+
 CREATE TABLE RESOURCES
 (
 	ResourceID           INTEGER NOT NULL ,
@@ -142,19 +155,6 @@ CREATE UNIQUE INDEX XPKSUPPLIER_STOCK ON SUPPLIER_STOCK
 ALTER TABLE SUPPLIER_STOCK
 	ADD CONSTRAINT  XPKSUPPLIER_STOCK PRIMARY KEY (SupplierID);
 
-CREATE TABLE SUPPLY_LOG
-(
-	SupplyLogID          INTEGER NOT NULL ,
-	DateSupply           DATE NOT NULL ,
-	SupplierID           INTEGER NOT NULL 
-);
-
-CREATE UNIQUE INDEX XPKSUPPLY_LOG ON SUPPLY_LOG
-(SupplyLogID   ASC,SupplierID   ASC);
-
-ALTER TABLE SUPPLY_LOG
-	ADD CONSTRAINT  XPKSUPPLY_LOG PRIMARY KEY (SupplyLogID,SupplierID);
-
 CREATE TABLE SUPPLY_REQUEST
 (
 	RequestID            INTEGER NOT NULL ,
@@ -168,19 +168,6 @@ CREATE UNIQUE INDEX XPKSUPPLY_REQUEST ON SUPPLY_REQUEST
 
 ALTER TABLE SUPPLY_REQUEST
 	ADD CONSTRAINT  XPKSUPPLY_REQUEST PRIMARY KEY (RequestID,IngrStockID);
-
-CREATE TABLE POSITION
-(
-	PositionID           INTEGER NOT NULL ,
-	Title                VARCHAR2(20) NULL ,
-	Salary               DECIMAL NULL 
-);
-
-CREATE UNIQUE INDEX XPKPOSITION ON POSITION
-(PositionID   ASC);
-
-ALTER TABLE POSITION
-	ADD CONSTRAINT  XPKPOSITION PRIMARY KEY (PositionID);
 
 ALTER TABLE EMPLOYEE
 	ADD (CONSTRAINT R_19 FOREIGN KEY (PositionID) REFERENCES POSITION (PositionID) ON DELETE SET NULL);
@@ -208,9 +195,6 @@ ALTER TABLE SUPPLIER_STOCK
 
 ALTER TABLE SUPPLIER_STOCK
 	ADD (CONSTRAINT R_18 FOREIGN KEY (IngrStockID) REFERENCES INGREDIENT_STOCK (IngrStockID) ON DELETE SET NULL);
-
-ALTER TABLE SUPPLY_LOG
-	ADD (CONSTRAINT R_14 FOREIGN KEY (SupplierID) REFERENCES SUPPLIER (SupplierID));
 
 ALTER TABLE SUPPLY_REQUEST
 	ADD (CONSTRAINT R_17 FOREIGN KEY (IngrStockID) REFERENCES INGREDIENT_STOCK (IngrStockID));
@@ -996,33 +980,67 @@ END;
 /
 
 
+CREATE  TRIGGER  tD_POSITION AFTER DELETE ON POSITION for each row
+-- ERwin Builtin Trigger
+-- DELETE trigger on POSITION 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* ERwin Builtin Trigger */
+    /* POSITION  EMPLOYEE on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000af96", PARENT_OWNER="", PARENT_TABLE="POSITION"
+    CHILD_OWNER="", CHILD_TABLE="EMPLOYEE"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_19", FK_COLUMNS="PositionID" */
+    UPDATE EMPLOYEE
+      SET
+        /* %SetFK(EMPLOYEE,NULL) */
+        EMPLOYEE.PositionID = NULL
+      WHERE
+        /* %JoinFKPK(EMPLOYEE,:%Old," = "," AND") */
+        EMPLOYEE.PositionID = :old.PositionID;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_POSITION AFTER UPDATE ON POSITION for each row
+-- ERwin Builtin Trigger
+-- UPDATE trigger on POSITION 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* POSITION  EMPLOYEE on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0000d02b", PARENT_OWNER="", PARENT_TABLE="POSITION"
+    CHILD_OWNER="", CHILD_TABLE="EMPLOYEE"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_19", FK_COLUMNS="PositionID" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.PositionID <> :new.PositionID
+  THEN
+    UPDATE EMPLOYEE
+      SET
+        /* %SetFK(EMPLOYEE,NULL) */
+        EMPLOYEE.PositionID = NULL
+      WHERE
+        /* %JoinFKPK(EMPLOYEE,:%Old," = ",",") */
+        EMPLOYEE.PositionID = :old.PositionID;
+  END IF;
+
+
+-- ERwin Builtin Trigger
+END;
+/
+
+
 CREATE  TRIGGER  tD_SUPPLIER AFTER DELETE ON SUPPLIER for each row
 -- ERwin Builtin Trigger
 -- DELETE trigger on SUPPLIER 
 DECLARE NUMROWS INTEGER;
 BEGIN
     /* ERwin Builtin Trigger */
-    /* SUPPLIER  SUPPLY_LOG on parent delete restrict */
-    /* ERWIN_RELATION:CHECKSUM="0001df15", PARENT_OWNER="", PARENT_TABLE="SUPPLIER"
-    CHILD_OWNER="", CHILD_TABLE="SUPPLY_LOG"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_14", FK_COLUMNS="SupplierID" */
-    SELECT count(*) INTO NUMROWS
-      FROM SUPPLY_LOG
-      WHERE
-        /*  %JoinFKPK(SUPPLY_LOG,:%Old," = "," AND") */
-        SUPPLY_LOG.SupplierID = :old.SupplierID;
-    IF (NUMROWS > 0)
-    THEN
-      raise_application_error(
-        -20001,
-        'Cannot delete SUPPLIER because SUPPLY_LOG exists.'
-      );
-    END IF;
-
-    /* ERwin Builtin Trigger */
     /* SUPPLIER  SUPPLIER_STOCK on parent delete restrict */
-    /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="SUPPLIER"
+    /* ERWIN_RELATION:CHECKSUM="0000e597", PARENT_OWNER="", PARENT_TABLE="SUPPLIER"
     CHILD_OWNER="", CHILD_TABLE="SUPPLIER_STOCK"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="R_11", FK_COLUMNS="SupplierID" */
@@ -1050,32 +1068,8 @@ CREATE  TRIGGER tU_SUPPLIER AFTER UPDATE ON SUPPLIER for each row
 DECLARE NUMROWS INTEGER;
 BEGIN
   /* ERwin Builtin Trigger */
-  /* SUPPLIER  SUPPLY_LOG on parent update restrict */
-  /* ERWIN_RELATION:CHECKSUM="0002370f", PARENT_OWNER="", PARENT_TABLE="SUPPLIER"
-    CHILD_OWNER="", CHILD_TABLE="SUPPLY_LOG"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_14", FK_COLUMNS="SupplierID" */
-  IF
-    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
-    :old.SupplierID <> :new.SupplierID
-  THEN
-    SELECT count(*) INTO NUMROWS
-      FROM SUPPLY_LOG
-      WHERE
-        /*  %JoinFKPK(SUPPLY_LOG,:%Old," = "," AND") */
-        SUPPLY_LOG.SupplierID = :old.SupplierID;
-    IF (NUMROWS > 0)
-    THEN 
-      raise_application_error(
-        -20005,
-        'Cannot update SUPPLIER because SUPPLY_LOG exists.'
-      );
-    END IF;
-  END IF;
-
-  /* ERwin Builtin Trigger */
   /* SUPPLIER  SUPPLIER_STOCK on parent update restrict */
-  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="SUPPLIER"
+  /* ERWIN_RELATION:CHECKSUM="000111ef", PARENT_OWNER="", PARENT_TABLE="SUPPLIER"
     CHILD_OWNER="", CHILD_TABLE="SUPPLIER_STOCK"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="R_11", FK_COLUMNS="SupplierID" */
@@ -1213,73 +1207,6 @@ END;
 /
 
 
-CREATE  TRIGGER tI_SUPPLY_LOG BEFORE INSERT ON SUPPLY_LOG for each row
--- ERwin Builtin Trigger
--- INSERT trigger on SUPPLY_LOG 
-DECLARE NUMROWS INTEGER;
-BEGIN
-    /* ERwin Builtin Trigger */
-    /* SUPPLIER  SUPPLY_LOG on child insert restrict */
-    /* ERWIN_RELATION:CHECKSUM="0000f811", PARENT_OWNER="", PARENT_TABLE="SUPPLIER"
-    CHILD_OWNER="", CHILD_TABLE="SUPPLY_LOG"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_14", FK_COLUMNS="SupplierID" */
-    SELECT count(*) INTO NUMROWS
-      FROM SUPPLIER
-      WHERE
-        /* %JoinFKPK(:%New,SUPPLIER," = "," AND") */
-        :new.SupplierID = SUPPLIER.SupplierID;
-    IF (
-      /* %NotnullFK(:%New," IS NOT NULL AND") */
-      
-      NUMROWS = 0
-    )
-    THEN
-      raise_application_error(
-        -20002,
-        'Cannot insert SUPPLY_LOG because SUPPLIER does not exist.'
-      );
-    END IF;
-
-
--- ERwin Builtin Trigger
-END;
-/
-
-CREATE  TRIGGER tU_SUPPLY_LOG AFTER UPDATE ON SUPPLY_LOG for each row
--- ERwin Builtin Trigger
--- UPDATE trigger on SUPPLY_LOG 
-DECLARE NUMROWS INTEGER;
-BEGIN
-  /* ERwin Builtin Trigger */
-  /* SUPPLIER  SUPPLY_LOG on child update restrict */
-  /* ERWIN_RELATION:CHECKSUM="0000f50a", PARENT_OWNER="", PARENT_TABLE="SUPPLIER"
-    CHILD_OWNER="", CHILD_TABLE="SUPPLY_LOG"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_14", FK_COLUMNS="SupplierID" */
-  SELECT count(*) INTO NUMROWS
-    FROM SUPPLIER
-    WHERE
-      /* %JoinFKPK(:%New,SUPPLIER," = "," AND") */
-      :new.SupplierID = SUPPLIER.SupplierID;
-  IF (
-    /* %NotnullFK(:%New," IS NOT NULL AND") */
-    
-    NUMROWS = 0
-  )
-  THEN
-    raise_application_error(
-      -20007,
-      'Cannot update SUPPLY_LOG because SUPPLIER does not exist.'
-    );
-  END IF;
-
-
--- ERwin Builtin Trigger
-END;
-/
-
-
 CREATE  TRIGGER tI_SUPPLY_REQUEST BEFORE INSERT ON SUPPLY_REQUEST for each row
 -- ERwin Builtin Trigger
 -- INSERT trigger on SUPPLY_REQUEST 
@@ -1339,59 +1266,6 @@ BEGIN
       -20007,
       'Cannot update SUPPLY_REQUEST because INGREDIENT_STOCK does not exist.'
     );
-  END IF;
-
-
--- ERwin Builtin Trigger
-END;
-/
-
-
-CREATE  TRIGGER  tD_POSITION AFTER DELETE ON POSITION for each row
--- ERwin Builtin Trigger
--- DELETE trigger on POSITION 
-DECLARE NUMROWS INTEGER;
-BEGIN
-    /* ERwin Builtin Trigger */
-    /* POSITION  EMPLOYEE on parent delete set null */
-    /* ERWIN_RELATION:CHECKSUM="0000af96", PARENT_OWNER="", PARENT_TABLE="POSITION"
-    CHILD_OWNER="", CHILD_TABLE="EMPLOYEE"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_19", FK_COLUMNS="PositionID" */
-    UPDATE EMPLOYEE
-      SET
-        /* %SetFK(EMPLOYEE,NULL) */
-        EMPLOYEE.PositionID = NULL
-      WHERE
-        /* %JoinFKPK(EMPLOYEE,:%Old," = "," AND") */
-        EMPLOYEE.PositionID = :old.PositionID;
-
-
--- ERwin Builtin Trigger
-END;
-/
-
-CREATE  TRIGGER tU_POSITION AFTER UPDATE ON POSITION for each row
--- ERwin Builtin Trigger
--- UPDATE trigger on POSITION 
-DECLARE NUMROWS INTEGER;
-BEGIN
-  /* POSITION  EMPLOYEE on parent update set null */
-  /* ERWIN_RELATION:CHECKSUM="0000d02b", PARENT_OWNER="", PARENT_TABLE="POSITION"
-    CHILD_OWNER="", CHILD_TABLE="EMPLOYEE"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_19", FK_COLUMNS="PositionID" */
-  IF
-    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
-    :old.PositionID <> :new.PositionID
-  THEN
-    UPDATE EMPLOYEE
-      SET
-        /* %SetFK(EMPLOYEE,NULL) */
-        EMPLOYEE.PositionID = NULL
-      WHERE
-        /* %JoinFKPK(EMPLOYEE,:%Old," = ",",") */
-        EMPLOYEE.PositionID = :old.PositionID;
   END IF;
 
 
