@@ -1,0 +1,60 @@
+1)Record dish order:
+	//pseudo sql here
+	For each INGREDIENT in RECIPE do
+		SELECT WeightRecp multiply by 'SOME AMOUNT OF DISH ORDERED' 
+		and comare with weight in STOCK
+		
+		SELECT for all Chefs if their contract is not outdated
+		and their Hours are available for the current time
+  
+	If STOCKS are sufficient FOR EVERY INGREDIENT then
+		INSERT INTO RECIPE_LOG
+	Else
+		UPDATE WeightMissing for INGREDIENT_STOCK
+
+2)Check if the whole menu is available:
+	//pseudo sql here
+	SELECT IngrStockID FROM INGREDIENT_STOCK 
+	JOIN INGREDIENT ON IngrStockID
+	GROUP BY IngrStockID, WeightRecp
+	HAVING SUM(WeightRecp) > WeightAvail
+  
+	UPDATE WeightMissing in INGREDIENT_STOCK
+  
+	INSERT INTO SUPPLY_REQUEST to make pending request for SUPPLY
+
+3)Make a request for SUPPLY:
+	//pseudo sql here
+	SupplierID = (SELECT SupplierID, MIN(Price),MAX(Reliability) FROM SUPPLIER_STOCK 
+		JOIN INGREDIENT_STOCK 
+		JOIN SUPPLY_REQUEST ON IngrStockID 
+		WHERE State 'NOTSATISFIED'
+		AND WeightAvail >= WeightMissing)
+	
+	INSERT INTO SUPPLY_LOG
+	
+	UPDATE SUPPLY_REQUEST State for 'SATISFIED'
+	UPDATE WeightAvail in RECIPE_STOCK
+	
+	//we should alse update SUPPLIER_STOCK but not in this transaction i guess
+	
+4)Create new recipe:
+	//pseudo sql here
+	INSERT INTO RECIPE
+	INSERT INTO INGREDIENT
+  
+	//update availability of the menu
+	SELECT IngrStockID FROM INGREDIENT_STOCK 
+	JOIN INGREDIENT ON IngrStockID
+	GROUP BY IngrStockID, WeightRecp
+	HAVING SUM(WeightRecp) > WeightAvail
+  
+	UPDATE WeightMissing in INGREDIENT_STOCK
+	
+	INSERT INTO SUPPLY_REQUEST to make pending request for SUPPLY
+	
+	//kinda duplication here!!!!!
+
+######## calculation of income is not a transaction
+######## transaction is moving the DB from one stable state to another
+######## shift rearangement is just a update not a transaction
