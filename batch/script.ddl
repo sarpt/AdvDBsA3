@@ -1,24 +1,12 @@
 
-CREATE TABLE CATEGORY
-(
-	CategoryID           INTEGER NOT NULL ,
-	Title                VARCHAR2(20) NOT NULL ,
-	DateCreated          DATE NULL 
-);
-
-CREATE UNIQUE INDEX XPKCATEGORY ON CATEGORY
-(CategoryID   ASC);
-
-ALTER TABLE CATEGORY
-	ADD CONSTRAINT  XPKCATEGORY PRIMARY KEY (CategoryID);
-
 CREATE TABLE EMPLOYEE
 (
 	EmployeeID           INTEGER NOT NULL ,
 	FirstName            VARCHAR(20) NULL ,
 	LastName             VARCHAR2(20) NOT NULL ,
 	DateContractFin      DATE NULL ,
-	PositionID           INTEGER NOT NULL 
+	Position             VARCHAR2(20) NOT NULL ,
+	Salary               DECIMAL NULL 
 );
 
 CREATE UNIQUE INDEX XPKEMPLOYEE ON EMPLOYEE
@@ -56,19 +44,6 @@ CREATE UNIQUE INDEX XPKINGREDIENT_STOCK ON INGREDIENT_STOCK
 ALTER TABLE INGREDIENT_STOCK
 	ADD CONSTRAINT  XPKINGREDIENT_STOCK PRIMARY KEY (IngrStockID);
 
-CREATE TABLE POSITION
-(
-	Title                VARCHAR(20) NULL ,
-	Salary               DECIMAL NULL ,
-	PositionID           INTEGER NOT NULL 
-);
-
-CREATE UNIQUE INDEX XPKPOSITION ON POSITION
-(PositionID   ASC);
-
-ALTER TABLE POSITION
-	ADD CONSTRAINT  XPKPOSITION PRIMARY KEY (PositionID);
-
 CREATE TABLE RECIPE
 (
 	RecipeID             INTEGER NOT NULL ,
@@ -76,7 +51,7 @@ CREATE TABLE RECIPE
 	RecipeFlow           VARCHAR2(300) NULL ,
 	Price                DECIMAL NOT NULL ,
 	DateCreated          DATE NOT NULL ,
-	CategoryID           INTEGER NOT NULL 
+	Category             INTEGER NULL 
 );
 
 CREATE UNIQUE INDEX XPKRECIPE ON RECIPE
@@ -110,19 +85,33 @@ CREATE UNIQUE INDEX XPKINGREDIENT ON INGREDIENT
 ALTER TABLE INGREDIENT
 	ADD CONSTRAINT  XPKINGREDIENT PRIMARY KEY (IngrStockID,RecipeID);
 
-CREATE TABLE RECIPE_LOG
+CREATE TABLE COOK_LOG
 (
-	RecipeLogID          INTEGER NOT NULL ,
-	DateSold             DATE NULL ,
-	Amount               INTEGER NULL ,
-	RecipeID             INTEGER NULL 
+	CookLogID            INTEGER NOT NULL ,
+	DateSold             DATE NOT NULL ,
+	Amount               INTEGER NOT NULL ,
+	RecipeID             INTEGER NOT NULL 
 );
 
-CREATE UNIQUE INDEX XPKRECIPE_LOG ON RECIPE_LOG
-(RecipeLogID   ASC);
+CREATE UNIQUE INDEX XPKCOOK_LOG ON COOK_LOG
+(CookLogID   ASC);
 
-ALTER TABLE RECIPE_LOG
-	ADD CONSTRAINT  XPKRECIPE_LOG PRIMARY KEY (RecipeLogID);
+ALTER TABLE COOK_LOG
+	ADD CONSTRAINT  XPKCOOK_LOG PRIMARY KEY (CookLogID);
+
+CREATE TABLE RESOURCES
+(
+	ResourceID           INTEGER NOT NULL ,
+	DateReceived         DATE NULL ,
+	Total                DECIMAL NULL ,
+	Type                 VARCHAR2(20) NULL 
+);
+
+CREATE UNIQUE INDEX XPKRESOURCES ON RESOURCES
+(ResourceID   ASC);
+
+ALTER TABLE RESOURCES
+	ADD CONSTRAINT  XPKRESOURCES PRIMARY KEY (ResourceID);
 
 CREATE TABLE SUPPLIER
 (
@@ -144,7 +133,8 @@ CREATE TABLE SUPPLIER_STOCK
 	SupplierID           INTEGER NOT NULL ,
 	Price                DECIMAL NOT NULL ,
 	WeightAvail          DOUBLE PRECISION NOT NULL ,
-	IngrStockID          INTEGER NULL 
+	IngrStockID          INTEGER NULL ,
+	DateFreshSupply      DATE NULL 
 );
 
 CREATE UNIQUE INDEX XPKSUPPLIER_STOCK ON SUPPLIER_STOCK
@@ -180,14 +170,8 @@ CREATE UNIQUE INDEX XPKSUPPLY_REQUEST ON SUPPLY_REQUEST
 ALTER TABLE SUPPLY_REQUEST
 	ADD CONSTRAINT  XPKSUPPLY_REQUEST PRIMARY KEY (RequestID,IngrStockID);
 
-ALTER TABLE EMPLOYEE
-	ADD (CONSTRAINT R_9 FOREIGN KEY (PositionID) REFERENCES POSITION (PositionID) ON DELETE SET NULL);
-
 ALTER TABLE SCHEDULE
 	ADD (CONSTRAINT R_16 FOREIGN KEY (EmployeeID) REFERENCES EMPLOYEE (EmployeeID) ON DELETE SET NULL);
-
-ALTER TABLE RECIPE
-	ADD (CONSTRAINT R_12 FOREIGN KEY (CategoryID) REFERENCES CATEGORY (CategoryID) ON DELETE SET NULL);
 
 ALTER TABLE RECIPE_CHEF
 	ADD (CONSTRAINT R_7 FOREIGN KEY (EmployeeID) REFERENCES EMPLOYEE (EmployeeID));
@@ -201,7 +185,7 @@ ALTER TABLE INGREDIENT
 ALTER TABLE INGREDIENT
 	ADD (CONSTRAINT R_5 FOREIGN KEY (RecipeID) REFERENCES RECIPE (RecipeID));
 
-ALTER TABLE RECIPE_LOG
+ALTER TABLE COOK_LOG
 	ADD (CONSTRAINT R_15 FOREIGN KEY (RecipeID) REFERENCES RECIPE (RecipeID) ON DELETE SET NULL);
 
 ALTER TABLE SUPPLIER_STOCK
@@ -215,59 +199,6 @@ ALTER TABLE SUPPLY_LOG
 
 ALTER TABLE SUPPLY_REQUEST
 	ADD (CONSTRAINT R_17 FOREIGN KEY (IngrStockID) REFERENCES INGREDIENT_STOCK (IngrStockID));
-
-CREATE  TRIGGER  tD_CATEGORY AFTER DELETE ON CATEGORY for each row
--- ERwin Builtin Trigger
--- DELETE trigger on CATEGORY 
-DECLARE NUMROWS INTEGER;
-BEGIN
-    /* ERwin Builtin Trigger */
-    /* CATEGORY  RECIPE on parent delete set null */
-    /* ERWIN_RELATION:CHECKSUM="0000a476", PARENT_OWNER="", PARENT_TABLE="CATEGORY"
-    CHILD_OWNER="", CHILD_TABLE="RECIPE"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_12", FK_COLUMNS="CategoryID" */
-    UPDATE RECIPE
-      SET
-        /* %SetFK(RECIPE,NULL) */
-        RECIPE.CategoryID = NULL
-      WHERE
-        /* %JoinFKPK(RECIPE,:%Old," = "," AND") */
-        RECIPE.CategoryID = :old.CategoryID;
-
-
--- ERwin Builtin Trigger
-END;
-/
-
-CREATE  TRIGGER tU_CATEGORY AFTER UPDATE ON CATEGORY for each row
--- ERwin Builtin Trigger
--- UPDATE trigger on CATEGORY 
-DECLARE NUMROWS INTEGER;
-BEGIN
-  /* CATEGORY  RECIPE on parent update set null */
-  /* ERWIN_RELATION:CHECKSUM="0000d47d", PARENT_OWNER="", PARENT_TABLE="CATEGORY"
-    CHILD_OWNER="", CHILD_TABLE="RECIPE"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_12", FK_COLUMNS="CategoryID" */
-  IF
-    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
-    :old.CategoryID <> :new.CategoryID
-  THEN
-    UPDATE RECIPE
-      SET
-        /* %SetFK(RECIPE,NULL) */
-        RECIPE.CategoryID = NULL
-      WHERE
-        /* %JoinFKPK(RECIPE,:%Old," = ",",") */
-        RECIPE.CategoryID = :old.CategoryID;
-  END IF;
-
-
--- ERwin Builtin Trigger
-END;
-/
-
 
 CREATE  TRIGGER  tD_EMPLOYEE AFTER DELETE ON EMPLOYEE for each row
 -- ERwin Builtin Trigger
@@ -312,43 +243,13 @@ BEGIN
 END;
 /
 
-CREATE  TRIGGER tI_EMPLOYEE BEFORE INSERT ON EMPLOYEE for each row
--- ERwin Builtin Trigger
--- INSERT trigger on EMPLOYEE 
-DECLARE NUMROWS INTEGER;
-BEGIN
-    /* ERwin Builtin Trigger */
-    /* POSITION  EMPLOYEE on child insert set null */
-    /* ERWIN_RELATION:CHECKSUM="0000e2c2", PARENT_OWNER="", PARENT_TABLE="POSITION"
-    CHILD_OWNER="", CHILD_TABLE="EMPLOYEE"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_9", FK_COLUMNS="PositionID" */
-    UPDATE EMPLOYEE
-      SET
-        /* %SetFK(EMPLOYEE,NULL) */
-        EMPLOYEE.PositionID = NULL
-      WHERE
-        NOT EXISTS (
-          SELECT * FROM POSITION
-            WHERE
-              /* %JoinFKPK(:%New,POSITION," = "," AND") */
-              :new.PositionID = POSITION.PositionID
-        ) 
-        /* %JoinPKPK(EMPLOYEE,:%New," = "," AND") */
-         and EMPLOYEE.EmployeeID = :new.EmployeeID;
-
-
--- ERwin Builtin Trigger
-END;
-/
-
 CREATE  TRIGGER tU_EMPLOYEE AFTER UPDATE ON EMPLOYEE for each row
 -- ERwin Builtin Trigger
 -- UPDATE trigger on EMPLOYEE 
 DECLARE NUMROWS INTEGER;
 BEGIN
   /* EMPLOYEE  SCHEDULE on parent update set null */
-  /* ERWIN_RELATION:CHECKSUM="00030151", PARENT_OWNER="", PARENT_TABLE="EMPLOYEE"
+  /* ERWIN_RELATION:CHECKSUM="0001f505", PARENT_OWNER="", PARENT_TABLE="EMPLOYEE"
     CHILD_OWNER="", CHILD_TABLE="SCHEDULE"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="R_16", FK_COLUMNS="EmployeeID" */
@@ -387,29 +288,6 @@ BEGIN
         'Cannot update EMPLOYEE because RECIPE_CHEF exists.'
       );
     END IF;
-  END IF;
-
-  /* ERwin Builtin Trigger */
-  /* POSITION  EMPLOYEE on child update no action */
-  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="POSITION"
-    CHILD_OWNER="", CHILD_TABLE="EMPLOYEE"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_9", FK_COLUMNS="PositionID" */
-  SELECT count(*) INTO NUMROWS
-    FROM POSITION
-    WHERE
-      /* %JoinFKPK(:%New,POSITION," = "," AND") */
-      :new.PositionID = POSITION.PositionID;
-  IF (
-    /* %NotnullFK(:%New," IS NOT NULL AND") */
-    :new.PositionID IS NOT NULL AND
-    NUMROWS = 0
-  )
-  THEN
-    raise_application_error(
-      -20007,
-      'Cannot update EMPLOYEE because POSITION does not exist.'
-    );
   END IF;
 
 
@@ -621,77 +499,24 @@ END;
 /
 
 
-CREATE  TRIGGER  tD_POSITION AFTER DELETE ON POSITION for each row
--- ERwin Builtin Trigger
--- DELETE trigger on POSITION 
-DECLARE NUMROWS INTEGER;
-BEGIN
-    /* ERwin Builtin Trigger */
-    /* POSITION  EMPLOYEE on parent delete set null */
-    /* ERWIN_RELATION:CHECKSUM="0000b1fc", PARENT_OWNER="", PARENT_TABLE="POSITION"
-    CHILD_OWNER="", CHILD_TABLE="EMPLOYEE"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_9", FK_COLUMNS="PositionID" */
-    UPDATE EMPLOYEE
-      SET
-        /* %SetFK(EMPLOYEE,NULL) */
-        EMPLOYEE.PositionID = NULL
-      WHERE
-        /* %JoinFKPK(EMPLOYEE,:%Old," = "," AND") */
-        EMPLOYEE.PositionID = :old.PositionID;
-
-
--- ERwin Builtin Trigger
-END;
-/
-
-CREATE  TRIGGER tU_POSITION AFTER UPDATE ON POSITION for each row
--- ERwin Builtin Trigger
--- UPDATE trigger on POSITION 
-DECLARE NUMROWS INTEGER;
-BEGIN
-  /* POSITION  EMPLOYEE on parent update set null */
-  /* ERWIN_RELATION:CHECKSUM="0000d135", PARENT_OWNER="", PARENT_TABLE="POSITION"
-    CHILD_OWNER="", CHILD_TABLE="EMPLOYEE"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_9", FK_COLUMNS="PositionID" */
-  IF
-    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
-    :old.PositionID <> :new.PositionID
-  THEN
-    UPDATE EMPLOYEE
-      SET
-        /* %SetFK(EMPLOYEE,NULL) */
-        EMPLOYEE.PositionID = NULL
-      WHERE
-        /* %JoinFKPK(EMPLOYEE,:%Old," = ",",") */
-        EMPLOYEE.PositionID = :old.PositionID;
-  END IF;
-
-
--- ERwin Builtin Trigger
-END;
-/
-
-
 CREATE  TRIGGER  tD_RECIPE AFTER DELETE ON RECIPE for each row
 -- ERwin Builtin Trigger
 -- DELETE trigger on RECIPE 
 DECLARE NUMROWS INTEGER;
 BEGIN
     /* ERwin Builtin Trigger */
-    /* RECIPE  RECIPE_LOG on parent delete set null */
-    /* ERWIN_RELATION:CHECKSUM="00029573", PARENT_OWNER="", PARENT_TABLE="RECIPE"
-    CHILD_OWNER="", CHILD_TABLE="RECIPE_LOG"
+    /* RECIPE  COOK_LOG on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="00029a94", PARENT_OWNER="", PARENT_TABLE="RECIPE"
+    CHILD_OWNER="", CHILD_TABLE="COOK_LOG"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="R_15", FK_COLUMNS="RecipeID" */
-    UPDATE RECIPE_LOG
+    UPDATE COOK_LOG
       SET
-        /* %SetFK(RECIPE_LOG,NULL) */
-        RECIPE_LOG.RecipeID = NULL
+        /* %SetFK(COOK_LOG,NULL) */
+        COOK_LOG.RecipeID = NULL
       WHERE
-        /* %JoinFKPK(RECIPE_LOG,:%Old," = "," AND") */
-        RECIPE_LOG.RecipeID = :old.RecipeID;
+        /* %JoinFKPK(COOK_LOG,:%Old," = "," AND") */
+        COOK_LOG.RecipeID = :old.RecipeID;
 
     /* ERwin Builtin Trigger */
     /* RECIPE  RECIPE_CHEF on parent delete restrict */
@@ -736,57 +561,27 @@ BEGIN
 END;
 /
 
-CREATE  TRIGGER tI_RECIPE BEFORE INSERT ON RECIPE for each row
--- ERwin Builtin Trigger
--- INSERT trigger on RECIPE 
-DECLARE NUMROWS INTEGER;
-BEGIN
-    /* ERwin Builtin Trigger */
-    /* CATEGORY  RECIPE on child insert set null */
-    /* ERWIN_RELATION:CHECKSUM="0000dc63", PARENT_OWNER="", PARENT_TABLE="CATEGORY"
-    CHILD_OWNER="", CHILD_TABLE="RECIPE"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_12", FK_COLUMNS="CategoryID" */
-    UPDATE RECIPE
-      SET
-        /* %SetFK(RECIPE,NULL) */
-        RECIPE.CategoryID = NULL
-      WHERE
-        NOT EXISTS (
-          SELECT * FROM CATEGORY
-            WHERE
-              /* %JoinFKPK(:%New,CATEGORY," = "," AND") */
-              :new.CategoryID = CATEGORY.CategoryID
-        ) 
-        /* %JoinPKPK(RECIPE,:%New," = "," AND") */
-         and RECIPE.RecipeID = :new.RecipeID;
-
-
--- ERwin Builtin Trigger
-END;
-/
-
 CREATE  TRIGGER tU_RECIPE AFTER UPDATE ON RECIPE for each row
 -- ERwin Builtin Trigger
 -- UPDATE trigger on RECIPE 
 DECLARE NUMROWS INTEGER;
 BEGIN
-  /* RECIPE  RECIPE_LOG on parent update set null */
-  /* ERWIN_RELATION:CHECKSUM="00041fe3", PARENT_OWNER="", PARENT_TABLE="RECIPE"
-    CHILD_OWNER="", CHILD_TABLE="RECIPE_LOG"
+  /* RECIPE  COOK_LOG on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="0002eb42", PARENT_OWNER="", PARENT_TABLE="RECIPE"
+    CHILD_OWNER="", CHILD_TABLE="COOK_LOG"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="R_15", FK_COLUMNS="RecipeID" */
   IF
     /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
     :old.RecipeID <> :new.RecipeID
   THEN
-    UPDATE RECIPE_LOG
+    UPDATE COOK_LOG
       SET
-        /* %SetFK(RECIPE_LOG,NULL) */
-        RECIPE_LOG.RecipeID = NULL
+        /* %SetFK(COOK_LOG,NULL) */
+        COOK_LOG.RecipeID = NULL
       WHERE
-        /* %JoinFKPK(RECIPE_LOG,:%Old," = ",",") */
-        RECIPE_LOG.RecipeID = :old.RecipeID;
+        /* %JoinFKPK(COOK_LOG,:%Old," = ",",") */
+        COOK_LOG.RecipeID = :old.RecipeID;
   END IF;
 
   /* ERwin Builtin Trigger */
@@ -835,29 +630,6 @@ BEGIN
         'Cannot update RECIPE because INGREDIENT exists.'
       );
     END IF;
-  END IF;
-
-  /* ERwin Builtin Trigger */
-  /* CATEGORY  RECIPE on child update no action */
-  /* ERWIN_RELATION:CHECKSUM="00000000", PARENT_OWNER="", PARENT_TABLE="CATEGORY"
-    CHILD_OWNER="", CHILD_TABLE="RECIPE"
-    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_12", FK_COLUMNS="CategoryID" */
-  SELECT count(*) INTO NUMROWS
-    FROM CATEGORY
-    WHERE
-      /* %JoinFKPK(:%New,CATEGORY," = "," AND") */
-      :new.CategoryID = CATEGORY.CategoryID;
-  IF (
-    /* %NotnullFK(:%New," IS NOT NULL AND") */
-    :new.CategoryID IS NOT NULL AND
-    NUMROWS = 0
-  )
-  THEN
-    raise_application_error(
-      -20007,
-      'Cannot update RECIPE because CATEGORY does not exist.'
-    );
   END IF;
 
 
@@ -1092,21 +864,21 @@ END;
 /
 
 
-CREATE  TRIGGER tI_RECIPE_LOG BEFORE INSERT ON RECIPE_LOG for each row
+CREATE  TRIGGER tI_COOK_LOG BEFORE INSERT ON COOK_LOG for each row
 -- ERwin Builtin Trigger
--- INSERT trigger on RECIPE_LOG 
+-- INSERT trigger on COOK_LOG 
 DECLARE NUMROWS INTEGER;
 BEGIN
     /* ERwin Builtin Trigger */
-    /* RECIPE  RECIPE_LOG on child insert set null */
-    /* ERWIN_RELATION:CHECKSUM="0000efb9", PARENT_OWNER="", PARENT_TABLE="RECIPE"
-    CHILD_OWNER="", CHILD_TABLE="RECIPE_LOG"
+    /* RECIPE  COOK_LOG on child insert set null */
+    /* ERWIN_RELATION:CHECKSUM="0000eca2", PARENT_OWNER="", PARENT_TABLE="RECIPE"
+    CHILD_OWNER="", CHILD_TABLE="COOK_LOG"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="R_15", FK_COLUMNS="RecipeID" */
-    UPDATE RECIPE_LOG
+    UPDATE COOK_LOG
       SET
-        /* %SetFK(RECIPE_LOG,NULL) */
-        RECIPE_LOG.RecipeID = NULL
+        /* %SetFK(COOK_LOG,NULL) */
+        COOK_LOG.RecipeID = NULL
       WHERE
         NOT EXISTS (
           SELECT * FROM RECIPE
@@ -1114,23 +886,23 @@ BEGIN
               /* %JoinFKPK(:%New,RECIPE," = "," AND") */
               :new.RecipeID = RECIPE.RecipeID
         ) 
-        /* %JoinPKPK(RECIPE_LOG,:%New," = "," AND") */
-         and RECIPE_LOG.RecipeLogID = :new.RecipeLogID;
+        /* %JoinPKPK(COOK_LOG,:%New," = "," AND") */
+         and COOK_LOG.CookLogID = :new.CookLogID;
 
 
 -- ERwin Builtin Trigger
 END;
 /
 
-CREATE  TRIGGER tU_RECIPE_LOG AFTER UPDATE ON RECIPE_LOG for each row
+CREATE  TRIGGER tU_COOK_LOG AFTER UPDATE ON COOK_LOG for each row
 -- ERwin Builtin Trigger
--- UPDATE trigger on RECIPE_LOG 
+-- UPDATE trigger on COOK_LOG 
 DECLARE NUMROWS INTEGER;
 BEGIN
   /* ERwin Builtin Trigger */
-  /* RECIPE  RECIPE_LOG on child update no action */
-  /* ERWIN_RELATION:CHECKSUM="0000f3e5", PARENT_OWNER="", PARENT_TABLE="RECIPE"
-    CHILD_OWNER="", CHILD_TABLE="RECIPE_LOG"
+  /* RECIPE  COOK_LOG on child update no action */
+  /* ERWIN_RELATION:CHECKSUM="0000ff0f", PARENT_OWNER="", PARENT_TABLE="RECIPE"
+    CHILD_OWNER="", CHILD_TABLE="COOK_LOG"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
     FK_CONSTRAINT="R_15", FK_COLUMNS="RecipeID" */
   SELECT count(*) INTO NUMROWS
@@ -1146,7 +918,7 @@ BEGIN
   THEN
     raise_application_error(
       -20007,
-      'Cannot update RECIPE_LOG because RECIPE does not exist.'
+      'Cannot update COOK_LOG because RECIPE does not exist.'
     );
   END IF;
 
