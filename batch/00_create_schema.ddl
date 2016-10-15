@@ -47,7 +47,7 @@ CREATE TABLE RECIPE
 (
 	RecipeID             INTEGER NOT NULL ,
 	Title                VARCHAR2(20) NOT NULL ,
-	RecipeFlow           VARCHAR2(300) NULL ,
+	RecipeFlow           VARCHAR2(500) NULL ,
 	Price                DECIMAL NOT NULL ,
 	DateCreated          DATE NOT NULL 
 );
@@ -62,7 +62,7 @@ CREATE TABLE RECIPE_DUTY
 (
 	EmployeeID           INTEGER NOT NULL ,
 	RecipeID             INTEGER NOT NULL ,
-	DutyDescription      VARCHAR2(20) NULL 
+	DutyDescription      VARCHAR2(200) NULL 
 );
 
 CREATE UNIQUE INDEX XPKRECIPE_DUTY ON RECIPE_DUTY
