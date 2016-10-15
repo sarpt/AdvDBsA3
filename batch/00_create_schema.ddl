@@ -32,7 +32,7 @@ ALTER TABLE SCHEDULE
 CREATE TABLE INGREDIENT_STOCK
 (
 	IngrStockID          INTEGER NOT NULL ,
-	Title                VARCHAR(20) NOT NULL ,
+	Title                VARCHAR(100) NOT NULL ,
 	WeightAvail          DOUBLE PRECISION NOT NULL ,
 	WeightMissing        DOUBLE PRECISION NOT NULL 
 );
@@ -46,7 +46,7 @@ ALTER TABLE INGREDIENT_STOCK
 CREATE TABLE RECIPE
 (
 	RecipeID             INTEGER NOT NULL ,
-	Title                VARCHAR2(20) NOT NULL ,
+	Title                VARCHAR2(50) NOT NULL ,
 	RecipeFlow           VARCHAR2(500) NULL ,
 	Price                DECIMAL NOT NULL ,
 	DateCreated          DATE NOT NULL 
@@ -101,7 +101,7 @@ ALTER TABLE COOK_LOG
 CREATE TABLE POSITION
 (
 	PositionID           INTEGER NOT NULL ,
-	Title                VARCHAR2(20) NULL ,
+	Title                VARCHAR2(50) NULL ,
 	Salary               DECIMAL NULL 
 );
 
@@ -128,8 +128,8 @@ ALTER TABLE RESOURCES
 CREATE TABLE SUPPLIER
 (
 	SupplierID           INTEGER NOT NULL ,
-	Title                VARCHAR2(20) NOT NULL ,
-	Address              VARCHAR2(20) NULL ,
+	Title                VARCHAR2(100) NOT NULL ,
+	Address              VARCHAR2(50) NULL ,
 	Phone                VARCHAR2(20) NULL ,
 	Reliability          INTEGER NOT NULL 
 );
