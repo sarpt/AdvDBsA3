@@ -145,15 +145,15 @@ CREATE TABLE SUPPLIER_STOCK
 	SupplierID           INTEGER NOT NULL ,
 	Price                DECIMAL NOT NULL ,
 	WeightAvail          DOUBLE PRECISION NOT NULL ,
-	IngrStockID          INTEGER NULL ,
-	DateFreshSupply      DATE NULL 
+	DateFreshSupply      DATE NULL ,
+	IngrStockID          INTEGER NOT NULL 
 );
 
 CREATE UNIQUE INDEX XPKSUPPLIER_STOCK ON SUPPLIER_STOCK
-(SupplierID   ASC);
+(SupplierID   ASC,IngrStockID   ASC);
 
 ALTER TABLE SUPPLIER_STOCK
-	ADD CONSTRAINT  XPKSUPPLIER_STOCK PRIMARY KEY (SupplierID);
+	ADD CONSTRAINT  XPKSUPPLIER_STOCK PRIMARY KEY (SupplierID,IngrStockID);
 
 CREATE TABLE SUPPLY_REQUEST
 (
@@ -194,7 +194,7 @@ ALTER TABLE SUPPLIER_STOCK
 	ADD (CONSTRAINT R_11 FOREIGN KEY (SupplierID) REFERENCES SUPPLIER (SupplierID));
 
 ALTER TABLE SUPPLIER_STOCK
-	ADD (CONSTRAINT R_18 FOREIGN KEY (IngrStockID) REFERENCES INGREDIENT_STOCK (IngrStockID) ON DELETE SET NULL);
+	ADD (CONSTRAINT R_20 FOREIGN KEY (IngrStockID) REFERENCES INGREDIENT_STOCK (IngrStockID));
 
 ALTER TABLE SUPPLY_REQUEST
 	ADD (CONSTRAINT R_17 FOREIGN KEY (IngrStockID) REFERENCES INGREDIENT_STOCK (IngrStockID));
@@ -418,18 +418,23 @@ CREATE  TRIGGER  tD_INGREDIENT_STOCK AFTER DELETE ON INGREDIENT_STOCK for each r
 DECLARE NUMROWS INTEGER;
 BEGIN
     /* ERwin Builtin Trigger */
-    /* INGREDIENT_STOCK  SUPPLIER_STOCK on parent delete set null */
-    /* ERWIN_RELATION:CHECKSUM="0002e853", PARENT_OWNER="", PARENT_TABLE="INGREDIENT_STOCK"
+    /* INGREDIENT_STOCK  SUPPLIER_STOCK on parent delete restrict */
+    /* ERWIN_RELATION:CHECKSUM="0003083a", PARENT_OWNER="", PARENT_TABLE="INGREDIENT_STOCK"
     CHILD_OWNER="", CHILD_TABLE="SUPPLIER_STOCK"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_18", FK_COLUMNS="IngrStockID" */
-    UPDATE SUPPLIER_STOCK
-      SET
-        /* %SetFK(SUPPLIER_STOCK,NULL) */
-        SUPPLIER_STOCK.IngrStockID = NULL
+    FK_CONSTRAINT="R_20", FK_COLUMNS="IngrStockID" */
+    SELECT count(*) INTO NUMROWS
+      FROM SUPPLIER_STOCK
       WHERE
-        /* %JoinFKPK(SUPPLIER_STOCK,:%Old," = "," AND") */
+        /*  %JoinFKPK(SUPPLIER_STOCK,:%Old," = "," AND") */
         SUPPLIER_STOCK.IngrStockID = :old.IngrStockID;
+    IF (NUMROWS > 0)
+    THEN
+      raise_application_error(
+        -20001,
+        'Cannot delete INGREDIENT_STOCK because SUPPLIER_STOCK exists.'
+      );
+    END IF;
 
     /* ERwin Builtin Trigger */
     /* INGREDIENT_STOCK  SUPPLY_REQUEST on parent delete restrict */
@@ -479,22 +484,28 @@ CREATE  TRIGGER tU_INGREDIENT_STOCK AFTER UPDATE ON INGREDIENT_STOCK for each ro
 -- UPDATE trigger on INGREDIENT_STOCK 
 DECLARE NUMROWS INTEGER;
 BEGIN
-  /* INGREDIENT_STOCK  SUPPLIER_STOCK on parent update set null */
-  /* ERWIN_RELATION:CHECKSUM="00036c3a", PARENT_OWNER="", PARENT_TABLE="INGREDIENT_STOCK"
+  /* ERwin Builtin Trigger */
+  /* INGREDIENT_STOCK  SUPPLIER_STOCK on parent update restrict */
+  /* ERWIN_RELATION:CHECKSUM="0003879c", PARENT_OWNER="", PARENT_TABLE="INGREDIENT_STOCK"
     CHILD_OWNER="", CHILD_TABLE="SUPPLIER_STOCK"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_18", FK_COLUMNS="IngrStockID" */
+    FK_CONSTRAINT="R_20", FK_COLUMNS="IngrStockID" */
   IF
     /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
     :old.IngrStockID <> :new.IngrStockID
   THEN
-    UPDATE SUPPLIER_STOCK
-      SET
-        /* %SetFK(SUPPLIER_STOCK,NULL) */
-        SUPPLIER_STOCK.IngrStockID = NULL
+    SELECT count(*) INTO NUMROWS
+      FROM SUPPLIER_STOCK
       WHERE
-        /* %JoinFKPK(SUPPLIER_STOCK,:%Old," = ",",") */
+        /*  %JoinFKPK(SUPPLIER_STOCK,:%Old," = "," AND") */
         SUPPLIER_STOCK.IngrStockID = :old.IngrStockID;
+    IF (NUMROWS > 0)
+    THEN 
+      raise_application_error(
+        -20005,
+        'Cannot update INGREDIENT_STOCK because SUPPLIER_STOCK exists.'
+      );
+    END IF;
   END IF;
 
   /* ERwin Builtin Trigger */
@@ -1103,24 +1114,27 @@ CREATE  TRIGGER tI_SUPPLIER_STOCK BEFORE INSERT ON SUPPLIER_STOCK for each row
 DECLARE NUMROWS INTEGER;
 BEGIN
     /* ERwin Builtin Trigger */
-    /* INGREDIENT_STOCK  SUPPLIER_STOCK on child insert set null */
-    /* ERWIN_RELATION:CHECKSUM="0002255c", PARENT_OWNER="", PARENT_TABLE="INGREDIENT_STOCK"
+    /* INGREDIENT_STOCK  SUPPLIER_STOCK on child insert restrict */
+    /* ERWIN_RELATION:CHECKSUM="0002196c", PARENT_OWNER="", PARENT_TABLE="INGREDIENT_STOCK"
     CHILD_OWNER="", CHILD_TABLE="SUPPLIER_STOCK"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_18", FK_COLUMNS="IngrStockID" */
-    UPDATE SUPPLIER_STOCK
-      SET
-        /* %SetFK(SUPPLIER_STOCK,NULL) */
-        SUPPLIER_STOCK.IngrStockID = NULL
+    FK_CONSTRAINT="R_20", FK_COLUMNS="IngrStockID" */
+    SELECT count(*) INTO NUMROWS
+      FROM INGREDIENT_STOCK
       WHERE
-        NOT EXISTS (
-          SELECT * FROM INGREDIENT_STOCK
-            WHERE
-              /* %JoinFKPK(:%New,INGREDIENT_STOCK," = "," AND") */
-              :new.IngrStockID = INGREDIENT_STOCK.IngrStockID
-        ) 
-        /* %JoinPKPK(SUPPLIER_STOCK,:%New," = "," AND") */
-         and SUPPLIER_STOCK.SupplierID = :new.SupplierID;
+        /* %JoinFKPK(:%New,INGREDIENT_STOCK," = "," AND") */
+        :new.IngrStockID = INGREDIENT_STOCK.IngrStockID;
+    IF (
+      /* %NotnullFK(:%New," IS NOT NULL AND") */
+      
+      NUMROWS = 0
+    )
+    THEN
+      raise_application_error(
+        -20002,
+        'Cannot insert SUPPLIER_STOCK because INGREDIENT_STOCK does not exist.'
+      );
+    END IF;
 
     /* ERwin Builtin Trigger */
     /* SUPPLIER  SUPPLIER_STOCK on child insert restrict */
@@ -1156,11 +1170,11 @@ CREATE  TRIGGER tU_SUPPLIER_STOCK AFTER UPDATE ON SUPPLIER_STOCK for each row
 DECLARE NUMROWS INTEGER;
 BEGIN
   /* ERwin Builtin Trigger */
-  /* INGREDIENT_STOCK  SUPPLIER_STOCK on child update no action */
-  /* ERWIN_RELATION:CHECKSUM="00022037", PARENT_OWNER="", PARENT_TABLE="INGREDIENT_STOCK"
+  /* INGREDIENT_STOCK  SUPPLIER_STOCK on child update restrict */
+  /* ERWIN_RELATION:CHECKSUM="00021cc4", PARENT_OWNER="", PARENT_TABLE="INGREDIENT_STOCK"
     CHILD_OWNER="", CHILD_TABLE="SUPPLIER_STOCK"
     P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
-    FK_CONSTRAINT="R_18", FK_COLUMNS="IngrStockID" */
+    FK_CONSTRAINT="R_20", FK_COLUMNS="IngrStockID" */
   SELECT count(*) INTO NUMROWS
     FROM INGREDIENT_STOCK
     WHERE
@@ -1168,7 +1182,7 @@ BEGIN
       :new.IngrStockID = INGREDIENT_STOCK.IngrStockID;
   IF (
     /* %NotnullFK(:%New," IS NOT NULL AND") */
-    :new.IngrStockID IS NOT NULL AND
+    
     NUMROWS = 0
   )
   THEN
