@@ -6,10 +6,6 @@ exec :n := dbms_utility.get_time
 /
 ALTER SYSTEM FLUSH SHARED_POOL;
 /
-DECLARE
-    period_start DATE := '10/11/2016';
-    period_end DATE := '10/12/2016';
-BEGIN    
      ----- increase salary                     
     
         SELECT EMPLOYEEID, 
@@ -67,6 +63,5 @@ BEGIN
                 )
             );
     COMMIT;
-END;
 exec :n := (dbms_utility.get_time - :n)/100
 exec dbms_output.put_line('Execution time '||:n||' sec')
