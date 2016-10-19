@@ -1,11 +1,18 @@
--- #2 Find cook that cooked highest num of recipes 
--- by given period and increase his salary
+-- #6 Remove worst Chef:
+	/*SELECT all recipes in which chef participated
+	UPDATE RECIPE_DUTIES 
+	DELETE FROM SCHEDULE
+	DELETE FROM EMPLOYEE*/
 set serveroutput on
 variable n number
 exec :n := dbms_utility.get_time
 /
 ALTER SYSTEM FLUSH SHARED_POOL;
 /
+DECLARE        
+    chef_id NUMBER;
+BEGIN
+    -- define worst chef
     WITH t1 AS
     (
         SELECT E.EMPLOYEEID, 
@@ -26,20 +33,44 @@ ALTER SYSTEM FLUSH SHARED_POOL;
         WHERE UPPER(P.TITLE) LIKE '%COOK%'
         AND CL.DATESOLD BETWEEN '10/11/2016' AND '10/12/2016' 
         GROUP BY E.EMPLOYEEID, E.FIRSTNAME, E.LASTNAME, P.SALARY, P.TITLE
-        ORDER BY COUNT(R.RECIPEID) DESC
+        ORDER BY COUNT(R.RECIPEID) ASC
     )                         
-    SELECT EMPLOYEEID, 
-            LASTNAME,
+    SELECT EMPLOYEEID INTO chef_id 
+            /*LASTNAME,
             FIRSTNAME,
             RECIPECOUNT,
             SALARY,
-            TITLE
+            TITLE*/
     FROM t1
-    WHERE RECIPECOUNT >= 
+    WHERE RECIPECOUNT <= 
         (
-            SELECT MAX(RECIPECOUNT)
+            SELECT MIN(RECIPECOUNT)
             FROM t1
-        );
-    COMMIT;
+        )
+    AND ROWNUM = 1;
+
+    UPDATE RECIPE
+    SET STATE = 'UNAVAILABLE'
+    WHERE RECIPEID IN 
+    (
+        SELECT rec.RECIPEID
+        FROM RECIPE rec
+        INNER JOIN RECIPE_DUTY rd
+        ON rec.RECIPEID = rd.RECIPEID
+        INNER JOIN EMPLOYEE emp        
+        ON rd.EMPLOYEEID = emp.EMPLOYEEID
+        WHERE emp.EMPLOYEEID = chef_id
+    );
+    /*
+    DELETE FROM RECIPE_DUTY
+    WHERE EMPLOYEEID = chef_id;       
+    
+    DELETE FROM SCHEDULE
+    WHERE EMPLOYEEID = chef_id;
+    
+    DELETE FROM EMPLOYEE
+    WHERE EMPLOYEEID = chef_id;
+    */     
+END;
 exec :n := (dbms_utility.get_time - :n)/100
 exec dbms_output.put_line('Execution time '||:n||' sec')

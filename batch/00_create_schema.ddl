@@ -49,7 +49,8 @@ CREATE TABLE RECIPE
 	Title                VARCHAR2(50) NOT NULL ,
 	RecipeFlow           VARCHAR2(500) NULL ,
 	Price                DECIMAL NOT NULL ,
-	DateCreated          DATE NOT NULL 
+	DateCreated          DATE NOT NULL ,
+	State                VARCHAR2(20) NULL 
 );
 
 CREATE UNIQUE INDEX XPKRECIPE ON RECIPE
