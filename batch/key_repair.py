@@ -1,4 +1,5 @@
 import re
+import random
 from tkinter import filedialog, Tk
 
 srcfile = None
@@ -20,6 +21,7 @@ def closeFiles():
 
 # finds columns
 def findColumns(f):
+    f.seek(0)
     for line in f:
         try:
             return getColumns(line)
@@ -28,6 +30,30 @@ def findColumns(f):
     
     raise ValueError("File doesn't contain insert statements'")
         
+# find values in file with statements
+# col defines if only specific column of values has to be returned, default -1 meaning all values should be returned
+def findValues(f, col=-1):
+    allvalues = []
+    f.seek(0)
+    for line in f:
+        try:
+            if col != -1:
+                allvalues.append(getValues(line)[col])
+            else:
+                allvalues.append(getValues(line))
+        except:
+            continue
+    
+    if len(allvalues) > 0:
+        return allvalues
+    else:
+        raise ValueError("No proper values found in file; File may be wrong")
+
+def getTableName(statement):
+    if sqlInsertCheck(statement):
+        return re.search("INSERT\s+INTO\s+(\w+)", statement, re.IGNORECASE).group(1)
+    else:
+        raise ValueError("The line doesn't contain proper SQL Insert statement (no proper brackets found)")
 
 # gets columns from first possible insert (hopefully number of columns doesn't change depending on insert statement ...)
 def getColumns(statement):
@@ -41,15 +67,23 @@ def getColumns(statement):
 # gets values from a line
 def getValues(statement):
     if sqlInsertCheck(statement):
-        col_start = line.rfind("(") + 1;
-        col_end = line.rfind(")");
-        return "".join(line[col_start:col_end].split()).split(","), line[0:col_start], line[col_end:]
+        statement_values = re.search(r"(VALUES\s*\(.*\);)", statement, re.IGNORECASE).group(0)
+        col_start = statement_values.find("(") + 1;
+        col_end = statement_values.rfind(")");
+        return "".join(statement_values[col_start:col_end].split()).split(",")
     else:
         raise ValueError("The line doesn't contain proper SQL Insert statement (no proper brackets found)")
 
+# cleans up
+def cleanup(msg=""):
+    if msg != "":
+        print(msg)
+    closeFiles()
+    exit()
+
 # ask user 
-def userInput(msg, options, default):
-    result = input(msg)
+# def userInput(msg, options, default):
+#    result = input(msg)
 
 # EXEC #
 
@@ -72,9 +106,7 @@ except:
 try:
     srcfile_columns = findColumns(srcfile)
 except ValueError as err:
-    print(err.args[0])
-    closeFiles()
-    exit()
+    cleanup(err.args[0])
 
 # select primary_key column
 print("Select which column is PrimaryKey:")
@@ -89,9 +121,8 @@ if result == "":
 elif result.isdigit() and int(result) > 0 and int(result) < len(srcfile_columns):
     srcpk_column = int(result)
 else:
-    print("Passed number is not correct; terminating")
-    closeFiles()
-    exit()
+    cleanup("Passed number is not correct; terminating")
+
 
 print("Primary key column is:", srcfile_columns[srcpk_column])
 
@@ -119,9 +150,7 @@ if tgtfile_read:
     elif result.isdigit() and int(result) > 0 and int(result) < len(srcfile_columns):
         srcfk_column = int(result)
     else:
-        print("Passed number is not correct; terminating")
-        closeFiles()
-        exit()
+        cleanup("Passed number is not correct; terminating")
 
     input("Choose the supplier file of primary keys:\nPress enter to continue ...")
 
@@ -133,9 +162,7 @@ if tgtfile_read:
     try:
         tgtfile_columns = findColumns(tgtfile)
     except ValueError as err:
-        print(err.args[0])
-        closeFiles()
-        exit()
+        cleanup(err.args[0])
 
     tgtpk_column = 0
     # ask for primary key paired to foreign key
@@ -151,11 +178,10 @@ if tgtfile_read:
     elif result.isdigit() and int(result) > 0 and int(result) < len(srcfile_columns):
         tgtpk_column = int(result)
     else:
-        print("Passed number is not correct; terminating")
-        closeFiles()
-        exit()
+        cleanup("Passed number is not correct; terminating")
 
-    # build tuple of possible primary keys
+    # build tuple of possible primary keys for random function to iterate
+    tgtfile_pks = findValues(tgtfile, tgtpk_column)
 
 # ask for generation of new primary keys
 result = input("Generate new Primary Keys for the table?\n (Y/n) >")
@@ -179,13 +205,15 @@ print("Saving file to " + newfile_path)
 try:
     newfile = open(newfile_path, "w")
 except Exception as err:
-    print(err.args[0])
-    closeFiles()
-    exit()
+    cleanup(err.args[0])
 
 # save the new filename
 
+for pkvalue, line in enumerate(srcfile):
+    line_values = getValues(line)
+    if srcfile_generateid: line_values[srcpk_column] = pkvalue + 1
+    if tgtfile_read: line_values[srcfk_column] = random.choice(tgtfile_pks)
+    newfile.write("INSERT INTO " + getTableName(line) + " (" + ", ".join(list(map(str, srcfile_columns))) +") VALUES (" + ", ".join(list(map(str, line_values))) + ");\n")
 
 # cleanup and terminate
-closeFiles()
-exit()
+cleanup()
