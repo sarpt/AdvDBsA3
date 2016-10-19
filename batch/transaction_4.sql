@@ -6,45 +6,120 @@ exec :n := dbms_utility.get_time
 ALTER SYSTEM FLUSH SHARED_POOL;
 /
 DECLARE
-    best_sup_id     NUMBER;
-    best_sup_rel    NUMBER;
+    total_sup_price DECIMAL;
+    total_res       DECIMAL;
+    best_sup_rel    NUMBER;    
 BEGIN
-	FOR sup_unsat IN (
-                    SELECT *
-                    FROM SUPPLY_REQUEST
-                    WHERE STATE = 'UNSATISFIED'
-                    )
-	LOOP
-        -- select the best supplier for the product
-		SELECT SUPS.SUPPLIERID INTO best_sup_id                
-		FROM SUPPLIER_STOCK SUPS
-		INNER JOIN SUPPLIER SUP
-		ON SUP.SUPPLIERID = SUPS.SUPPLIERID		
-		WHERE SUPS.INGRSTOCKID = sup_unsat.INGRSTOCKID
-		AND RELIABILITY = (
-                            SELECT MAX(RELIABILITY)
-                            FROM SUPPLIER SUP
-                            INNER JOIN SUPPLIER_STOCK SUPS
-                            ON SUPS.SUPPLIERID = SUP.SUPPLIERID
-                            WHERE SUPS.INGRSTOCKID = sup_unsat.INGRSTOCKID
-                        )
-        AND PRICE = (
-                        SELECT MIN(PRICE)
-                        FROM SUPPLIER_STOCK
-                        WHERE INGRSTOCKID = sup_unsat.INGRSTOCKID
-                        -- available for the supply date
-                        AND DATEFRESHSUPPLY > sup_unsat.DATEREQUEST
-                    );
-        -- inc suppliers reliability
-        SELECT RELIABILITY INTO best_sup_rel
-        FROM SUPPLIER
-        WHERE SUPPLIERID = best_sup_id;
-        --
-        UPDATE SUPPLIER SET RELIABILITY = 1 + best_sup_rel;             
-        
-	END LOOP;
-	
-    COMMIT;
+    -- calc total supply price
+    SELECT SUM(PRICE) INTO total_sup_price
+    FROM 
+    (
+        -- selecting the best supplier
+        SELECT SUPPLIERID, INGRSTOCKID, REQUESTID, PRICE
+        FROM (
+                -- all requests that are unsatisfied and can be satisfied
+                SELECT ings.INGRSTOCKID, sup.SUPPLIERID, sup.RELIABILITY, sups.PRICE, sr.REQUESTID
+                FROM supplier_stock sups
+                INNER JOIN ingredient_stock ings
+                ON sups.INGRSTOCKID = ings.INGRSTOCKID
+                INNER JOIN supplier sup
+                ON sup.SUPPLIERID = sups.SUPPLIERID
+                INNER JOIN supply_request sr
+                ON sr.INGRSTOCKID = sups.INGRSTOCKID
+                WHERE sr.STATE = 'UNSATISFIED'
+                AND ings.WEIGHTMISSING < sups.WEIGHTAVAIL      
+                AND sr.DATEREQUEST < sups.DATEFRESHSUPPLY
+                GROUP BY ings.INGRSTOCKID, sup.SUPPLIERID, sup.RELIABILITY, sups.PRICE, sr.REQUESTID
+                ORDER BY ings.INGRSTOCKID, sup.RELIABILITY DESC, sups.PRICE ASC
+            ) t1
+        WHERE t1.RELIABILITY = (
+                                SELECT MAX(RELIABILITY)
+                                FROM
+                                (
+                                    SELECT ings.INGRSTOCKID, sup.SUPPLIERID, sup.RELIABILITY, sups.PRICE
+                                    FROM supplier_stock sups
+                                    INNER JOIN ingredient_stock ings
+                                    ON sups.INGRSTOCKID = ings.INGRSTOCKID
+                                    INNER JOIN supplier sup
+                                    ON sup.SUPPLIERID = sups.SUPPLIERID
+                                    INNER JOIN supply_request sr
+                                    ON sr.INGRSTOCKID = sups.INGRSTOCKID
+                                    WHERE sr.STATE = 'UNSATISFIED'
+                                    AND ings.WEIGHTMISSING < sups.WEIGHTAVAIL      
+                                    AND sr.DATEREQUEST < sups.DATEFRESHSUPPLY
+                                    GROUP BY ings.INGRSTOCKID, sup.SUPPLIERID, sup.RELIABILITY, sups.PRICE
+                                    ORDER BY ings.INGRSTOCKID, sup.RELIABILITY DESC, sups.PRICE ASC
+                                ) t2
+                                WHERE t1.INGRSTOCKID = t2.INGRSTOCKID
+                            )
+        GROUP BY t1.SUPPLIERID, t1.INGRSTOCKID, t1.REQUESTID, t1.PRICE
+        ORDER BY t1.INGRSTOCKID ASC
+    );
+    -- satisfy the supply if there are sufficient resources
+    SELECT SUM(TOTAL) INTO total_res
+    FROM resources;
+    
+    IF total_sup_price < total_res THEN
+        FOR sup_ingr IN 
+        ( 
+            SELECT SUPPLIERID, INGRSTOCKID, REQUESTID
+            FROM (
+                    SELECT ings.INGRSTOCKID, sup.SUPPLIERID, sup.RELIABILITY, sups.PRICE, sr.REQUESTID
+                    FROM supplier_stock sups
+                    INNER JOIN ingredient_stock ings
+                    ON sups.INGRSTOCKID = ings.INGRSTOCKID
+                    INNER JOIN supplier sup
+                    ON sup.SUPPLIERID = sups.SUPPLIERID
+                    INNER JOIN supply_request sr
+                    ON sr.INGRSTOCKID = sups.INGRSTOCKID
+                    WHERE sr.STATE = 'UNSATISFIED'
+                    AND ings.WEIGHTMISSING < sups.WEIGHTAVAIL      
+                    AND sr.DATEREQUEST < sups.DATEFRESHSUPPLY
+                    GROUP BY ings.INGRSTOCKID, sup.SUPPLIERID, sup.RELIABILITY, sups.PRICE, sr.REQUESTID
+                    ORDER BY ings.INGRSTOCKID, sup.RELIABILITY DESC, sups.PRICE ASC
+                ) t1
+            WHERE t1.RELIABILITY = (
+                                    SELECT MAX(RELIABILITY)
+                                    FROM
+                                    (
+                                        SELECT ings.INGRSTOCKID, sup.SUPPLIERID, sup.RELIABILITY, sups.PRICE
+                                        FROM supplier_stock sups
+                                        INNER JOIN ingredient_stock ings
+                                        ON sups.INGRSTOCKID = ings.INGRSTOCKID
+                                        INNER JOIN supplier sup
+                                        ON sup.SUPPLIERID = sups.SUPPLIERID
+                                        INNER JOIN supply_request sr
+                                        ON sr.INGRSTOCKID = sups.INGRSTOCKID
+                                        WHERE sr.STATE = 'UNSATISFIED'
+                                        AND ings.WEIGHTMISSING < sups.WEIGHTAVAIL      
+                                        AND sr.DATEREQUEST < sups.DATEFRESHSUPPLY
+                                        GROUP BY ings.INGRSTOCKID, sup.SUPPLIERID, sup.RELIABILITY, sups.PRICE
+                                        ORDER BY ings.INGRSTOCKID, sup.RELIABILITY DESC, sups.PRICE ASC
+                                    ) t2
+                                    WHERE t1.INGRSTOCKID = t2.INGRSTOCKID
+                                )
+            GROUP BY t1.SUPPLIERID, t1.INGRSTOCKID, t1.REQUESTID
+            ORDER BY t1.INGRSTOCKID ASC
+        )
+        LOOP
+            -- we made request so it is satisfied
+            UPDATE supply_request
+            SET STATE = 'SATISFIED'
+            WHERE REQUESTID = sup_ingr.REQUESTID;    
+            
+            -- inc reliability of the supplier
+            SELECT RELIABILITY INTO best_sup_rel
+            FROM supplier sup
+            WHERE sup.SUPPLIERID = sup_ingr.SUPPLIERID; 
+            
+            UPDATE supplier
+            SET RELIABILITY = best_sup_rel + 1
+            WHERE SUPPLIERID = sup_ingr.SUPPLIERID;
+        END LOOP;
+        COMMIT;
+    ELSE
+        ROLLBACK;
+    END IF;
 END;
     
 exec :n := (dbms_utility.get_time - :n)/100
