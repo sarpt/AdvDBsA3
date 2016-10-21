@@ -7,27 +7,24 @@ ALTER SYSTEM FLUSH SHARED_POOL;
 /
 DECLARE
 	ing_count NUMBER := 0;
-BEGIN
-	FOR recipe IN (SELECT * FROM RECIPE)
-	LOOP
-		SELECT COUNT(*) INTO ing_count
-		FROM INGREDIENT_STOCK IGS
-		INNER JOIN INGREDIENT IG
-		ON IGS.INGRSTOCKID = IG.INGRSTOCKID
-		WHERE IG.RECIPEID = recipe.RECIPEID
-		AND IG.WEIGHTRECP > IGS.WEIGHTAVAIL;
+BEGIN	
+    SELECT COUNT(*) INTO ing_count
+    FROM INGREDIENT_STOCK IGS
+    INNER JOIN INGREDIENT IG
+    ON IGS.INGRSTOCKID = IG.INGRSTOCKID
+    WHERE IG.RECIPEID IN (SELECT RECIPEID FROM RECIPE)
+    AND IG.WEIGHTRECP > IGS.WEIGHTAVAIL;
 		
-		IF ing_count > 0 THEN
-			-- set recipe as unavailable
-			UPDATE RECIPE SET STATE = 'UNAVAILABLE'
-			WHERE RECIPEID = recipe.RECIPEID;						
-		ELSE
-            -- set recipe as available
-			UPDATE RECIPE SET STATE = 'AVAILABLE'
-			WHERE RECIPEID = recipe.RECIPEID;
-		END IF;
-	END LOOP;    
-		
+    IF ing_count > 0 THEN
+        -- set recipe as unavailable
+        UPDATE RECIPE SET STATE = 'UNAVAILABLE'
+        WHERE RECIPEID = recipe.RECIPEID;						
+    ELSE
+        -- set recipe as available
+        UPDATE RECIPE SET STATE = 'AVAILABLE'
+        WHERE RECIPEID = recipe.RECIPEID;
+    END IF;
+						
     COMMIT;
 END;
 exec :n := (dbms_utility.get_time - :n)/100
