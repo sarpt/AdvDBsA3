@@ -8,6 +8,9 @@ ALTER SYSTEM FLUSH BUFFER_CACHE;
 /
 ALTER SYSTEM FLUSH SHARED_POOL;
 /
+COMMIT;
+
+SET TRANSACTION NAME 'FIND_CHEF';
     WITH t1 AS
     (
         SELECT E.EMPLOYEEID, 
@@ -42,6 +45,7 @@ ALTER SYSTEM FLUSH SHARED_POOL;
             SELECT MAX(RECIPECOUNT)
             FROM t1
         );
-    COMMIT;
+COMMIT;
+
 exec :n := (dbms_utility.get_time - :n)/100
 exec dbms_output.put_line('Execution time '||:n||' sec')
