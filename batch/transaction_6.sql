@@ -1,11 +1,9 @@
--- #6 Remove worst Chef:
-	/*SELECT all recipes in which chef participated
-	UPDATE RECIPE_DUTIES 
-	DELETE FROM SCHEDULE
-	DELETE FROM EMPLOYEE*/
+-- #6 Remove worst Chef:	
 set serveroutput on
 variable n number
 exec :n := dbms_utility.get_time
+/
+ALTER SYSTEM FLUSH BUFFER_CACHE;
 /
 ALTER SYSTEM FLUSH SHARED_POOL;
 /
