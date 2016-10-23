@@ -1,3 +1,5 @@
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
+
 INSERT INTO SCHEDULE (scheduleid, daystart, employeeid, dateaccepted, dayfin) VALUES (1, 7, 527, '14/05/2016', 15);
 INSERT INTO SCHEDULE (scheduleid, daystart, employeeid, dateaccepted, dayfin) VALUES (2, 7, 847, '20/03/2016', 17);
 INSERT INTO SCHEDULE (scheduleid, daystart, employeeid, dateaccepted, dayfin) VALUES (3, 9, 1995, '23/09/2016', 16);

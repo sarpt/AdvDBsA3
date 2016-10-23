@@ -1,3 +1,5 @@
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
+
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (1, 'TEV-TROPIN', 21.35, 79.03);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (2, 'LIVESTSMoistLiquid', 96.42, 89.84);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3, 'CARBAMAZEPINE', 85.47, 51.37);
@@ -224,7 +226,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (224, 'Betaxolol', 31.66, 10.62);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (225, 'SoreThroat', 89.36, 49.39);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (226, 'NICOTINEPOLACRILEX', 21.99, 24.74);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (227, 'Dextroamphetaminesaccharate, amphetamineaspartatemonohydrate, dextroamphetaminesulfate, amphetaminesulfate', 2.68, 30.69);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (227, 'Dextroamphetaminesaccharate, amphetamineaspartatemonohydrate, dextroamphetaminesulfate', 2.68, 30.69);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (228, 'SmartSenseAllergyRelief', 70.5, 98.24);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (229, 'CareOneMucusRelief', 91.86, 1.01);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (230, 'LisinoprilwithHydrochlorothiazide', 75.63, 71.5);
@@ -1249,7 +1251,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (1249, 'Finasteride', 49.69, 59.88);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (1250, 'Theophylline', 77.93, 53.47);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (1251, 'LosartanPotassiumandHydrochlorothiazide', 29.71, 74.93);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (1252, 'Dextroamphetaminesaccharate, amphetamineaspartatemonohydrate, dextroamphetaminesulfateandamphetaminesulfate', 53.7, 24.97);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (1252, 'Dextroamphetaminesaccharate, amphetamineaspartatemonohydrate, dextr', 53.7, 24.97);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (1253, 'LabetalolHCl', 55.38, 51.82);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (1254, 'FemaleFibroids', 90.41, 4.9);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (1255, 'CAREONE', 75.19, 88.03);
@@ -2028,7 +2030,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (2028, 'PerindoprilErbumine', 42.65, 36.25);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (2029, 'arthritispainrelief', 23.0, 17.23);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (2030, 'FluticasonePropionate', 31.86, 74.15);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (2031, 'DextroamphetamineSaccharate, AmphetamineAspartate, DextroamphetamineSulfateandAmphetamineSulfate', 39.37, 93.22);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (2031, 'DextroamphetamineSaccharate, AmphetamineAspartate, DextroamphetamineSulfateandAmp', 39.37, 93.22);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (2032, 'Omeprazole', 38.81, 81.53);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (2033, 'Loratadine', 36.35, 77.81);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (2034, 'AETHUSACYNAPIUM', 47.97, 74.62);
@@ -3428,7 +3430,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3428, 'ColgateOpticWhite', 63.79, 99.17);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3429, 'SINGULAIR', 8.13, 29.53);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3430, 'UpandUpAntiItch', 69.11, 96.47);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3431, 'Dextroamphetaminesaccharate, amphetamineaspartate, dextroamphetaminesulfate, andamphetaminesulfate', 88.41, 83.35);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3431, 'Dextroamphetaminesaccharate, amphetamineaspartate, dextroamphetaminesulfate, andampheta', 88.41, 83.35);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3432, 'MefloquineHydrochloride', 96.49, 71.09);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3433, 'AtorvastatinCalcium', 22.04, 69.26);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3434, 'Anti-ItchExtraStrength', 34.29, 3.6);
@@ -3594,7 +3596,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3594, 'MediChoiceFluoride', 5.23, 52.3);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3595, 'ImipramineHydrochloride', 18.62, 15.05);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3596, 'NortriptylineHydrochloride', 84.63, 23.16);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3597, 'DextroamphetamineSaccharate, AmphetamineAspartateMonohydrate, DextroamphetamineSulfateandAmphetamineSulfate', 84.79, 18.64);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3597, 'Dextroamphetaminesaccharate, amphetamineaspa', 84.79, 18.64);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3598, 'WelmedixHomeCarePROFragileSkinProtectant', 18.22, 15.47);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3599, 'PAROXETINEHYDROCHLORIDE', 87.2, 83.53);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3600, 'Fluconazole', 59.87, 85.87);
@@ -3675,7 +3677,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3675, 'ariSulfur', 42.64, 51.4);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3676, 'Naproxen', 9.49, 33.57);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3677, 'ULTRACET', 84.08, 46.09);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3678, '', 95.99, 5.45);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3678, 'v3', 95.99, 5.45);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3679, 'Antiseptic', 33.47, 2.56);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3680, 'VicksAlcoholFreeNyQuil', 36.37, 77.19);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (3681, 'MetforminHydrochloride', 7.58, 83.53);
@@ -4395,7 +4397,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4395, 'Aspirin', 4.03, 12.37);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4396, 'APHENAP', 28.06, 62.23);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4397, 'Carvedilol', 6.16, 90.63);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4398, 'CDCAPTURETOTALETripleCorrectingSerumFoundationWrinkles-DarkSpots-RadiancewithsunscreenBroadSpectrumSPF25023', 55.28, 49.05);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4398, 'CDCAPTURETOTALETripleCorrectingSerumFoundationWrinkles-DarkSpots-Radiancewithsu', 55.28, 49.05);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4399, 'Tizanidine', 27.04, 55.33);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4400, 'ValsartanandHydrochlorothiazide', 63.37, 93.35);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4401, 'LEVOFLOXACIN', 26.09, 40.48);
@@ -4662,7 +4664,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4662, 'RimmelLondon', 17.32, 38.74);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4663, 'MoleRemover', 62.42, 68.31);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4664, 'SolMate', 94.2, 16.41);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4665, 'DextroamphetamineSaccharate, AmphetamineAspartate, DextroamphetamineSulfate, andAmphetamineSulfate', 50.98, 67.03);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4665, 'DextroamphetamineSaccharate, AmphetamineAspartate, DextroamphetamineSulfate', 50.98, 67.03);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4666, 'DR.MERCOLASunscreenBroadSpectrumSPF-30', 63.59, 76.11);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4667, 'GoodSensePainRelief', 91.31, 37.06);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4668, 'Pollens-Trees, Palm, QueenCocosplumosa', 98.06, 69.58);
@@ -4963,7 +4965,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4963, 'METHADONEHYDROCHLORIDE', 29.76, 66.18);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4964, 'SandyBeige', 3.83, 94.8);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4965, 'Temovate', 86.64, 55.14);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4966, 'Dextroamphetaminesaccharate, amphetamineaspartate, dextroamphetaminesulfate, andamphetaminesulfate', 35.64, 57.03);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4966, 'Dextroamphetaminesaccharate, amphetamineaspartate, dextroamphetaminesulfate', 35.64, 57.03);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4967, 'SafeHarbor-Natural-SensitiveSPF50BroadSpectrum', 65.93, 24.64);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4968, 'Orajel', 18.69, 49.9);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (4969, 'BIOCHEMICPHOSPHATE', 71.24, 67.4);
@@ -5097,7 +5099,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5097, 'Type11DizzinessMax', 18.57, 62.3);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5098, 'FLAWLESSFINISHPERFECTLYNUDEMAKEUPBROADSPECTRUMSUNSCREENSPF15SHADEVANILLASHELL', 9.52, 98.15);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5099, 'HydrocodoneBitartrateAndAcetaminophen', 1.37, 85.99);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5100, '', 48.74, 22.24);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5100, 'v3', 48.74, 22.24);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5101, '7selectdaytimerelief', 80.37, 93.36);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5102, 'BlatrolBladderRelief', 71.73, 16.4);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5103, 'HighmarkProfessionalAntibacterialFoamHandwash', 46.3, 79.24);
@@ -5382,7 +5384,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5382, 'PinchotJuniper', 73.38, 78.33);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5383, 'KETOROLACTROMETHAMINE', 18.35, 19.61);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5384, 'MilkofMagnesiaOriginal', 33.38, 24.25);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5385, '', 47.88, 29.4);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5385, 'v3', 47.88, 29.4);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5386, 'Citalopram', 56.35, 58.3);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5387, 'BAC-DAntibacterialWoundsanitizer', 37.4, 80.34);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5388, 'ExtraStrengthPainRelief', 74.4, 99.18);
@@ -5588,7 +5590,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5588, 'Mesquite', 10.17, 93.9);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5589, 'FlurazepamHydrochloride', 68.72, 28.74);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5590, 'NOTYETDEFINED', 80.04, 39.35);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5591, '', 28.29, 61.85);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5591, 'v3', 28.29, 61.85);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5592, 'ZENPEP', 18.48, 25.43);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5593, 'Phenobarbital', 62.62, 91.32);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (5594, 'Fluoxetine', 19.99, 32.74);
@@ -6747,7 +6749,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (6747, 'AlphaAlcoholFreeFoamingInstantHandSanitizer', 35.98, 36.02);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (6748, 'SmartSanHandSanitizer', 44.37, 36.55);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (6749, 'CARMEXoriginallipbalmEXTERNALANALGESIC', 18.08, 98.79);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (6750, 'Dextroamphetaminesaccharate, amphetamineaspartatemonohydrate, dextroamphetaminesulfateandamphetaminesulfate', 89.85, 35.9);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (6750, 'Dextroamphetaminesaccharate, amphetamineaspa', 89.85, 35.9);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (6751, 'Topiramate', 73.73, 4.61);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (6752, 'PredniSONE', 2.42, 77.07);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (6753, 'LIFTLUMIERE', 68.53, 6.53);
@@ -7222,7 +7224,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (7222, 'SunVerbenaProtectiveGlossProtection', 55.89, 56.91);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (7223, 'MeijerSportSPF50', 46.43, 7.86);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (7224, 'Nitrogen', 59.29, 66.17);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (7225, 'TERRACOTTAJOLITEINTBEAUTIFYINGFOUNDATIONWITHSUNSCREENSUN-KISSED, HEALTHYGLOWBROADSPECTRUMSPF20DARK', 30.69, 57.41);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (7225, 'TERRACOTTAJOLITEINTBEAUTIFYINGFOUNDATIONWITHSUNSCREENSUN-KISSED', 30.69, 57.41);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (7226, 'EffervescentColdRelief', 5.95, 6.42);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (7227, 'CYSVIEW', 22.76, 90.28);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (7228, 'Citalopram', 38.8, 25.75);
@@ -8069,7 +8071,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8069, 'G4PF4v061t3L1pB4lm', 2.61, 38.08);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8070, 'Th3P63st1g3', 20.71, 34.15);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8071, '4ml0d1p1n34ndV4ls46t4n', 97.55, 83.31);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8072, 'N3v1INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(M0l3)C0nt60l', 45.99, 5.24);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8072, 'N3v1(M0l3)C0nt60l', 45.99, 5.24);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8073, 'Bup60p10nHyd60chl061d3', 66.03, 38.51);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8074, 'L0p364m1d3Hyd60chl061d3', 78.67, 6.17);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8075, 'M3D1-F16STCh366yC0ughD60ps', 7.76, 51.96);
@@ -8223,7 +8225,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8223, 'B3t4x0l0l', 31.66, 10.62);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8224, 'S063Th604t', 89.36, 49.39);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8225, 'N1C0T1N3P0L4C61L3X', 21.99, 24.74);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8226, 'D3xt604mph3t4m1n3s4cch464t3, 4mph3t4m1n34sp46t4t3m0n0hyd64t3, d3xt604mph3t4m1n3sulf4t3, 4mph3t4m1n3sulf4t3', 2.68, 30.69);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8226, 'D3xt604mph3t4m1n3s4cch464t3, 4mph3t4m1n34sp46t4t3m0n0hyd64t', 2.68, 30.69);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8227, 'Sm46tS3ns34ll36gy63l13f', 70.5, 98.24);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8228, 'C4630n3Mucus63l13f', 91.86, 1.01);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8229, 'L1s1n0p61lw1thHyd60chl060th14z1d3', 75.63, 71.5);
@@ -8552,7 +8554,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8552, 'Hyd60g3nP360x1d3', 40.67, 82.6);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8553, 'B1lb04C4p61Sunsc633nSPF30', 1.72, 68.58);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8554, '4ll36c3t1n', 90.78, 11.59);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8555, '4d1p60s40INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(numb3673)', 52.15, 80.05);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8555, '4d1p60s40(numb3673)', 52.15, 80.05);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8556, 'M03x1p61lHyd60chl061d3', 16.76, 80.14);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8557, '0xyg3n', 57.55, 83.2);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8558, 'D0ct0663l13f', 5.84, 41.89);
@@ -8833,7 +8835,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8833, 'St4nd46d1z3dM1t3, D36m4t0ph4g01d3sf461n43, Bulk, 100004Up36mL', 56.47, 81.28);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8834, 'L0V4ST4T1N', 17.13, 24.63);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8835, 'T3664s1lF00t4ndN41l4nt1-Fung4l', 30.87, 66.45);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8836, 'Bl4ncT1sCl1n1cINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(10%)', 22.65, 14.21);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8836, 'Bl4ncT1sCl1n1c(10%)', 22.65, 14.21);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8837, '64d14Bl0ck', 41.01, 6.34);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8838, 'L064t4d1n3', 80.23, 20.33);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (8839, 'S36t64l1n3Hyd60chl061d3', 29.97, 85.68);
@@ -9198,7 +9200,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9198, 'GUN4-1NFG4MM4', 55.87, 6.04);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9199, 'V3nl4f4x1n3', 16.09, 11.89);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9200, 'D6.W4LT0NS', 21.96, 50.22);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9201, '4DV4NC3DHYD60-L1QU1DC0MP4CTINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 18.3, 29.41);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9201, '4DV4NC3DHYD60-L1QU1DC0MP4CT(63F1LL)', 18.3, 29.41);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9202, '3y3w4shSt4t10n4dd1t1v3C0nc3nt64t3', 20.26, 51.46);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9203, 'C0lg4t3', 50.29, 16.13);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9204, 'P60M3TH4Z1N3DM', 16.83, 11.36);
@@ -9248,7 +9250,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9248, 'F1n4st361d3', 49.69, 59.88);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9249, 'Th30phyll1n3', 77.93, 53.47);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9250, 'L0s46t4nP0t4ss1um4ndHyd60chl060th14z1d3', 29.71, 74.93);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9251, 'D3xt604mph3t4m1n3s4cch464t3, 4mph3t4m1n34sp46t4t3m0n0hyd64t3, d3xt604mph3t4m1n3sulf4t34nd4mph3t4m1n3sulf4t3', 53.7, 24.97);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9251, 'D3xt604mph3t4m1n3s4cch464t3, 4mph3t4m1n34sp46t4t3m0n0hy', 53.7, 24.97);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9252, 'L4b3t4l0lHCl', 55.38, 51.82);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9253, 'F3m4l3F1b601ds', 90.41, 4.9);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9254, 'C4630N3', 75.19, 88.03);
@@ -9325,7 +9327,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9325, '4m0x1c1ll1n', 32.84, 54.46);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9326, 'Qu3t14p1n3Fum464t3', 22.27, 47.58);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9327, '61v4st1gm1n3T46t64t3', 41.4, 55.41);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9328, 'SH1S31D04DV4NC3DHYD60-L1QU1DC0MP4CTINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 38.24, 81.51);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9328, 'SH1S31D04DV4NC3DHYD60-L1QU1DC0MP4CT(63F1LL)', 38.24, 81.51);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9329, 'C3l4z0m3M0s1tu61z1ngSunsc633nw1thSPF29', 74.18, 67.77);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9330, 'Fus461umc0mp4ctum', 28.44, 47.26);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9331, 'D1lt14z3mHyd60chl061d3', 53.07, 2.75);
@@ -9514,7 +9516,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9514, 'Ph3nt36m1n3Hyd60chl061d3', 38.45, 82.58);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9515, 'G4d4d36m4nt1fung4l', 56.66, 12.34);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9516, 'Hyd60m06ph0n3Hyd60chl061d3', 95.39, 4.37);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9517, 'P604ct1vS0lut10nBBB604dSp3ct6umSPF15INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(L1ght, M3d1um, D46k)', 28.37, 62.7);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9517, 'P604ct1vS0lut10nBBB604dSp3ct6umSPF15(L1ght, M3d1um, D46k)', 28.37, 62.7);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9518, '4cycl0v16', 15.61, 42.76);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9519, 'Qu4s3ns3', 53.55, 41.96);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9520, '0ct630t1d34c3t4t3', 88.88, 88.5);
@@ -9643,7 +9645,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9643, 'P63N4T4LPLUS160N', 78.38, 29.73);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9644, 'D1v4lp603xS0d1um', 72.18, 27.51);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9645, 'F4m0t1d1n3', 62.85, 59.01);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9646, 'Pu6m1n364ls4-1n-114-H0u6W346F0und4t10nB604dSp3ct6umSPF15INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(G0LD3ND46K)', 75.63, 19.57);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9646, 'Pu6m1n364ls4-1n-114-H0u6W346F0und4t10nB604dSp3ct6umSPF15(G0LD3ND46K)', 75.63, 19.57);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9647, 'B6y0phyllum4v3n4', 17.58, 82.81);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9648, '0XYC0D0N3HYD60CHL061D3', 71.45, 22.54);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9649, 'SH1S31D0WH1T3LUC3NT', 27.81, 69.77);
@@ -9847,7 +9849,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9847, 'M3D1-F16STN0n-4sp161n3xt64St63ngth', 62.14, 51.95);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9848, '64l0x1f3n3Hyd60chl061d3', 90.76, 25.12);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9849, '4v3l0x4BCP4ck', 88.73, 25.47);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9850, 'Pu6m1n364ls4-1n-114-H0u6W346F0und4t10nB604dSp3ct6umSPF15INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(L1GHTT4N)', 87.07, 30.5);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9850, 'Pu6m1n364ls4-1n-114-H0u6W346F0und4t10nB604dSp3ct6umSPF15(L1GHTT4N)', 87.07, 30.5);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9851, 'F3l0d1p1n3', 79.82, 82.97);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9852, 'L0v4st4t1n', 75.77, 11.65);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9853, '36Y-T4B', 96.68, 15.14);
@@ -9901,7 +9903,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9901, '63n3w4lf06m3n', 82.44, 94.82);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9902, 'p41n63l13f', 94.44, 5.83);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9903, 'st1l4CCc0l06c0663ct1ngb604d-sp3ct6umSPF2008T4N', 71.74, 63.37);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9904, 'N3v1INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(M0l3)C0nt60l', 92.19, 93.28);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9904, 'N3v1(M0l3)C0nt60l', 92.19, 93.28);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9905, 'L0wD0s34sp161n', 60.37, 29.32);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9906, '4NT4C1D', 12.92, 29.71);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9907, '3d3m4-HP', 29.3, 24.13);
@@ -9956,7 +9958,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9956, 'C0pp36t0n3SP06TP60S3613S', 38.59, 42.5);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9957, 'S1mv4st4t1n', 78.4, 43.11);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9958, 'N4P63L4N', 45.83, 89.52);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9959, '4DS0L63dC3llP63s36v4t10nS0lut10nSyst3m1nPl4st1cC0nt41n36INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(PL146Pl4st1c)', 50.02, 51.32);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9959, '4DS0L63dC3llP63s36v4t10nS0lut10nSyst3m1nPl4st1cC0nt41n36(PL146Pl4st1c)', 50.02, 51.32);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9960, 'L0s46t4nP0t4ss1um4ndHyd60chl060th14z1d3', 18.51, 68.01);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9961, 'Flud30xygluc0s3F-18', 67.02, 60.63);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (9962, '16b3s46t4n4ndHyd60chl060th14z1d3', 74.62, 43.42);
@@ -10137,7 +10139,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10137, 'P63dn1S0N3', 24.91, 51.16);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10138, '0xyg3n', 14.91, 19.49);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10139, 'L10thy60n1n3s0d1um', 11.98, 42.84);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10140, 'M3d1Sp4Sunsp64yINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(sunbl0ck)', 24.56, 57.34);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10140, 'M3d1Sp4Sunsp64y(sunbl0ck)', 24.56, 57.34);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10141, 'sm46ts3ns34nt11tch', 50.5, 48.3);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10142, '1bup60f3n', 11.98, 88.77);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10143, '0fl0x4c1n', 50.84, 96.37);
@@ -10482,7 +10484,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10482, 'Z0N1S4M1D3', 76.88, 2.86);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10483, 'V14g64', 69.07, 13.73);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10484, 'D4nd6uff', 6.0, 28.76);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10485, 'S3NS41C0NC34L36INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(B6USHTYP3)', 86.45, 64.48);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10485, 'S3NS41C0NC34L36(B6USHTYP3)', 86.45, 64.48);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10486, 't1z4n1d1n3', 42.73, 58.87);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10487, '61sp361d0n3', 71.91, 50.46);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10488, 'Hyd60chl060th14z1d3', 13.02, 76.63);
@@ -10540,7 +10542,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10540, 'L4u64m36c136T1nt3dM01stu61z36SPF-204lm0nd', 16.77, 13.56);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10541, 'lub61c4t1ngplus', 37.73, 70.45);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10542, 'F63sh061z3', 46.37, 75.6);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10543, 'SH1S31D0SH336M4T1FY1NGC0MP4CTINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 42.82, 46.31);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10543, 'SH1S31D0SH336M4T1FY1NGC0MP4CT(63F1LL)', 42.82, 46.31);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10544, 'Cycl0sp061n3', 55.63, 6.82);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10545, '63juv3n4t320004thl3t1cF06mul4F06M3n', 49.48, 64.78);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10546, 'C063GC6', 68.86, 1.49);
@@ -10662,7 +10664,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10662, 'H34d4ndSh0uld36s21n1', 59.89, 52.39);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10663, 'LB3LF1LL1NG3FF3CTF0UND4T10NSPF10', 43.3, 46.61);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10664, 'Z1p64s1d0n3Hyd60chl061d3', 42.13, 23.83);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10665, '4nt1c04gul4ntC1t64t3Ph0sph4t3D3xt60s3INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(CPD)Bl00d-P4ckUn1ts1nPL146Pl4st1c', 50.64, 21.73);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10665, '4nt1c04gul4ntC1t64t3Ph0sph4t3D3xt60s3(CPD)Bl00d-P4ckUn1ts1nPL146Pl4st1c', 50.64, 21.73);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10666, 'Hyd60c06t1s0n34c3t4t3P64m0x1n3Hcl', 2.12, 93.83);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10667, 'Sh0p61t34nt11tch', 85.71, 85.18);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10668, 'NUG4T0U6C14', 32.94, 37.57);
@@ -10936,7 +10938,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10936, 'B4n4n4B04tSp06tSPF50', 83.69, 41.06);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10937, 'G4b4p3nt1nK1t', 61.65, 69.16);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10938, 'M3p60b4m4t3', 59.82, 63.34);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10939, '4DS0L63dC3llP63s36v4t10nS0lut10nSyst3m1nPl4st1cC0nt41n36INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(PL146Pl4st1c)', 58.93, 31.83);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10939, '4DS0L63dC3llP63s36v4t10nS0lut10nSyst3m1nPl4st1cC0nt41n36(PL146Pl4st1c)', 58.93, 31.83);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10940, 'C4661ngt0nM01stu63B466136', 52.63, 84.06);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10941, 'F366UMPH0SPH4T3', 14.35, 36.96);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (10942, '4LM0STM4K3UP', 55.61, 80.68);
@@ -11154,7 +11156,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11154, '1n-7-0n3', 23.23, 19.88);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11155, 'V1T4LUM1363', 99.96, 20.16);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11156, 'HYD60C0D0N3B1T46T64T34ND4C3T4M1N0PH3N', 48.09, 81.91);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11157, 'SH1S31D04DV4NC3DHYD60-L1QU1DC0MP4CTINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 17.72, 91.75);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11157, 'SH1S31D04DV4NC3DHYD60-L1QU1DC0MP4CT(63F1LL)', 17.72, 91.75);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11158, '1nd0m3th4c1n', 44.75, 84.66);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11159, 'Xyl0c41n3', 17.83, 88.6);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11160, 'Qu36cusC1n1s', 66.45, 31.29);
@@ -11431,7 +11433,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11431, 'M3fl0qu1n3Hyd60chl061d3', 96.49, 71.09);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11432, '4t06v4st4t1nC4lc1um', 22.04, 69.26);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11433, '4nt1-1tch3xt64St63ngth', 34.29, 3.6);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11434, 'SH1S31D04DV4NC3DHYD60-L1QU1DC0MP4CTINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 54.66, 62.5);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11434, 'SH1S31D04DV4NC3DHYD60-L1QU1DC0MP4CT(63F1LL)', 54.66, 62.5);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11435, 'L064t4d1n3', 93.38, 97.08);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11436, 'C0ld4ndFlu', 78.99, 82.5);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11437, 'H1ghP60t3ct10nSunSPF30', 15.92, 51.66);
@@ -11593,7 +11595,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11593, 'M3d1Ch01c3Flu061d3', 5.23, 52.3);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11594, '1m1p64m1n3Hyd60chl061d3', 18.62, 15.05);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11595, 'N06t61ptyl1n3Hyd60chl061d3', 84.63, 23.16);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11596, 'D3xt604mph3t4m1n3S4cch464t3, 4mph3t4m1n34sp46t4t3M0n0hyd64t3, D3xt604mph3t4m1n3Sulf4t34nd4mph3t4m1n3Sulf4t3', 84.79, 18.64);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11596, 'D3xt604mph3t4m1n3s4cch46', 84.79, 18.64);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11597, 'W3lm3d1xH0m3C463P60F64g1l3Sk1nP60t3ct4nt', 18.22, 15.47);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11598, 'P460X3T1N3HYD60CHL061D3', 87.2, 83.53);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11599, 'Fluc0n4z0l3', 59.87, 85.87);
@@ -11674,7 +11676,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11674, '461Sulfu6', 42.64, 51.4);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11675, 'N4p60x3n', 9.49, 33.57);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11676, 'ULT64C3T', 84.08, 46.09);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11677, '', 95.99, 5.45);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11677, 'v3', 95.99, 5.45);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11678, '4nt1s3pt1c', 33.47, 2.56);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11679, 'V1cks4lc0h0lF633NyQu1l', 36.37, 77.19);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11680, 'M3tf06m1nHyd60chl061d3', 7.58, 83.53);
@@ -11823,7 +11825,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11823, 'Bup60p10nHyd60chl061d3', 48.24, 86.66);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11824, '4c3t4m1n0ph3n-4P4P8H0u6', 84.83, 9.67);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11825, '3cz3m4f06c3', 77.78, 48.39);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11826, '4DS0L63dC3llP63s36v4t10nS0lut10nSyst3m1nPl4st1cC0nt41n36INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(PL146Pl4st1c)', 34.47, 31.37);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11826, '4DS0L63dC3llP63s36v4t10nS0lut10nSyst3m1nPl4st1cC0nt41n36(PL146Pl4st1c)', 34.47, 31.37);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11827, '0xyg3n', 34.04, 87.45);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11828, 'P3t60l3umJ3llyw1thL4v3nd364ndV4n1ll4', 5.21, 58.71);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (11829, 'H34lthSm46t4nt1b4ct3614lSp61ng641n', 4.97, 60.39);
@@ -12056,7 +12058,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12056, 'J4s0nS34F63sh4nt1c4v1tySt63ngth3n1ngD33pS34Sp346m1nt', 69.32, 83.13);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12057, 'K3pp64', 60.53, 52.74);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12058, 'CPD/4DS0L', 25.59, 75.12);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12059, '60ughINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63d600t)P1gw33d', 36.81, 98.1);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12059, '60ugh(63d600t)P1gw33d', 36.81, 98.1);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12060, '4ct0s', 49.93, 56.18);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12061, 'Xt64C4631nst4ntH4ndS4n1t1z36', 39.39, 51.94);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12062, '4c3t4m1n0ph3n4ndD1ph3nhyd64m1n3HCl', 62.95, 22.67);
@@ -12117,7 +12119,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12117, 'Flu0x3t1n3Hyd60chl061d3', 28.18, 81.88);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12118, 'D0xycycl1n3Hycl4t3', 34.91, 15.79);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12119, 'L4m0t61g1n33xt3nd3d63l34s3', 21.93, 52.77);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12120, 'C46b4m4z3p1n3INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(Ch3w4bl3)', 22.01, 48.64);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12120, 'C46b4m4z3p1n3(Ch3w4bl3)', 22.01, 48.64);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12121, 'Ch4nt1x', 47.85, 99.97);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12122, 'B36mud4G64ssSmut', 78.52, 3.03);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12123, 'P60m3th4z1n3Hyd60chl061d3', 61.07, 47.14);
@@ -12173,7 +12175,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12173, 'hyd60chl060th14z1d3', 87.06, 61.88);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12174, 'L4v3nd36S4pP4tch', 11.75, 74.05);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12175, 'D1v4lp603xS0d1um', 45.0, 59.09);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12176, 'SH1S31D0PU63N3SSM4T1FY1NGC0MP4CT01L-F633INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 60.27, 2.11);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12176, 'SH1S31D0PU63N3SSM4T1FY1NGC0MP4CT01L-F633(63F1LL)', 60.27, 2.11);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12177, 'Fluc0n4z0l3', 93.11, 75.3);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12178, 'C4pt0p61l', 45.23, 7.17);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12179, '4ct1g3l', 19.7, 36.94);
@@ -12267,7 +12269,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12267, 'N1t60us0x1d3S3d464', 13.96, 40.47);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12268, 'F4m0t1d1n3', 38.48, 33.69);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12269, 'F06muc463T61pl34nt1b10t1c', 39.55, 65.05);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12270, 'SH1S31D0PU63N3SSM4T1FY1NGC0MP4CT01L-F633INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 22.75, 39.71);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12270, 'SH1S31D0PU63N3SSM4T1FY1NGC0MP4CT01L-F633(63F1LL)', 22.75, 39.71);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12271, 'G4tt3x', 78.27, 17.11);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12272, 'C4630n34llD4y4ll36gy', 92.74, 29.66);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12273, 'K4d14n', 94.64, 91.37);
@@ -12394,7 +12396,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12394, '4sp161n', 4.03, 12.37);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12395, '4PH3N4P', 28.06, 62.23);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12396, 'C46v3d1l0l', 6.16, 90.63);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12397, 'CDC4PTU63T0T4L3T61pl3C0663ct1ngS36umF0und4t10nW61nkl3s-D46kSp0ts-64d14nc3w1thsunsc633nB604dSp3ct6umSPF25023', 55.28, 49.05);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12397, 'CDC4PTU63T0T4L3T61pl3C0663ct1ngS36umF0und4t10nW61nkl3s-D46kSp0ts-64d', 55.28, 49.05);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12398, 'T1z4n1d1n3', 27.04, 55.33);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12399, 'V4ls46t4n4ndHyd60chl060th14z1d3', 63.37, 93.35);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12400, 'L3V0FL0X4C1N', 26.09, 40.48);
@@ -12866,19 +12868,19 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12866, 'Fl3x4llP41n63l13v1ng', 25.37, 1.98);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12867, 'S1l4c3', 53.11, 66.76);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12868, 'Su634nt1p36sp164ntD30d064ntF63sh', 95.24, 32.16);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12869, 'SH1S31D0SH336M4T1FY1NGC0MP4CTINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 54.16, 11.02);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12869, 'SH1S31D0SH336M4T1FY1NGC0MP4CT(63F1LL)', 54.16, 11.02);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12870, 'T3ns10nH34d4ch363l13f', 59.99, 72.16);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12871, 'S0lu-M3d60l', 27.53, 20.6);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12872, '4lc0h0lP63pP4dsL1ghtw31ghtN0n-St361l3', 85.87, 20.17);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12873, 'T1NT3DL1PC0ND1T10N36', 25.98, 23.53);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12874, '1NFLU3NZ44INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(H1N1)2009M0N0V4L3NTV4CC1N3', 39.37, 41.53);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12874, '1NFLU3NZ44(H1N1)2009M0N0V4L3NTV4CC1N3', 39.37, 41.53);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12875, '6uss14n0l1v3', 55.93, 18.71);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12876, '1bup60f3n', 60.71, 60.61);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12877, 'L3DUMP4L', 97.44, 94.01);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12878, 'N1z4t1d1n3', 9.11, 79.12);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12879, 'B3LL4D0NN4', 46.18, 93.39);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12880, '0xyc0d0n34nd4c3t4m1n0ph3n', 50.12, 42.54);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12881, 'W3st36nINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(S13664)Jun1p36', 76.01, 11.48);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12881, 'W3st36n(S13664)Jun1p36', 76.01, 11.48);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12882, 'D0cus4t3S0d1um', 34.69, 30.07);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12883, 'M3th0c46b4m0l', 45.92, 56.06);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (12884, 'D3g633W0m3n', 71.62, 31.56);
@@ -13096,7 +13098,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13096, 'Typ311D1zz1n3ssM4x', 18.57, 62.3);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13097, 'FL4WL3SSF1N1SHP36F3CTLYNUD3M4K3UPB604DSP3CT6UMSUNSC633NSPF15SH4D3V4N1LL4SH3LL', 9.52, 98.15);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13098, 'Hyd60c0d0n3B1t46t64t34nd4c3t4m1n0ph3n', 1.37, 85.99);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13099, '', 48.74, 22.24);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13099, 'v3', 48.74, 22.24);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13100, '7s3l3ctd4yt1m363l13f', 80.37, 93.36);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13101, 'Bl4t60lBl4dd3663l13f', 71.73, 16.4);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13102, 'H1ghm46kP60f3ss10n4l4nt1b4ct3614lF04mH4ndw4sh', 46.3, 79.24);
@@ -13381,7 +13383,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13381, 'P1nch0tJun1p36', 73.38, 78.33);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13382, 'K3T060L4CT60M3TH4M1N3', 18.35, 19.61);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13383, 'M1lk0fM4gn3s14061g1n4l', 33.38, 24.25);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13384, '', 47.88, 29.4);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13384, 'v3', 47.88, 29.4);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13385, 'C1t4l0p64m', 56.35, 58.3);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13386, 'B4C-D4nt1b4ct3614lW0unds4n1t1z36', 37.4, 80.34);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13387, '3xt64St63ngthP41n63l13f', 74.4, 99.18);
@@ -13558,7 +13560,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13558, 'N063p1n3ph61n3b1t46t64t3', 40.97, 9.03);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13559, '1sup63l', 20.87, 5.65);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13560, 'L4ntus', 71.19, 88.87);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13561, 'SH1S31D0SUNP60T3CT10NC0MP4CTF0UND4T10NINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 18.09, 87.68);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13561, 'SH1S31D0SUNP60T3CT10NC0MP4CTF0UND4T10N(63F1LL)', 18.09, 87.68);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13562, '4QU4F63SH', 67.25, 98.03);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13563, 'T3lm1s46t4n', 47.0, 14.89);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13564, '4nt1-Bl3m1sh', 40.55, 42.48);
@@ -13587,7 +13589,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13587, 'M3squ1t3', 10.17, 93.9);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13588, 'Flu64z3p4mHyd60chl061d3', 68.72, 28.74);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13589, 'N0TY3TD3F1N3D', 80.04, 39.35);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13590, '', 28.29, 61.85);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13590, 'v3', 28.29, 61.85);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13591, 'Z3NP3P', 18.48, 25.43);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13592, 'Ph3n0b46b1t4l', 62.62, 91.32);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13593, 'Flu0x3t1n3', 19.99, 32.74);
@@ -13689,7 +13691,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13689, 'SunH34d4ch36h3um4t1sm', 65.67, 57.93);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13690, 'Pf1z36p3n', 6.58, 35.79);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13691, 'C63stplusSc0p34nd3xt64wh1t3n1ng', 77.12, 88.73);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13692, 'SH1S31D0SH3364NDP36F3CTC0MP4CTINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 81.43, 82.51);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13692, 'SH1S31D0SH3364NDP36F3CTC0MP4CT(63F1LL)', 81.43, 82.51);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13693, 'F3x0f3n4d1n3Hyd60chl061d3', 79.15, 42.29);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13694, 'C063g', 36.57, 71.19);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13695, 'L0w-0g3st63l', 12.35, 87.34);
@@ -13857,7 +13859,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13857, 'CL461N3X-D12H0U6', 95.44, 27.88);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13858, 'S0fSk1nB4byP3t60l3um', 36.82, 36.16);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13859, 'Chl06d14z3p0x1d3Hyd60chl061d34ndCl1d1n1umB60m1d3', 85.97, 71.54);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13860, 'V4G1-CU63INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(M4X1MUMST63NGTH)', 93.95, 46.57);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13860, 'V4G1-CU63(M4X1MUMST63NGTH)', 93.95, 46.57);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13861, 'L4m0t61g1n3', 37.44, 94.82);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13862, '0xyC0nt1n', 20.39, 59.75);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (13863, 'L3v0thy60x1n3S0d1um', 92.46, 63.68);
@@ -14043,7 +14045,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14043, '46n1c4M0nt4n4', 52.53, 19.35);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14044, 'T634tm3ntS3tTS329227', 47.3, 33.53);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14045, 'F3MC0NF3', 45.19, 84.22);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14046, 'SH1S31D04DV4NC3DHYD60-L1QU1DC0MP4CTINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 78.98, 16.03);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14046, 'SH1S31D04DV4NC3DHYD60-L1QU1DC0MP4CT(63F1LL)', 78.98, 16.03);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14047, 'C63stP60-H34lth', 36.96, 17.58);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14048, 'P0ll3ns-T633s, M4pl3, H46d4c36s4cch46um', 33.4, 39.62);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14049, 'D1l4nt1n', 52.0, 76.55);
@@ -14056,7 +14058,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14056, 'b3nz0n4t4t3', 50.95, 19.76);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14057, 'P0ll3ns-G64ss3s, B4h14G64ssP4sp4lumn0t4tum', 56.25, 90.52);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14058, 'G64n1s3t60nHyd60chl061d3', 4.59, 35.18);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14059, 'SH1S31D04DV4NC3DHYD60-L1QU1DC0MP4CTINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 58.07, 82.79);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14059, 'SH1S31D04DV4NC3DHYD60-L1QU1DC0MP4CT(63F1LL)', 58.07, 82.79);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14060, 'D1l4nt1n', 88.32, 43.39);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14061, '4lbut360lSulf4t3', 99.24, 54.08);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14062, 'Sk1n36upt10ns', 90.54, 33.92);
@@ -14214,7 +14216,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14214, '4d3n0c46d', 32.63, 83.12);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14215, 'C3FU60X1M34X3T1L', 33.21, 40.94);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14216, 'Z3t14', 97.17, 36.08);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14217, 'M46yK4yT1nt3dM01stu61z36Sunsc633nSPF201v06y2INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(D6ugF4cts)', 11.89, 90.82);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14217, 'M46yK4yT1nt3dM01stu61z36Sunsc633nSPF201v06y2(D6ugF4cts)', 11.89, 90.82);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14218, 'D1lt14z3mHyd60chl061d3', 12.32, 38.07);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14219, '4s4c0l', 3.58, 21.85);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14220, 'Ult64Nut61t10n4mp0ul3', 36.47, 75.03);
@@ -14385,7 +14387,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14385, 'P3pc1d4C', 64.36, 91.23);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14386, 'H-Sk1nT4gsF06mul4', 50.33, 27.33);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14387, 'G1ns4m1nH34lth', 9.44, 8.4);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14388, 'Glybu61d3INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(m1c60n1z3d)4ndM3tf06m1nHyd60chl061d3', 12.08, 50.98);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14388, 'Glybu61d3(m1c60n1z3d)4ndM3tf06m1nHyd60chl061d3', 12.08, 50.98);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14389, 'LB3LC0UL3U6LUX34MPL1F136XP', 91.85, 30.61);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14390, 'C461s0p60d0l', 9.89, 73.57);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14391, '4v4l0n06g4n1cs3ss3nt14lL1ftF16m1ngM01stu61z36SPF15', 33.75, 94.41);
@@ -14648,7 +14650,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14648, 'F3CT4b', 35.06, 39.86);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14649, '63flux4ndH346tbu6n', 94.56, 81.6);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14650, 'Synth601d', 71.99, 5.64);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14651, 'H43m0n3t1cs4nt1c04gul4ntC1t64t3Ph0sph4t3D0ubl3D3xt60s3S0lut10nINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(CP2D)', 78.18, 84.05);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14651, 'H43m0n3t1cs4nt1c04gul4ntC1t64t3Ph0sph4t3D0ubl3D3xt60s3S0lut10n(CP2D)', 78.18, 84.05);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14652, 'k16kl4nds1gn4tu63p41n63l13f', 90.68, 65.2);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14653, 'L3flun0m1d3', 44.94, 12.75);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14654, 'F4n4pt', 40.32, 97.33);
@@ -14725,7 +14727,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14725, 'S4N1F04MH4NDS4N1T1Z36', 40.25, 48.51);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14726, 'CVSC00ls1tchF4st', 28.69, 83.58);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14727, 'Sunm46kN4p60x3nS0d1um', 7.08, 76.21);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14728, 'D3xt604mph3t4m1n3S4cch464t3, 4mph3t4m1n34sp46t4t3, D3xt604mph3t4m1n3Sulf4t34nd4mph3t4m1n3Sulf4t3', 40.08, 79.33);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14728, 'D3xt604mph3t4m1n3S4cch464t3, 4mph3t4m1n34sp46t4t3, D3xt604mph3t4m1n', 40.08, 79.33);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14729, 'N4p60x3n', 20.86, 43.65);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14730, '3FF3TP46F41T', 34.14, 60.85);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14731, '4m0x1c1ll1n4ndcl4vul4n4t3p0t4ss1um', 98.69, 10.93);
@@ -14746,7 +14748,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14746, '4lph44lc0h0lF633F04m1ng1nst4ntH4ndS4n1t1z36', 35.98, 36.02);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14747, 'Sm46tS4nH4ndS4n1t1z36', 44.37, 36.55);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14748, 'C46M3X061g1n4ll1pb4lm3XT36N4L4N4LG3S1C', 18.08, 98.79);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14749, 'D3xt604mph3t4m1n3s4cch464t3, 4mph3t4m1n34sp46t4t3m0n0hyd64t3, d3xt604mph3t4m1n3sulf4t34nd4mph3t4m1n3sulf4t3', 89.85, 35.9);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14749, 'D3xt604mph3t4m1n3s4cch46', 89.85, 35.9);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14750, 'T0p164m4t3', 73.73, 4.61);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14751, 'P63dn1S0N3', 2.42, 77.07);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14752, 'L1FTLUM1363', 68.53, 6.53);
@@ -14764,7 +14766,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14764, 'S1mv4st4t1n', 32.45, 37.06);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14765, 'Lun3st4', 80.99, 59.69);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14766, 'C3fu60x1m3', 63.89, 91.06);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14767, '4DS0L63dC3llP63s36v4t10nS0lut10nSyst3m1nPl4st1cC0nt41n36INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(PL146Pl4st1c)', 26.18, 51.98);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14767, '4DS0L63dC3llP63s36v4t10nS0lut10nSyst3m1nPl4st1cC0nt41n36(PL146Pl4st1c)', 26.18, 51.98);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14768, '064ng3Bl0ss0m4nt1b4ct3614lF04m1ngH4ndW4sh', 62.24, 14.54);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14769, 'N07B34ut1fullyM4tt3F0und4t10nSunsc633nB604dSp3ct6umSPF15M0ch4', 3.31, 59.65);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (14770, 'S0d1umChl061d3', 23.54, 22.48);
@@ -15022,7 +15024,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15022, 'F63shM3dS0lut10n', 64.66, 17.67);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15023, 'C461s0p60d0l, 4sp161n4ndC0d31n3Ph0sph4t3', 29.57, 76.17);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15024, 'M46yK4ySunc463Sunsc633nB604dSp3ct6umSPF50', 3.02, 86.18);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15025, 'SH1S31D0SH3364NDP36F3CTC0MP4CTINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 49.28, 25.39);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15025, 'SH1S31D0SH3364NDP36F3CTC0MP4CT(63F1LL)', 49.28, 25.39);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15026, 'L34d3646th61t1sP41n', 29.3, 43.18);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15027, 'L3v0thy60x1n3S0d1um', 5.71, 27.1);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15028, '3qu4t346th61t1sp41n', 37.36, 27.83);
@@ -15187,7 +15189,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15187, 'Myf06t1c', 84.6, 50.8);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15188, 'Z1p64s1d0n3Hyd60chl061d3', 40.79, 98.69);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15189, '0xc46b4z3p1n3', 72.68, 73.33);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15190, '4nt1n440INSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(Numb3648)', 93.9, 91.74);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15190, '4nt1n440(Numb3648)', 93.9, 91.74);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15191, 'T0lt360d1n3T46t64t33xt3nd3d63l34s3', 80.51, 56.96);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15192, '3CZ3M44NDPS0614S1SF633', 92.28, 27.96);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15193, 'D3g633', 1.92, 23.51);
@@ -15227,7 +15229,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15227, 'C1t4l0p64m', 38.8, 25.75);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15228, 'C04stM4pl3', 46.54, 74.33);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15229, '0xyg3n', 56.79, 71.43);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15230, 'SH1S31D0TH3M4K3UPSH336M4T1FY1NGC0MP4CTINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 3.79, 81.74);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15230, 'SH1S31D0TH3M4K3UPSH336M4T1FY1NGC0MP4CT(63F1LL)', 3.79, 81.74);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15231, '60p1n160l3', 13.92, 20.57);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15232, 'H4lls', 98.94, 71.06);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15233, '1bup60f3n', 11.99, 19.07);
@@ -15366,7 +15368,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15366, 'ST4ND46D1Z3D63DT0PG64SSP0LL3N', 54.95, 21.62);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15367, '634dyb4thTPC', 65.39, 90.59);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15368, 'M3th1m4z0l3', 1.23, 98.36);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15369, 'SH1S31D0SH3364NDP36F3CTC0MP4CTINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(63F1LL)', 24.88, 14.03);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15369, 'SH1S31D0SH3364NDP36F3CTC0MP4CT(63F1LL)', 24.88, 14.03);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15370, 'Fu60s3m1d3', 66.84, 42.94);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15371, 'Typ37St63ss4nx13ty63gul46', 34.58, 67.08);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15372, '4ml0d1p1n3B3syl4t3', 43.28, 83.97);
@@ -15706,7 +15708,7 @@ INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VA
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15706, 'SP41-S0NS', 33.04, 71.43);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15707, 'Pl30P0lyT', 24.79, 58.19);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15708, 'D1py61d4m0l3', 12.48, 48.27);
-INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15709, '1ns3ctsINSERTINTOINGREDIENT_STOCK(IngrStockID, Title, WeightAvail, WeightMissing)VALUES(wh0l3b0dy), F1634ntM1x', 1.44, 94.17);
+INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15709, '1ns3cts(wh0l3b0dy), F1634ntM1x', 1.44, 94.17);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15710, '4QU4F63SH', 59.72, 28.97);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15711, 'B0T4N1C4LV4N1LL4', 17.14, 2.55);
 INSERT INTO INGREDIENT_STOCK (IngrStockID, Title, WeightAvail, WeightMissing) VALUES (15712, 'L1lD6ugSt063N0Sn00z3', 72.31, 93.22);

@@ -1,3 +1,5 @@
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
+
 INSERT INTO RECIPE_DUTY (employeeid, recipeid, dutydescription) VALUES (497, 4171, 'sempraesent');
 INSERT INTO RECIPE_DUTY (employeeid, recipeid, dutydescription) VALUES (514, 4426, 'sagittissapien');
 INSERT INTO RECIPE_DUTY (employeeid, recipeid, dutydescription) VALUES (223, 5233, 'diam');
