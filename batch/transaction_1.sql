@@ -1,8 +1,9 @@
 -- #1 RECORD DISH ORDER
 -- Measuring time
 set serveroutput on
-variable n number
+var n number
 exec :n := dbms_utility.get_time
+
 /
 ALTER SYSTEM FLUSH BUFFER_CACHE;
 /
@@ -66,7 +67,11 @@ SET TRANSACTION NAME 'REC_DISH';
             VALUES ((SELECT CURRENT_DATE FROM DUAL), amount, recipe_id);
         END IF;
     END;
+/
 COMMIT;
 
-exec :n := (dbms_utility.get_time - :n)/100
-exec dbms_output.put_line('Execution time '||:n||' sec')
+BEGIN
+  :n := (dbms_utility.get_time - :n)/100;
+  DBMS_OUTPUT.PUT_LINE('Execution time '||:n||' sec');
+END;
+/

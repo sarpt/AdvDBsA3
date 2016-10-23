@@ -63,7 +63,11 @@ SET TRANSACTION NAME 'HIRE_CHEF';
             VALUES (tmp_s, 9, 17, '20/10/2016', tmp);
         END IF;
     END;
+/
 COMMIT; 
-   
-exec :n := (dbms_utility.get_time - :n)/100
-exec dbms_output.put_line('Execution time '||:n||' sec')
+
+BEGIN   
+  :n := (dbms_utility.get_time - :n)/100;
+  dbms_output.put_line('Execution time '||:n||' sec');
+END;
+/
