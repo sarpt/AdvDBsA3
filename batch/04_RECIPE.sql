@@ -1,3 +1,5 @@
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
+
 INSERT INTO RECIPE (recipeid, title, recipeflow, price, datecreated) VALUES (1, 'nulla', 'Duisatveliteuestcongueelementum.Inhachabitasseplateadictumst.', 970.96, '31/03/1999');
 INSERT INTO RECIPE (recipeid, title, recipeflow, price, datecreated) VALUES (2, 'id', 'Inhachabitasseplateadictumst.Aliquamauguequam, sollicitudinvitae, consectetuereget, rutrumat, lorem.Integertinciduntantevelipsum.Praesentblanditlaciniaerat.Vestibulumsedmagnaatnunccommodoplacerat.', 374.01, '07/09/1991');
 INSERT INTO RECIPE (recipeid, title, recipeflow, price, datecreated) VALUES (3, 'vehicula', 'Morbinonlectus.Aliquamsitametdiaminmagnabibendumimperdiet.Nullamorcipede, venenatisnon, sodalessed, tincidunteu, felis.Fusceposuerefelissedlacus.Morbisemmauris, laoreetut, rhoncusaliquet, pulvinarsed, nisl.', 480.02, '27/01/1996');

@@ -1,3 +1,5 @@
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
+
 INSERT INTO POSITION (PositionID, Title, Salary) VALUES (1, 'Banquetmanager', 20495);
 INSERT INTO POSITION (PositionID, Title, Salary) VALUES (2, 'Bartender', 38651);
 INSERT INTO POSITION (PositionID, Title, Salary) VALUES (3, 'Beveragemanager', 31989);

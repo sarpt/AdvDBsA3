@@ -2,6 +2,8 @@
 -- by given period and increase his salary
 set serveroutput on
 variable n number
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
+/
 exec :n := dbms_utility.get_time
 /
 ALTER SYSTEM FLUSH BUFFER_CACHE;
@@ -47,5 +49,8 @@ SET TRANSACTION NAME 'FIND_CHEF';
         );
 COMMIT;
 
-exec :n := (dbms_utility.get_time - :n)/100
-exec dbms_output.put_line('Execution time '||:n||' sec')
+BEGIN
+  :n := (dbms_utility.get_time - :n)/100;
+  dbms_output.put_line('Execution time '||:n||' sec');
+END;
+/

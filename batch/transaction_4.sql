@@ -126,7 +126,11 @@ SET TRANSACTION NAME 'REQ_SUP';
             ROLLBACK;
         END IF;
     END;
+/
 COMMIT;
     
-exec :n := (dbms_utility.get_time - :n)/100
-exec dbms_output.put_line('Execution time '||:n||' sec')
+BEGIN
+  :n := (dbms_utility.get_time - :n)/100;
+  dbms_output.put_line('Execution time '||:n||' sec');
+END;
+/

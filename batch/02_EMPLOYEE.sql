@@ -1,3 +1,5 @@
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
+
 INSERT INTO EMPLOYEE (employeeid, firstname, lastname, datecontractfin, positionid) VALUES (1, 'Martha', 'Reid', '17/10/2019', 21);
 INSERT INTO EMPLOYEE (employeeid, firstname, lastname, datecontractfin, positionid) VALUES (2, 'Michael', 'Brown', '22/04/2017', 14);
 INSERT INTO EMPLOYEE (employeeid, firstname, lastname, datecontractfin, positionid) VALUES (3, 'Brian', 'Bennett', '08/08/2018', 2);

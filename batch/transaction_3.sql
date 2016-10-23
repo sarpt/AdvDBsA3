@@ -30,7 +30,11 @@ SET TRANSACTION NAME 'MENU_AVAIL';
             WHERE RECIPEID = recipe.RECIPEID;
         END IF;						
     END;
+/
 COMMIT;
 
-exec :n := (dbms_utility.get_time - :n)/100
-exec dbms_output.put_line('Execution time '||:n||' sec')
+BEGIN
+  :n := (dbms_utility.get_time - :n)/100;
+  dbms_output.put_line('Execution time '||:n||' sec');
+END;
+/
