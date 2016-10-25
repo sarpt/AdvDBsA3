@@ -8,46 +8,78 @@ COMMIT;
 
 set serveroutput on
 variable n number
+
 ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
 /
-exec :n := dbms_utility.get_time
-/
+exec :n := dbms_utility.get_time;
 
-SET TRANSACTION NAME 'FIND_CHEF';
-    WITH t1 AS
-    (
-        SELECT E.EMPLOYEEID, 
-               E.FIRSTNAME, 
-               E.LASTNAME,
-               P.SALARY,
-               P.TITLE,
-               COUNT(CL.RECIPEID) AS RECIPECOUNT 
-        FROM COOK_LOG CL
-        INNER JOIN RECIPE R
-        ON R.RECIPEID = CL.RECIPEID
-        INNER JOIN RECIPE_DUTY RD
-        ON RD.RECIPEID = CL.RECIPEID
-        INNER JOIN EMPLOYEE E
-        ON RD.EMPLOYEEID = E.EMPLOYEEID
-        INNER JOIN POSITION P
-        ON P.POSITIONID = E.POSITIONID
-        WHERE UPPER(P.TITLE) LIKE '%COOK%'
-        AND CL.DATESOLD BETWEEN '10/11/2016' AND '10/12/2016' 
-        GROUP BY E.EMPLOYEEID, E.FIRSTNAME, E.LASTNAME, P.SALARY, P.TITLE
-        ORDER BY COUNT(R.RECIPEID) DESC
-    )                         
-    SELECT EMPLOYEEID, 
-            LASTNAME,
-            FIRSTNAME,
-            RECIPECOUNT,
-            SALARY,
-            TITLE
-    FROM t1
-    WHERE RECIPECOUNT >= 
-        (
-            SELECT MAX(RECIPECOUNT)
-            FROM t1
-        );
+SET TRANSACTION NAME 'CALCULATE_MONTHS_BALANCE';
+DECLARE
+  start_date DATE := '20/01/2015';
+  end_date DATE := '20/01/2018';
+  chef_money_spent NUMBER;
+  supply_money_spent NUMBER;
+  resource_money_income NUMBER;
+  price NUMBER;
+BEGIN
+
+  -- calculate money spent on chefs
+  SELECT SUM(SALARY) * months_between(end_date, start_date) INTO chef_money_spent
+  FROM (
+    SELECT * 
+    FROM EMPLOYEE E
+    INNER JOIN POSITION P
+    ON E.POSITIONID = P.POSITIONID
+    WHERE DATECONTRACTFIN <= end_date
+    AND DATECONTRACTFIN >= start_date
+    AND UPPER(P.TITLE) LIKE '%COOK%'
+  );
+  
+  dbms_output.put_line('Money spent on chefs: '||chef_money_spent||'');
+  -- calculate money spent on supplies
+  
+  SELECT SUM(PRICE) INTO supply_money_spent
+  FROM SUPPLY_REQUEST X  
+  INNER JOIN SUPPLIER_STOCK V
+  ON X.INGRSTOCKID = V.INGRSTOCKID
+  WHERE V.PRICE = (            
+              SELECT PRICE 
+              FROM SUPPLIER_STOCK T3
+              INNER JOIN SUPPLIER S3
+              ON S3.SUPPLIERID = T3.SUPPLIERID
+              WHERE T3.PRICE = (
+                            SELECT MIN(PRICE)
+                            FROM SUPPLIER S2
+                            INNER JOIN SUPPLIER_STOCK T2
+                            ON S2.SUPPLIERID = T2.SUPPLIERID
+                            WHERE S2.RELIABILITY = (
+                                                    SELECT MAX(S1.RELIABILITY)
+                                                    FROM SUPPLIER_STOCK T1
+                                                    INNER JOIN SUPPLIER S1
+                                                    ON T1.SUPPLIERID = S1.SUPPLIERID
+                                                    WHERE T1.INGRSTOCKID = T2.INGRSTOCKID
+                                                    )
+                            AND T2.INGRSTOCKID = T3.INGRSTOCKID
+                            )
+              AND T3.INGRSTOCKID = X.INGRSTOCKID
+  )
+  AND X.STATE = 'SATISFIED'
+  AND X.DATEREQUEST <= end_date
+  AND X.DATEREQUEST >= start_date;
+  
+  dbms_output.put_line('Money spent on resources: '||supply_money_spent||'');
+  
+  -- get income from resources
+  SELECT SUM(TOTAL) INTO resource_money_income
+  FROM RESOURCES
+  WHERE DATERECEIVED <= end_date
+  AND DATERECEIVED >= start_date;
+  
+  dbms_output.put_line('Money received: '||resource_money_income||'');
+  
+  --dbms_output.put_line('Balance: '||resource_money_income - chef_money_spent||'');
+END;
+/
 COMMIT;
 
 BEGIN
