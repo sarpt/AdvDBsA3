@@ -2,15 +2,14 @@
 -- Measuring time
 set serveroutput on
 var n number
-exec :n := dbms_utility.get_time
 
-/
 ALTER SYSTEM FLUSH BUFFER_CACHE;
 /
 ALTER SYSTEM FLUSH SHARED_POOL;
 /
 COMMIT;
 
+exec :n := dbms_utility.get_time
 SET TRANSACTION NAME 'REC_DISH';
     DECLARE
         recipe_id		NUMBER := 297;

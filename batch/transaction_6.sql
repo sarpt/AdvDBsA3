@@ -1,14 +1,14 @@
 -- #6 Remove worst Chef:	
 set serveroutput on
 variable n number
-exec :n := dbms_utility.get_time
-/
+
 ALTER SYSTEM FLUSH BUFFER_CACHE;
 /
 ALTER SYSTEM FLUSH SHARED_POOL;
 /
 COMMIT;
 
+exec :n := dbms_utility.get_time
 SET TRANSACTION NAME 'REM_CHEF';
     DECLARE        
         chef_id NUMBER;
