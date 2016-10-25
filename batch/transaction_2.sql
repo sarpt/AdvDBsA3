@@ -11,16 +11,16 @@ variable n number
 
 ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
 /
-exec :n := dbms_utility.get_time
-/
+exec :n := dbms_utility.get_time;
 
 SET TRANSACTION NAME 'CALCULATE_MONTHS_BALANCE';
 DECLARE
-  start_date DATE := '20/01/2018';
-  end_date DATE := '20/10/2018';
+  start_date DATE := '20/01/2015';
+  end_date DATE := '20/01/2018';
   chef_money_spent NUMBER;
   supply_money_spent NUMBER;
   resource_money_income NUMBER;
+  price NUMBER;
 BEGIN
 
   -- calculate money spent on chefs
@@ -38,6 +38,36 @@ BEGIN
   dbms_output.put_line('Money spent on chefs: '||chef_money_spent||'');
   -- calculate money spent on supplies
   
+  SELECT SUM(PRICE) INTO supply_money_spent
+  FROM SUPPLY_REQUEST X  
+  INNER JOIN SUPPLIER_STOCK V
+  ON X.INGRSTOCKID = V.INGRSTOCKID
+  WHERE V.PRICE = (            
+              SELECT PRICE 
+              FROM SUPPLIER_STOCK T3
+              INNER JOIN SUPPLIER S3
+              ON S3.SUPPLIERID = T3.SUPPLIERID
+              WHERE T3.PRICE = (
+                            SELECT MIN(PRICE)
+                            FROM SUPPLIER S2
+                            INNER JOIN SUPPLIER_STOCK T2
+                            ON S2.SUPPLIERID = T2.SUPPLIERID
+                            WHERE S2.RELIABILITY = (
+                                                    SELECT MAX(S1.RELIABILITY)
+                                                    FROM SUPPLIER_STOCK T1
+                                                    INNER JOIN SUPPLIER S1
+                                                    ON T1.SUPPLIERID = S1.SUPPLIERID
+                                                    WHERE T1.INGRSTOCKID = T2.INGRSTOCKID
+                                                    )
+                            AND T2.INGRSTOCKID = T3.INGRSTOCKID
+                            )
+              AND T3.INGRSTOCKID = X.INGRSTOCKID
+  )
+  AND X.STATE = 'SATISFIED'
+  AND X.DATEREQUEST <= end_date
+  AND X.DATEREQUEST >= start_date;
+  
+  dbms_output.put_line('Money spent on resources: '||supply_money_spent||'');
   
   -- get income from resources
   SELECT SUM(TOTAL) INTO resource_money_income
@@ -47,7 +77,7 @@ BEGIN
   
   dbms_output.put_line('Money received: '||resource_money_income||'');
   
-  dbms_output.put_line('Balance: '||resource_money_income - chef_money_spent - supply_money_spent||'');
+  --dbms_output.put_line('Balance: '||resource_money_income - chef_money_spent||'');
 END;
 /
 COMMIT;
