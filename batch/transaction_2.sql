@@ -1,16 +1,17 @@
 -- #2 Find cook that cooked highest num of recipes 
 -- by given period and increase his salary
+ALTER SYSTEM FLUSH BUFFER_CACHE;
+/
+ALTER SYSTEM FLUSH SHARED_POOL;
+/
+COMMIT;
+
 set serveroutput on
 variable n number
 ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
 /
 exec :n := dbms_utility.get_time
 /
-ALTER SYSTEM FLUSH BUFFER_CACHE;
-/
-ALTER SYSTEM FLUSH SHARED_POOL;
-/
-COMMIT;
 
 SET TRANSACTION NAME 'FIND_CHEF';
     WITH t1 AS
