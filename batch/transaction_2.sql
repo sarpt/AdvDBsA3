@@ -1,5 +1,5 @@
--- #2 Find cook that cooked highest num of recipes 
--- by given period and increase his salary
+-- #2 Calculate balance for given period of time
+
 set serveroutput on
 variable n number
 
@@ -12,41 +12,43 @@ ALTER SYSTEM FLUSH SHARED_POOL;
 COMMIT;
 
 exec :n := dbms_utility.get_time
-SET TRANSACTION NAME 'FIND_CHEF';
-    WITH t1 AS
-    (
-        SELECT E.EMPLOYEEID, 
-               E.FIRSTNAME, 
-               E.LASTNAME,
-               P.SALARY,
-               P.TITLE,
-               COUNT(CL.RECIPEID) AS RECIPECOUNT 
-        FROM COOK_LOG CL
-        INNER JOIN RECIPE R
-        ON R.RECIPEID = CL.RECIPEID
-        INNER JOIN RECIPE_DUTY RD
-        ON RD.RECIPEID = CL.RECIPEID
-        INNER JOIN EMPLOYEE E
-        ON RD.EMPLOYEEID = E.EMPLOYEEID
-        INNER JOIN POSITION P
-        ON P.POSITIONID = E.POSITIONID
-        WHERE UPPER(P.TITLE) LIKE '%COOK%'
-        AND CL.DATESOLD BETWEEN '10/11/2016' AND '10/12/2016' 
-        GROUP BY E.EMPLOYEEID, E.FIRSTNAME, E.LASTNAME, P.SALARY, P.TITLE
-        ORDER BY COUNT(R.RECIPEID) DESC
-    )                         
-    SELECT EMPLOYEEID, 
-            LASTNAME,
-            FIRSTNAME,
-            RECIPECOUNT,
-            SALARY,
-            TITLE
-    FROM t1
-    WHERE RECIPECOUNT >= 
-        (
-            SELECT MAX(RECIPECOUNT)
-            FROM t1
-        );
+
+SET TRANSACTION NAME 'CALCULATE_MONTHS_BALANCE';
+DECLARE
+  start_date DATE := '20/01/2018';
+  end_date DATE := '20/10/2018';
+  chef_money_spent NUMBER;
+  supply_money_spent NUMBER;
+  resource_money_income NUMBER;
+BEGIN
+
+  -- calculate money spent on chefs
+  SELECT SUM(SALARY) * months_between(end_date, start_date) INTO chef_money_spent
+  FROM (
+    SELECT * 
+    FROM EMPLOYEE E
+    INNER JOIN POSITION P
+    ON E.POSITIONID = P.POSITIONID
+    WHERE DATECONTRACTFIN <= end_date
+    AND DATECONTRACTFIN >= start_date
+    AND UPPER(P.TITLE) LIKE '%COOK%'
+  );
+  
+  dbms_output.put_line('Money spent on chefs: '||chef_money_spent||'');
+  -- calculate money spent on supplies
+  
+  
+  -- get income from resources
+  SELECT SUM(TOTAL) INTO resource_money_income
+  FROM RESOURCES
+  WHERE DATERECEIVED <= end_date
+  AND DATERECEIVED >= start_date;
+  
+  dbms_output.put_line('Money received: '||resource_money_income||'');
+  
+  dbms_output.put_line('Balance: '||resource_money_income - chef_money_spent - supply_money_spent||'');
+END;
+/
 COMMIT;
 
 BEGIN
