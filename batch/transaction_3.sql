@@ -1,15 +1,15 @@
 -- #3 Check if the whole menu is available
-set serveroutput on
-variable n number
-
-
 ALTER SYSTEM FLUSH BUFFER_CACHE;
 /
 ALTER SYSTEM FLUSH SHARED_POOL;
 /
 COMMIT;
 
+set serveroutput on
+variable n number
 exec :n := dbms_utility.get_time
+/
+
 SET TRANSACTION NAME 'MENU_AVAIL';
     DECLARE
         ing_count NUMBER := 0;

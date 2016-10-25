@@ -1,17 +1,18 @@
--- #2 Calculate balance for given period of time
-
-set serveroutput on
-variable n number
-
-ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
-/
+-- #2 Find cook that cooked highest num of recipes 
+-- by given period and increase his salary
 ALTER SYSTEM FLUSH BUFFER_CACHE;
 /
 ALTER SYSTEM FLUSH SHARED_POOL;
 /
 COMMIT;
 
+set serveroutput on
+variable n number
+
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
+/
 exec :n := dbms_utility.get_time
+/
 
 SET TRANSACTION NAME 'CALCULATE_MONTHS_BALANCE';
 DECLARE
