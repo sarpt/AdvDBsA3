@@ -44,6 +44,10 @@ SET TRANSACTION NAME 'MENU_AVAIL';
                     
                     INSERT INTO SUPPLY_REQUEST(REQUESTID, INGRSTOCKID, DATEREQUEST, STATE)
                     VALUES (tmp, ingr.INGRSTOCKID, (SELECT CURRENT_DATE FROM DUAL), 'UNSATISFIED');
+                ELSE
+                    UPDATE RECIPE
+                    SET STATE = 'AVAILABLE'
+                    WHERE RECIPEID = rec.RECIPEID;
                 END IF;
             END LOOP;
         END LOOP;
