@@ -15,7 +15,13 @@ SET TRANSACTION NAME 'REQ_SUP';
     DECLARE
         total_sup_price DECIMAL;
         total_res       DECIMAL;
-        best_sup_rel    NUMBER;    
+        total_outcome   DECIMAL;
+        
+        best_sup_rel    NUMBER;   
+        tmp             NUMBER;
+        
+        tmp_cost        DECIMAL;
+        tmp_weight      NUMBER;
     BEGIN
         -- calc total supply price
         SELECT SUM(PRICE) INTO total_sup_price
@@ -66,8 +72,14 @@ SET TRANSACTION NAME 'REQ_SUP';
 		dbms_output.put_line('Total cost of the supply: '||total_sup_price||'');
 		
         -- satisfy the supply if there are sufficient resources
-        SELECT SUM(TOTAL) INTO total_res
-        FROM resources;
+        -- total_outcome
+        SELECT SUM(TOTAL) INTO total_outcome
+        FROM resources res
+        WHERE UPPER(res.TYPE) = 'TRANSFER';
+        
+        SELECT SUM(TOTAL) - total_outcome INTO total_res
+        FROM resources res        
+        WHERE UPPER(res.TYPE) IN ('PAYMENT', 'INVESTMENT'); 
 		
 		dbms_output.put_line('Total resources available: '||total_res||'');
         
@@ -114,11 +126,32 @@ SET TRANSACTION NAME 'REQ_SUP';
                 ORDER BY t1.INGRSTOCKID ASC
             )
             LOOP
+                -- update RESOURCES so we paid for the supply
+                SELECT MAX(RESOURCEID) + 1 INTO tmp
+                FROM resources;
+                
+                SELECT WEIGHTMISSING INTO tmp_weight
+                FROM ingredient_stock T
+                WHERE T.INGRSTOCKID = sup_ingr.INGRSTOCKID;
+                
+                SELECT PRICE INTO tmp_cost
+                FROM supplier_stock T
+                WHERE T.SUPPLIERID = sup_ingr.SUPPLIERID;  
+                                
+                INSERT INTO resources
+                VALUES (tmp, (SELECT CURRENT_DATE FROM DUAL), tmp_cost * tmp_weight,'Transfer');
+
+                -- update INGREDIENT_STOCK so now we have enough
+                UPDATE ingredient_stock
+                SET WEIGHTAVAIL = WEIGHTAVAIL + WEIGHTMISSING,
+                    WEIGHTMISSING = 0.0                
+                WHERE INGRSTOCKID = sup_ingr.INGRSTOCKID;
+
                 -- we made request so it is satisfied
                 UPDATE supply_request
                 SET STATE = 'SATISFIED'
-                WHERE REQUESTID = sup_ingr.REQUESTID;    
-                
+                WHERE REQUESTID = sup_ingr.REQUESTID;
+                                                                                
                 -- inc reliability of the supplier
                 SELECT RELIABILITY INTO best_sup_rel
                 FROM supplier sup
