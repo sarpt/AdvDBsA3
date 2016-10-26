@@ -56,28 +56,26 @@ SET TRANSACTION NAME 'REM_CHEF';
 				
 		dbms_output.put_line('Worst chef id: '||chef_id);
                 
-        if num_of_chefs_for_recipee != 0 then
-            UPDATE RECIPE
-            SET STATE = 'UNAVAILABLE'
-            WHERE RECIPEID IN 
-                              (
-                              SELECT rec3.RECIPEID
-                              FROM RECIPE rec3
-                              INNER JOIN RECIPE_DUTY rd3
-                              ON rec3.RECIPEID = rd3.RECIPEID
-                              WHERE ( 
-                                      SELECT COUNT(*)
-                                      FROM RECIPE rec2
-                                      INNER JOIN RECIPE_DUTY rd2
-                                      ON rec2.RECIPEID = rd2.RECIPEID
-                                      INNER JOIN EMPLOYEE emp2     
-                                      ON rd2.EMPLOYEEID = emp2.EMPLOYEEID
-                                      WHERE emp2.EMPLOYEEID != chef_id
-                                      AND rec2.RECIPEID = rec3.RECIPEID
-                              ) = 0
-                              AND rd3.EMPLOYEEID = chef_id
-        );
-        end if;
+        UPDATE RECIPE
+        SET STATE = 'UNAVAILABLE'
+        WHERE RECIPEID IN 
+                          (
+                          SELECT rec3.RECIPEID
+                          FROM RECIPE rec3
+                          INNER JOIN RECIPE_DUTY rd3
+                          ON rec3.RECIPEID = rd3.RECIPEID
+                          WHERE ( 
+                                  SELECT COUNT(*)
+                                  FROM RECIPE rec2
+                                  INNER JOIN RECIPE_DUTY rd2
+                                  ON rec2.RECIPEID = rd2.RECIPEID
+                                  INNER JOIN EMPLOYEE emp2     
+                                  ON rd2.EMPLOYEEID = emp2.EMPLOYEEID
+                                  WHERE emp2.EMPLOYEEID != chef_id
+                                  AND rec2.RECIPEID = rec3.RECIPEID
+                          ) = 0
+                          AND rd3.EMPLOYEEID = chef_id
+    );
         /*
         DELETE FROM RECIPE_DUTY
         WHERE EMPLOYEEID = chef_id;       
