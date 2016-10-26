@@ -50,6 +50,8 @@ SET TRANSACTION NAME 'REM_CHEF';
                 FROM t1
             )
         AND ROWNUM = 1;
+				
+		dbms_output.put_line('Worst chef id: '||chef_id);
 
         UPDATE RECIPE
         SET STATE = 'UNAVAILABLE'

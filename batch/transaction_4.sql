@@ -62,9 +62,14 @@ SET TRANSACTION NAME 'REQ_SUP';
             GROUP BY t1.SUPPLIERID, t1.INGRSTOCKID, t1.REQUESTID, t1.PRICE
             ORDER BY t1.INGRSTOCKID ASC
         );
+		
+		dbms_output.put_line('Total cost of the supply: '||total_sup_price||'');
+		
         -- satisfy the supply if there are sufficient resources
         SELECT SUM(TOTAL) INTO total_res
         FROM resources;
+		
+		dbms_output.put_line('Total resources available: '||total_res||'');
         
         IF total_sup_price < total_res THEN
             FOR sup_ingr IN 

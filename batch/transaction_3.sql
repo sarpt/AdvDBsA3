@@ -20,6 +20,8 @@ SET TRANSACTION NAME 'MENU_AVAIL';
         ON IGS.INGRSTOCKID = IG.INGRSTOCKID
         WHERE IG.RECIPEID IN (SELECT RECIPEID FROM RECIPE)
         AND IG.WEIGHTRECP > IGS.WEIGHTAVAIL;
+		
+		dbms_output.put_line('Number of unavailable ingredients: '||ing_count||'');
             
         IF ing_count > 0 THEN
             -- set recipe as unavailable

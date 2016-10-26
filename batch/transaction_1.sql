@@ -44,6 +44,8 @@ SET TRANSACTION NAME 'REC_DISH';
         AND UPPER(P.TITLE) LIKE '%COOK%'
         AND S.DAYSTART < recipe_hour
         AND S.DAYFIN > recipe_hour;
+		
+		dbms_output.put_line('Number of chefs available: '||chefs_avail||'');
         
         -- check if we have enough in stocks
         SELECT MAX(WEIGHTMISSING) INTO missing_buf
@@ -53,6 +55,8 @@ SET TRANSACTION NAME 'REC_DISH';
             FROM INGREDIENT
             WHERE RECIPEID = recipe_id
         );
+		
+		dbms_output.put_line('Maximum missing weight of ingredient (all should be available so max=0): '||missing_buf||'');
         
         IF missing_buf = 0.0 AND chefs_avail > 0 THEN		
             -- record payment

@@ -50,6 +50,9 @@ SET TRANSACTION NAME 'HIRE_CHEF';
         SELECT SUM(TOTAL) INTO total_res
         FROM RESOURCES
         WHERE DATERECEIVED > '20/10/2016';
+		
+		dbms_output.put_line('Total salaries with new one: '||total_sal_pay||'');
+		dbms_output.put_line('Total resources available: '||total_res||'');
         
         IF total_res > total_sal_pay THEN
             -- hire the chef        
