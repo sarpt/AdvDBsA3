@@ -1,4 +1,6 @@
--- #6 Remove worst Chef:	
+-- #6 Remove worst Chef
+ALTER SESSION SET NLS_DATE_FORMAT = 'DD-MM-YYYY';
+/
 ALTER SYSTEM FLUSH BUFFER_CACHE;
 /
 ALTER SYSTEM FLUSH SHARED_POOL;
@@ -53,28 +55,28 @@ SET TRANSACTION NAME 'REM_CHEF';
         AND ROWNUM = 1;
 				
 		dbms_output.put_line('Worst chef id: '||chef_id);
-        
-        SELECT COUNT(*) INTO num_of_chefs_for_recipee
-        FROM RECIPE rec
-        INNER JOIN RECIPE_DUTY rd
-        ON rec.RECIPEID = rd.RECIPEID
-        INNER JOIN EMPLOYEE emp        
-        ON rd.EMPLOYEEID = emp.EMPLOYEEID
-        WHERE emp.EMPLOYEEID != chef_id;
-
+                
         if num_of_chefs_for_recipee != 0 then
             UPDATE RECIPE
             SET STATE = 'UNAVAILABLE'
             WHERE RECIPEID IN 
-            (
-                SELECT rec.RECIPEID
-                FROM RECIPE rec
-                INNER JOIN RECIPE_DUTY rd
-                ON rec.RECIPEID = rd.RECIPEID
-                INNER JOIN EMPLOYEE emp        
-                ON rd.EMPLOYEEID = emp.EMPLOYEEID
-                WHERE emp.EMPLOYEEID = chef_id
-            );
+                              (
+                              SELECT rec3.RECIPEID
+                              FROM RECIPE rec3
+                              INNER JOIN RECIPE_DUTY rd3
+                              ON rec3.RECIPEID = rd3.RECIPEID
+                              WHERE ( 
+                                      SELECT COUNT(*)
+                                      FROM RECIPE rec2
+                                      INNER JOIN RECIPE_DUTY rd2
+                                      ON rec2.RECIPEID = rd2.RECIPEID
+                                      INNER JOIN EMPLOYEE emp2     
+                                      ON rd2.EMPLOYEEID = emp2.EMPLOYEEID
+                                      WHERE emp2.EMPLOYEEID != chef_id
+                                      AND rec2.RECIPEID = rec3.RECIPEID
+                              ) = 0
+                              AND rd3.EMPLOYEEID = chef_id
+        );
         end if;
         /*
         DELETE FROM RECIPE_DUTY
