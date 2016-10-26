@@ -54,6 +54,7 @@ BEGIN
                                             ON T1.SUPPLIERID = S1.SUPPLIERID
                                             WHERE T1.INGRSTOCKID = T2.INGRSTOCKID
                                             )
+
                     AND T2.INGRSTOCKID = X.INGRSTOCKID                 
   )
   AND X.STATE = 'SATISFIED'
