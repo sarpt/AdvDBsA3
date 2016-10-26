@@ -1,5 +1,4 @@
--- #2 Find cook that cooked highest num of recipes 
--- by given period and increase his salary
+-- #2 Calculate balance of money per specified range of time
 ALTER SYSTEM FLUSH BUFFER_CACHE;
 /
 ALTER SYSTEM FLUSH SHARED_POOL;
@@ -21,6 +20,7 @@ DECLARE
   supply_money_spent NUMBER;
   resource_money_income NUMBER;
   price NUMBER;
+  balance NUMBER;
 BEGIN
 
   -- calculate money spent on chefs
@@ -54,8 +54,8 @@ BEGIN
                                             ON T1.SUPPLIERID = S1.SUPPLIERID
                                             WHERE T1.INGRSTOCKID = T2.INGRSTOCKID
                                             )
-                    AND T2.INGRSTOCKID = T3.INGRSTOCKID
-                    )
+
+                    AND T2.INGRSTOCKID = X.INGRSTOCKID                 
   )
   AND X.STATE = 'SATISFIED'
   AND X.DATEREQUEST <= end_date
@@ -71,7 +71,8 @@ BEGIN
   
   dbms_output.put_line('Money received: '||resource_money_income||'');
   
-  --dbms_output.put_line('Balance: '||resource_money_income - chef_money_spent||'');
+  balance := resource_money_income - chef_money_spent - supply_money_spent;
+  dbms_output.put_line('Balance: '||balance||'');
 END;
 /
 COMMIT;

@@ -12,24 +12,47 @@ exec :n := dbms_utility.get_time
 
 SET TRANSACTION NAME 'MENU_AVAIL';
     DECLARE
-        ing_count NUMBER := 0;
+        tmp_weight_missing      NUMBER;  
+        tmp                     NUMBER;      
     BEGIN	
-        SELECT COUNT(*) INTO ing_count
-        FROM INGREDIENT_STOCK IGS
-        INNER JOIN INGREDIENT IG
-        ON IGS.INGRSTOCKID = IG.INGRSTOCKID
-        WHERE IG.RECIPEID IN (SELECT RECIPEID FROM RECIPE)
-        AND IG.WEIGHTRECP > IGS.WEIGHTAVAIL;
-            
-        IF ing_count > 0 THEN
-            -- set recipe as unavailable
-            UPDATE RECIPE SET STATE = 'UNAVAILABLE'
-            WHERE RECIPEID = recipe.RECIPEID;						
-        ELSE
-            -- set recipe as available
-            UPDATE RECIPE SET STATE = 'AVAILABLE'
-            WHERE RECIPEID = recipe.RECIPEID;
-        END IF;						
+        FOR rec IN (SELECT * FROM RECIPE)
+        LOOP
+            FOR ingr IN (SELECT * FROM INGREDIENT t1                                                        
+                            WHERE t1.RECIPEID = rec.RECIPEID
+                        )
+            LOOP                
+                SELECT ingr.WEIGHTRECP - WEIGHTAVAIL 
+                INTO tmp_weight_missing
+                FROM INGREDIENT_STOCK
+                WHERE INGRSTOCKID = ingr.INGRSTOCKID;
+                
+                -- if not enough request supply
+                IF tmp_weight_missing > 0 THEN
+                    -- set current recipe as unavailable
+                    UPDATE RECIPE
+                    SET STATE = 'UNAVAILABLE'
+                    WHERE RECIPEID = rec.RECIPEID;
+                    
+                    -- update stocks for missing ingredients
+                    UPDATE INGREDIENT_STOCK
+                    SET WEIGHTMISSING = WEIGHTMISSING + tmp_weight_missing
+                    WHERE INGRSTOCKID = ingr.INGRSTOCKID;
+                    
+                    -- request a supply
+                    SELECT MAX(REQUESTID) + 1 INTO tmp
+                    FROM SUPPLY_REQUEST;
+                    
+                    INSERT INTO SUPPLY_REQUEST(REQUESTID, INGRSTOCKID, DATEREQUEST, STATE)
+                    VALUES (tmp, ingr.INGRSTOCKID, (SELECT CURRENT_DATE FROM DUAL), 'UNSATISFIED');
+                ELSE
+                    UPDATE RECIPE
+                    SET STATE = 'AVAILABLE'
+                    WHERE RECIPEID = rec.RECIPEID;
+                END IF;
+            END LOOP;
+        END LOOP;
+		
+		--dbms_output.put_line('Number of unavailable ingredients: '||ing_count||'');                    		
     END;
 /
 COMMIT;
