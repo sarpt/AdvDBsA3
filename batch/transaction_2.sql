@@ -20,6 +20,7 @@ DECLARE
   supply_money_spent NUMBER;
   resource_money_income NUMBER;
   price NUMBER;
+  balance NUMBER;
 BEGIN
 
   -- calculate money spent on chefs
@@ -37,7 +38,7 @@ BEGIN
   dbms_output.put_line('Money spent on chefs: '||chef_money_spent||'');
   -- calculate money spent on supplies
   
-  SELECT *
+  SELECT SUM(PRICE) INTO supply_money_spent
   FROM SUPPLY_REQUEST X  
   INNER JOIN SUPPLIER_STOCK V
   ON X.INGRSTOCKID = V.INGRSTOCKID
@@ -69,7 +70,8 @@ BEGIN
   
   dbms_output.put_line('Money received: '||resource_money_income||'');
   
-  --dbms_output.put_line('Balance: '||resource_money_income - chef_money_spent||'');
+  balance := resource_money_income - chef_money_spent - supply_money_spent
+  dbms_output.put_line('Balance: '||balance||'');
 END;
 /
 COMMIT;
