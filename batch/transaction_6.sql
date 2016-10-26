@@ -75,17 +75,17 @@ SET TRANSACTION NAME 'REM_CHEF';
                                   AND rec2.RECIPEID = rec3.RECIPEID
                           ) = 0
                           AND rd3.EMPLOYEEID = chef_id
-    );
+        );
+        
+        DELETE FROM EMPLOYEE
+        WHERE EMPLOYEEID = chef_id;
         /*
         DELETE FROM RECIPE_DUTY
         WHERE EMPLOYEEID = chef_id;       
         
         DELETE FROM SCHEDULE
         WHERE EMPLOYEEID = chef_id;
-        
-        DELETE FROM EMPLOYEE
-        WHERE EMPLOYEEID = chef_id;
-        */     
+        */    
     END;
 /
 COMMIT;
