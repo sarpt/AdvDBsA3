@@ -21,6 +21,7 @@ SET TRANSACTION NAME 'HIRE_CHEF';
         --
         total_sal_pay       DECIMAL;
         total_res           DECIMAL;
+        total_outcome       DECIMAL;
         new_salary          DECIMAL;
         tmp                 NUMBER;
         tmp_s               NUMBER;
@@ -47,9 +48,17 @@ SET TRANSACTION NAME 'HIRE_CHEF';
         );
         
         -- calculate all the resources
-        SELECT SUM(TOTAL) INTO total_res
+        -- total_outcome
+        SELECT SUM(TOTAL) INTO total_outcome
         FROM RESOURCES
-        WHERE DATERECEIVED > '20/10/2016';
+        WHERE UPPER(TYPE) = 'TRANSFER';
+        -- available resources
+        SELECT SUM(TOTAL) - total_outcome INTO total_res
+        FROM RESOURCES        
+        WHERE UPPER(TYPE) IN ('PAYMENT','INVESTMENT');
+		
+		dbms_output.put_line('Total salaries with new one: '||total_sal_pay||'');
+		dbms_output.put_line('Total resources available: '||total_res||'');
         
         IF total_res > total_sal_pay THEN
             -- hire the chef        
@@ -62,6 +71,11 @@ SET TRANSACTION NAME 'HIRE_CHEF';
             SELECT MAX(SCHEDULEID) + 1 INTO tmp_s FROM SCHEDULE;
             INSERT INTO SCHEDULE
             VALUES (tmp_s, 9, 17, '20/10/2016', tmp);
+            
+            SELECT MAX(RESOURCEID) + 1 INTO tmp
+            FROM RESOURCES;
+            INSERT INTO RESOURCES
+            VALUES (tmp, (SELECT CURRENT_DATE FROM DUAL), new_salary, 'Transfer');
         END IF;
     END;
 /
