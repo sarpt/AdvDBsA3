@@ -1,5 +1,4 @@
--- #2 Find cook that cooked highest num of recipes 
--- by given period and increase his salary
+-- #2 Calculate balance of money per specified range of time
 ALTER SYSTEM FLUSH BUFFER_CACHE;
 /
 ALTER SYSTEM FLUSH SHARED_POOL;
@@ -21,6 +20,7 @@ DECLARE
   supply_money_spent NUMBER;
   resource_money_income NUMBER;
   price NUMBER;
+  balance NUMBER;
 BEGIN
 
   -- calculate money spent on chefs
@@ -43,25 +43,18 @@ BEGIN
   INNER JOIN SUPPLIER_STOCK V
   ON X.INGRSTOCKID = V.INGRSTOCKID
   WHERE V.PRICE = (            
-              SELECT PRICE 
-              FROM SUPPLIER_STOCK T3
-              INNER JOIN SUPPLIER S3
-              ON S3.SUPPLIERID = T3.SUPPLIERID
-              WHERE T3.PRICE = (
-                            SELECT MIN(PRICE)
-                            FROM SUPPLIER S2
-                            INNER JOIN SUPPLIER_STOCK T2
-                            ON S2.SUPPLIERID = T2.SUPPLIERID
-                            WHERE S2.RELIABILITY = (
-                                                    SELECT MAX(S1.RELIABILITY)
-                                                    FROM SUPPLIER_STOCK T1
-                                                    INNER JOIN SUPPLIER S1
-                                                    ON T1.SUPPLIERID = S1.SUPPLIERID
-                                                    WHERE T1.INGRSTOCKID = T2.INGRSTOCKID
-                                                    )
-                            AND T2.INGRSTOCKID = T3.INGRSTOCKID
-                            )
-              AND T3.INGRSTOCKID = X.INGRSTOCKID
+                    SELECT MIN(PRICE)
+                    FROM SUPPLIER S2
+                    INNER JOIN SUPPLIER_STOCK T2
+                    ON S2.SUPPLIERID = T2.SUPPLIERID
+                    WHERE S2.RELIABILITY = (
+                                            SELECT MAX(S1.RELIABILITY)
+                                            FROM SUPPLIER_STOCK T1
+                                            INNER JOIN SUPPLIER S1
+                                            ON T1.SUPPLIERID = S1.SUPPLIERID
+                                            WHERE T1.INGRSTOCKID = T2.INGRSTOCKID
+                                            )
+                    AND T2.INGRSTOCKID = X.INGRSTOCKID                 
   )
   AND X.STATE = 'SATISFIED'
   AND X.DATEREQUEST <= end_date
@@ -77,7 +70,8 @@ BEGIN
   
   dbms_output.put_line('Money received: '||resource_money_income||'');
   
-  --dbms_output.put_line('Balance: '||resource_money_income - chef_money_spent||'');
+  balance := resource_money_income - chef_money_spent - supply_money_spent
+  dbms_output.put_line('Balance: '||balance||'');
 END;
 /
 COMMIT;
