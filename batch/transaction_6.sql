@@ -13,6 +13,7 @@ exec :n := dbms_utility.get_time
 SET TRANSACTION NAME 'REM_CHEF';
     DECLARE        
         chef_id NUMBER;
+        num_of_chefs_for_recipee NUMBER;
     BEGIN
         -- define worst chef
         WITH t1 AS
@@ -52,19 +53,29 @@ SET TRANSACTION NAME 'REM_CHEF';
         AND ROWNUM = 1;
 				
 		dbms_output.put_line('Worst chef id: '||chef_id);
+        
+        SELECT COUNT(*) INTO num_of_chefs_for_recipee
+        FROM RECIPE rec
+        INNER JOIN RECIPE_DUTY rd
+        ON rec.RECIPEID = rd.RECIPEID
+        INNER JOIN EMPLOYEE emp        
+        ON rd.EMPLOYEEID = emp.EMPLOYEEID
+        WHERE emp.EMPLOYEEID != chef_id;
 
-        UPDATE RECIPE
-        SET STATE = 'UNAVAILABLE'
-        WHERE RECIPEID IN 
-        (
-            SELECT rec.RECIPEID
-            FROM RECIPE rec
-            INNER JOIN RECIPE_DUTY rd
-            ON rec.RECIPEID = rd.RECIPEID
-            INNER JOIN EMPLOYEE emp        
-            ON rd.EMPLOYEEID = emp.EMPLOYEEID
-            WHERE emp.EMPLOYEEID = chef_id
-        );
+        if num_of_chefs_for_recipee != 0 then
+            UPDATE RECIPE
+            SET STATE = 'UNAVAILABLE'
+            WHERE RECIPEID IN 
+            (
+                SELECT rec.RECIPEID
+                FROM RECIPE rec
+                INNER JOIN RECIPE_DUTY rd
+                ON rec.RECIPEID = rd.RECIPEID
+                INNER JOIN EMPLOYEE emp        
+                ON rd.EMPLOYEEID = emp.EMPLOYEEID
+                WHERE emp.EMPLOYEEID = chef_id
+            );
+        end if;
         /*
         DELETE FROM RECIPE_DUTY
         WHERE EMPLOYEEID = chef_id;       
