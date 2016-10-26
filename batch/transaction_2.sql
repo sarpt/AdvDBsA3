@@ -70,7 +70,7 @@ BEGIN
   
   dbms_output.put_line('Money received: '||resource_money_income||'');
   
-  balance := resource_money_income - chef_money_spent - supply_money_spent
+  balance := resource_money_income - chef_money_spent - supply_money_spent;
   dbms_output.put_line('Balance: '||balance||'');
 END;
 /
