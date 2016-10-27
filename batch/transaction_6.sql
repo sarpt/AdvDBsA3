@@ -25,7 +25,7 @@ SET TRANSACTION NAME 'REM_CHEF';
                    E.LASTNAME,
                    P.SALARY,
                    P.TITLE,
-                   COUNT(CL.RECIPEID) AS RECIPECOUNT 
+                   SUM(CL.AMOUNT) AS RECIPECOUNT 
             FROM COOK_LOG CL
             INNER JOIN RECIPE R
             ON R.RECIPEID = CL.RECIPEID
@@ -37,8 +37,8 @@ SET TRANSACTION NAME 'REM_CHEF';
             ON P.POSITIONID = E.POSITIONID
             WHERE UPPER(P.TITLE) LIKE '%COOK%'
             AND CL.DATESOLD BETWEEN '10/11/2016' AND '10/12/2016' 
-            GROUP BY E.EMPLOYEEID, E.FIRSTNAME, E.LASTNAME, P.SALARY, P.TITLE
-            ORDER BY COUNT(R.RECIPEID) ASC
+            GROUP BY E.EMPLOYEEID, E.FIRSTNAME, E.LASTNAME, P.SALARY, P.TITLE,CL.AMOUNT
+            ORDER BY SUM(CL.AMOUNT) ASC
         )                         
         SELECT EMPLOYEEID INTO chef_id 
                 /*LASTNAME,
@@ -77,9 +77,10 @@ SET TRANSACTION NAME 'REM_CHEF';
                           AND rd3.EMPLOYEEID = chef_id
         );
         
+        /*
         DELETE FROM EMPLOYEE
         WHERE EMPLOYEEID = chef_id;
-        /*
+        
         DELETE FROM RECIPE_DUTY
         WHERE EMPLOYEEID = chef_id;       
         

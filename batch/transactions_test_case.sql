@@ -1,4 +1,7 @@
 -- trans 1,3,4
+insert into resources(RESOURCEID,DATERECEIVED,TOTAL,TYPE)
+values (999999, (select current_date from dual), 10000000000, 'INVESTMENT');
+
 update recipe
 set state = 'AVAILABLE'
 
@@ -35,8 +38,5 @@ from cook_log
 order by cooklogid desc
 
 -- trans 5,6
-insert into resources(RESOURCEID,DATERECEIVED,TOTAL,TYPE)
-values (999999, (select current_date from dual), 10000000000, 'INVESTMENT');
-
 select * from employee
 where lastname = 'Kowalski'
