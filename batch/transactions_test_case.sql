@@ -11,6 +11,7 @@ set weightavail = weightavail * 1000;
 delete from supply_request
 where ingrstockid = 22615
 
+-----------
 select * 
 from ingredient_stock t1 
 inner join ingredient t2

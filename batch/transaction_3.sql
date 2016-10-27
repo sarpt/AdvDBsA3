@@ -43,15 +43,28 @@ SET TRANSACTION NAME 'MENU_AVAIL';
                     FROM SUPPLY_REQUEST;
                     
                     INSERT INTO SUPPLY_REQUEST(REQUESTID, INGRSTOCKID, DATEREQUEST, STATE)
-                    VALUES (tmp, ingr.INGRSTOCKID, (SELECT CURRENT_DATE FROM DUAL), 'UNSATISFIED');
-                ELSE
-                    UPDATE RECIPE
-                    SET STATE = 'AVAILABLE'
-                    WHERE RECIPEID = rec.RECIPEID;
+                    VALUES (tmp, ingr.INGRSTOCKID, (SELECT CURRENT_DATE FROM DUAL), 'UNSATISFIED');                
                 END IF;
             END LOOP;
         END LOOP;
-		
+        
+        UPDATE RECIPE
+        SET STATE = 'AVAILABLE'
+        WHERE RECIPEID IN
+        (
+            SELECT RECIPEID
+            FROM
+            (
+                SELECT T3.RECIPEID, MAX(WEIGHTMISSING)
+                FROM INGREDIENT_STOCK T1
+                INNER JOIN INGREDIENT T2
+                ON T1.INGRSTOCKID = T2.INGRSTOCKID
+                INNER JOIN RECIPE T3
+                ON T3.RECIPEID = T2.RECIPEID        
+                GROUP BY T3.RECIPEID
+                HAVING MAX(WEIGHTMISSING) = 0
+            )
+        );                        
 		--dbms_output.put_line('Number of unavailable ingredients: '||ing_count||'');                    		
     END;
 /
