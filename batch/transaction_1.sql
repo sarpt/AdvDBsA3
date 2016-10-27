@@ -32,7 +32,7 @@ SET TRANSACTION NAME 'REC_DISH';
         LOOP
             -- compare with stock
             UPDATE INGREDIENT_STOCK
-            SET WEIGHTMISSING = (ingr_row.WEIGHTRECP * amount - WEIGHTAVAIL)
+            SET WEIGHTMISSING = (ingr_row.WEIGHTRECP * amount + WEIGHTMISSING)
             WHERE INGRSTOCKID = ingr_row.INGRSTOCKID
             AND WEIGHTAVAIL < ingr_row.WEIGHTRECP * amount;
             
