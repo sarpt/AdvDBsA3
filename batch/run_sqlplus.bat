@@ -31,4 +31,6 @@ echo exit | sqlplus.exe -S REST/1@ORASLOW @D:\STUDENT\WROCLAW\Semestr_1\Advanced
 echo exit | sqlplus.exe -S REST/1@ORASLOW @D:\STUDENT\WROCLAW\Semestr_1\Advanced_Databases\batch\11_RESOURCES.sql
 
 echo exit | sqlplus.exe -S REST/1@ORASLOW @D:\STUDENT\WROCLAW\Semestr_1\Advanced_Databases\batch\12_COOK_LOG.sql
+
+echo exit | sqlplus.exe -S REST/1@ORASLOW @D:\STUDENT\WROCLAW\Semestr_1\Advanced_Databases\batch\preparatory_data_manipulations.sql
 pause
