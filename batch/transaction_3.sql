@@ -15,7 +15,7 @@ SET TRANSACTION NAME 'MENU_AVAIL';
         tmp_weight_missing      NUMBER;  
         tmp                     NUMBER;      
     BEGIN	
-        FOR rec IN (SELECT * FROM RECIPE)
+        FOR rec IN (SELECT RECIPEID FROM RECIPE)
         LOOP
             FOR ingr IN (SELECT * FROM INGREDIENT t1                                                        
                             WHERE t1.RECIPEID = rec.RECIPEID
