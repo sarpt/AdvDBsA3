@@ -1,4 +1,3 @@
-
 CREATE TABLE EMPLOYEE
 (
 	EmployeeID           INTEGER NOT NULL ,
