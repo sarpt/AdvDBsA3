@@ -75,7 +75,7 @@ SET TRANSACTION NAME 'HIRE_CHEF';
             SELECT MAX(RESOURCEID) + 1 INTO tmp
             FROM RESOURCES;
             INSERT INTO RESOURCES
-            VALUES (tmp, (SELECT CURRENT_DATE FROM DUAL), new_salary, 'Transfer');
+            VALUES (tmp, (SELECT CURRENT_DATE FROM DUAL), new_salary, 'TRANSFER');
         END IF;
     END;
 /

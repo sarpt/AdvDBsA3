@@ -139,7 +139,7 @@ SET TRANSACTION NAME 'REQ_SUP';
                 WHERE T.SUPPLIERID = sup_ingr.SUPPLIERID;  
                                 
                 INSERT INTO resources
-                VALUES (tmp, (SELECT CURRENT_DATE FROM DUAL), tmp_cost * tmp_weight,'Transfer');
+                VALUES (tmp, (SELECT CURRENT_DATE FROM DUAL), tmp_cost * tmp_weight,'TRANSFER');
 
                 -- update INGREDIENT_STOCK so now we have enough
                 UPDATE ingredient_stock
