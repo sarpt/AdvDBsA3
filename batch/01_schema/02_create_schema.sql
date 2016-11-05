@@ -63,12 +63,27 @@ CREATE TABLE POSITION
 	Salary               DECIMAL NULL 
 );
 
+CREATE TABLESPACE ResIncome
+DATAFILE 'C:\oracle\product\11.2.0\dbhome_1\database\oraslow_tablespace\ResIncome.dbf'
+SIZE 50M PERMANENT ONLINE;
+
+CREATE TABLESPACE ResOutcome
+DATAFILE 'C:\oracle\product\11.2.0\dbhome_1\database\oraslow_tablespace\ResOutcome.dbf'
+SIZE 50M PERMANENT ONLINE;
+
 CREATE TABLE RESOURCES
 (
 	ResourceID           INTEGER NOT NULL ,
 	DateReceived         DATE NULL ,
 	Total                DECIMAL NULL ,
 	Type                 VARCHAR2(20) NULL 
+)
+PARTITION BY LIST (Type)
+(
+	PARTITION ResIncome VALUES('PAYMENT', 'INVESTMENT')
+	TABLESPACE ResIncome,
+	PARTITION ResOutcome VALUES('TRANSFER')
+	TABLESPACE ResOutcome
 );
 
 CREATE TABLE SUPPLIER
