@@ -1,11 +1,37 @@
+CREATE TABLESPACE PosCook
+DATAFILE 'C:\oracle\product\11.2.0\dbhome_1\database\oraslow_tablespace\PosCook.dbf'
+SIZE 50M PERMANENT ONLINE;
+ 
+CREATE TABLESPACE PosDefault
+DATAFILE 'C:\oracle\product\11.2.0\dbhome_1\database\oraslow_tablespace\PosDefault.dbf'
+SIZE 50M PERMANENT ONLINE;
+
+CREATE TABLE POSITION
+(
+ 	PositionID           INTEGER NOT NULL ,
+ 	Title                VARCHAR2(50) NULL ,
+ 	Salary               DECIMAL NULL ,
+ 	CONSTRAINT XPKPOSITION PRIMARY KEY (PositionID)
+)
+ PARTITION BY LIST(Title)
+(
+	PARTITION PosCook VALUES('Pantrycook', 'Soupandsaucecook', 'Broilercook')
+ 	TABLESPACE PosCook,
+ 	PARTITION PosDefault VALUES(DEFAULT)
+ 	TABLESPACE PosDefault
+);
+
 CREATE TABLE EMPLOYEE
 (
 	EmployeeID           INTEGER NOT NULL ,
 	FirstName            VARCHAR(20) NULL ,
 	LastName             VARCHAR2(20) NOT NULL ,
 	DateContractFin      DATE NULL ,
-	PositionID           INTEGER NULL 
-);
+	PositionID           INTEGER NOT NULL ,
+	CONSTRAINT XPKEMPLOYEE PRIMARY KEY (EmployeeID) ,
+ 	CONSTRAINT R_19_P FOREIGN KEY (PositionID) REFERENCES POSITION (PositionID)
+)
+PARTITION BY REFERENCE(R_19_P);
 
 CREATE TABLE SCHEDULE
 (
@@ -54,13 +80,6 @@ CREATE TABLE COOK_LOG
 	DateSold             DATE NOT NULL ,
 	Amount               INTEGER NOT NULL ,
 	RecipeID             INTEGER NOT NULL 
-);
-
-CREATE TABLE POSITION
-(
-	PositionID           INTEGER NOT NULL ,
-	Title                VARCHAR2(50) NULL ,
-	Salary               DECIMAL NULL 
 );
 
 CREATE TABLESPACE ResIncome
