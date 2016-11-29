@@ -1,4 +1,17 @@
 echo off
-C:
-cd C:\oracle\product\11.2.0\dbhome_1\BIN
-echo exit | sqlplus.exe -S REST/1@ORASLOW @D:\STUDENT\WROCLAW\Semestr_1\Advanced_Databases\batch\03_optimization\01_index_optimization_#1.sql
+
+set _current=%CD%
+
+set /p _dbname=<dbname.txt
+
+set /p _username=<username.txt
+
+cd ..\03_optimization
+set _optim=%CD%
+
+cd %_current%
+
+echo exit | cd /d C:\oracle\product\11.2.0\dbhome_1\BIN
+echo exit | sqlplus.exe -S %_username%/1@%_dbname% "@%_optim%\01_index_optimization_#1.sql"
+
+cd /d %_current%

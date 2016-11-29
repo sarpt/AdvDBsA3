@@ -91,7 +91,7 @@ SET TRANSACTION NAME 'REM_CHEF';
 /
 COMMIT;
 
-BEGIN
+BEGIN   
   :n := (dbms_utility.get_time - :n)/100;
   dbms_output.put_line('Execution time '||:n||' sec');
 END;

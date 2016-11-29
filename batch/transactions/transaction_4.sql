@@ -168,7 +168,7 @@ SET TRANSACTION NAME 'REQ_SUP';
     END;
 /
 COMMIT;
-    
+      
 BEGIN
   :n := (dbms_utility.get_time - :n)/100;
   dbms_output.put_line('Execution time '||:n||' sec');
