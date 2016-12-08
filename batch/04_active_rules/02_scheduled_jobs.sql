@@ -11,9 +11,11 @@ BEGIN
                       elem_price number;
                       missing_weight number;
                       nrid number;
+                      n number;
                     BEGIN
+                      n := dbms_utility.get_time;
                       FOR elem IN (
-                        SELECT INGRSTOCKID
+                        SELECT INGRSTOCKID, REQUESTID
                         FROM SUPPLY_REQUEST 
                         WHERE DATEREQUEST > SYSDATE - 30 
                         AND DATEREQUEST < SYSDATE 
@@ -38,12 +40,15 @@ BEGIN
                           WHERE INGRSTOCKID=elem.INGRSTOCKID;
                           
                           INSERT INTO resources VALUES ((SELECT MAX(RESOURCEID) + 1 FROM RESOURCES), SYSDATE, missing_weight * supplier_price,''TRANSFER'');
+
+                          UPDATE SUPPLY_REQUEST SET STATE = ''SATISFIED'' WHERE REQUESTID=elem.REQUESTID;
                           
                         END IF;
                       
                       END LOOP;
+                    n := (dbms_utility.get_time - n)/100;
+                    DBMS_OUTPUT.PUT_LINE(''Execution time ''||n||'' sec'');
                     END;
-                    /
                   ',
     start_date => systimestamp,
     repeat_interval => 'FREQ=MONTHLY;INTERVAL=1;BYHOUR=0;BYMINUTE=0;',
