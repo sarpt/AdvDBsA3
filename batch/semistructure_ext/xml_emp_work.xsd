@@ -1,0 +1,49 @@
+<? xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchemaEmpWork">
+
+	<!-- position -->
+	<!-- begin -->
+	<xs:complexType name="position">
+		<xs:sequence>
+			<xs:element name="title" type="xs:string"/>
+			<xs:element name="salary" type="xs:decimal"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end -->
+
+	<!-- cooked recipe -->
+	<!-- begin -->
+	<xs:complexType name="recipe">
+		<xs:sequence>
+			<xs:element name="recipe-title" type="xs:string"/>
+			<xs:element name="date-received" type="xs:date"/>
+			<xs:element name="amount" type="xs:positiveInteger"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end -->
+
+	<!-- recipe collection -->
+	<!-- begin -->
+	<xs:compexType name="rcpcollection">
+		<xs:sequence>
+			<xs:element name="rcp" type="recipe" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:compexType>
+	<!-- end -->
+
+	<!-- employee -->
+	<!-- begin -->
+	<xs:element name="employee">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="empid" type="xs:positiveInteger"/>
+				<xs:element name="firstname" type="xs:string"/>
+				<xs:element name="lastname" type="xs:string"/>
+				<xs:element name="pos" type="position" />
+				<xs:element name="rcpcoll" type="rcpcollection"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- end -->
+
+</xs:schema>
