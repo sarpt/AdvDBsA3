@@ -1,0 +1,110 @@
+Prepare the specifications of semistructured extensions to your miniword.
+
+Minimal Requirements: 3 extensions in data model and 5 operations on XML data.
+
+Each extension of data model should be described with: 
+	name,
+	affected relations,
+	the method of storage of XML used (CLOB/XMLType/CHAR) and its XML schema.
+	
+Each description of operations on semistructured data should be desribed with:
+	name,
+	corresponding SQL operation from workload,
+	tools used for implementation i.e. SAX, DOM, XPATH, XQUERY, SQL/XML.
+	
+	
+	
+******************************
+Extensions:
+1) ingredients with all their supply requests
+2) employees, their positions and all their cooked recipes from cook_log
+3) suppliers and all their satisfied supplies
+4) resources
+
+1) { 
+		name: "xml_ingr_sr",
+		relations: ["supply_request", "ingredient_stock"],
+		storage: {
+					type: "column",
+					format: "XMLType" //because we will query it
+				}
+	}
+2) { 
+		name: "xml_emp_work",
+		relations: ["employee", "position", "recipe_duty", "recipe", "cook_log"],
+		storage: {
+					type: "table",
+					format: "XMLType" //because we will query it
+				}
+	}
+3) { 
+		name: "xml_supl_stsfd",
+		relations: ["supplier" "supplier_stock", "supply_request"],
+		storage: {
+					type: "column",
+					format: "XMLType" //because we will query it
+				}
+	}
+4) { 
+		name: "",
+		relations: ["resources"],
+		storage: {
+					type: "column",
+					format: "CLOB"
+				}
+	}
+	
+Operations
+1) get employees with their cooked recipes, salaries		SAX/XPATH/XQUERY
+2) select all ingredients that require resupply 			SAX/XPATH/XQUERY
+3) insert a new supply_request 								DOM/XPATH/XQUERY
+4) update supply_request as satisfied 						DOM/XPATH/XQUERY
+5) get all incomes				 							DOM/XPATH/XQUERY
+
+1) {
+		name: "get_emp_info",
+		sql: "SELECT t1.employeeid, t1.lastname, t2.title, COUNT(t4.cooklogid)
+				FROM employee t1
+				INNER JOIN position t2
+				ON t1.positionid = t2.positionid
+				RIGHT JOIN recipe_duty t3
+				ON t1.employeeid = t3.employeeid
+				LEFT JOIN cook_log t4
+				ON t3.recipeid = t4.recipeid
+				GROUP BY t1.employeeid, t1.lastname, t2.title
+				"
+		tool: "XQUERY"
+	}
+2) {
+		name: "get_ingr_resup",
+		sql: "SELECT t1.ingrstockid, t1.title
+				FROM ingredient_stock t1
+				INNER JOIN supply_request t2
+				ON t1.ingrstockid = t2.ingrstockid
+				WHERE t2.state = 'UNSATISFIED'
+				GROUP BY t1.ingrstockid, t1.title
+				"
+		tool: "XQUERY"
+	}
+3) {
+		name: "set_sr",
+		sql: "INSERT INTO supply_request VALUES(...)"
+		tool: "DOM"
+	}
+4) {
+		name: "set_sr_stsfd",
+		sql: "UPDATE supply_request 
+				SET state = 'SATISFIED'
+				WHERE requestid = #someid
+				"
+		tool: "XPATH"
+	}
+	
+5) {
+		name: "get_incomes",
+		sql: "SELECT SUM(total)
+				FROM resources
+				WHERE type IN ('PAYMENT','INVESTMENT')
+				",
+		tool: "SAX"
+	}
