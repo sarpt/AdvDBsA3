@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchemaSupSatisfReq">
+	
+	<!-- supply request state -->
+	<!-- begin -->
+	<xs:simpleType name="srState">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SATISFIED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- end -->
+	
+	<!-- ingredient -->
+	<!-- begin -->
+	<xs:complexType name="ingredientStock">
+		<xs:sequence>
+			<xs:element name="ingstockid" type="xs:positiveInteger"/>
+			<xs:element name="title" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end -->
+
+	<!-- supply request -->
+	<!-- begin -->
+	<xs:complexType name="sRequest">
+		<xs:sequence>
+			<xs:element name="date-request" type="xs:date"/>
+			<xs:element name="req-ingredient" type="ingredientStock"/>
+			<xs:element name="state" type="srState"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end -->
+	
+	<!-- supply request collection -->
+	<!-- begin -->	
+	<xs:complexType name="srCollection">
+		<xs:sequence>
+			<xs:element name="sr" type="sRequest" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end -->
+	
+	<!-- supplier -->
+	<!-- begin -->
+	<xs:element name="supplier"> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="supid" type="xs:positiveInteger"/>
+				<xs:element name="title" type="xs:string" />
+				<xs:element name="sup-req-coll" type="srCollection"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- end -->
+
+</xs:schema>

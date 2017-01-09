@@ -1,0 +1,37 @@
+<? xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchemaRes">
+
+	<!-- resource type enum -->
+	<!-- begin -->
+	<xs:simpleType name="resType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PAYMENT"/>
+			<xs:enumeration value="INVESTMENT"/>
+			<xs:enumeration value="TRANSFER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- end -->
+
+	<!-- resource-->
+	<!-- begin -->
+	<xs:complexType name="resource">
+		<xs:sequence>
+			<xs:element name="resid" type="xs:positiveInteger"/>
+			<xs:element name="date-received" type="xs:date"/>
+			<xs:element name="type" type="resType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end -->
+	
+	<!-- resource collection -->
+	<!-- begin -->
+	<xs:element name="resCollection">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="res" type="resource" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- end -->
+
+</xs:schema>

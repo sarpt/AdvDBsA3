@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchemaIngrSupReq">
+
+	<!-- state for supply request -->
+	<!-- begin -->
+	<xs:simpleType name="state">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SATISFIED"/>
+			<xs:enumeration value="UNSATISFIED"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- end -->
+
+	<!-- supply request -->
+	<!-- begin -->
+	<xs:complexType name="srequest">
+		<xs:sequence>
+			<xs:element name="date-request" type="xs:date"/>
+			<xs:element name="st" type="state" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end -->
+	
+	<!-- supply request collection -->
+	<!-- begin -->	
+	<xs:complexType name="srcollection">
+		<xs:sequence>
+			<xs:element name="sr" type="srequest" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- end -->
+
+	<!-- ingredient -->
+	<!-- begin -->
+	<xs:element name="ingredient"> 
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ingrid" type="xs:positiveInteger"/>
+				<xs:element name="title" type="xs:string"/>
+				<xs:element name="coll" type="srcollection"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- end -->
+
+</xs:schema>
