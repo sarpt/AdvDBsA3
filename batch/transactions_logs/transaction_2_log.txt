@@ -1,0 +1,210 @@
+normal number 1 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Sesja zosta³a zmieniona.
+
+
+Sesja zosta³a zmieniona.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Transakcja zosta³a ustalona.
+
+Money spent on chefs: 486141120
+Money spent on resources: 18843036
+Money received: 17708331101
+Balance: 17203346945
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 2,25 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 2 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Sesja zosta³a zmieniona.
+
+
+Sesja zosta³a zmieniona.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Transakcja zosta³a ustalona.
+
+Money spent on chefs: 486141120
+Money spent on resources: 18843036
+Money received: 17708331101
+Balance: 17203346945
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 2,19 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 3 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Sesja zosta³a zmieniona.
+
+
+Sesja zosta³a zmieniona.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Transakcja zosta³a ustalona.
+
+Money spent on chefs: 486141120
+Money spent on resources: 18843036
+Money received: 17708331101
+Balance: 17203346945
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 2,47 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 4 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Sesja zosta³a zmieniona.
+
+
+Sesja zosta³a zmieniona.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Transakcja zosta³a ustalona.
+
+Money spent on chefs: 486141120
+Money spent on resources: 18843036
+Money received: 17708331101
+Balance: 17203346945
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 2,37 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 5 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Sesja zosta³a zmieniona.
+
+
+Sesja zosta³a zmieniona.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Transakcja zosta³a ustalona.
+
+Money spent on chefs: 486141120
+Money spent on resources: 18843036
+Money received: 17708331101
+Balance: 17203346945
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 2,12 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+

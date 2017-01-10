@@ -1,4 +1,7 @@
-SELECT XMLElement("employee", 
+CREATE TABLE emp_work
+AS (
+
+SELECT emp.EMPLOYEEID "EMPWORKID", XMLElement("employee", 
             XMLAttributes(emp.EMPLOYEEID AS "empid",
                         emp.LASTNAME AS "lastname",
                         pos.TITLE AS "title",
@@ -11,7 +14,7 @@ SELECT XMLElement("employee",
                         )                        
                     )
             )
-        )
+        ) "EMPWORKXML"
 FROM employee emp 
 INNER JOIN position pos
 ON emp.POSITIONID = pos.POSITIONID	 
@@ -19,4 +22,4 @@ INNER JOIN recipe_duty rd
 ON emp.EMPLOYEEID = rd.EMPLOYEEID
 INNER JOIN cook_log ckl
 ON rd.RECIPEID = ckl.RECIPEID
-GROUP BY emp.EMPLOYEEID, emp.LASTNAME, pos.TITLE, pos.SALARY
+GROUP BY emp.EMPLOYEEID, emp.LASTNAME, pos.TITLE, pos.SALARY);

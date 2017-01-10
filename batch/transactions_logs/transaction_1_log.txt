@@ -1,0 +1,170 @@
+normal number 1 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Transakcja zosta³a ustalona.
+
+Number of chefs available: 2744
+Maximum missing weight of ingredient (all should be available so max=0): 4966
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 1,3 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 2 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Transakcja zosta³a ustalona.
+
+Number of chefs available: 2744
+Maximum missing weight of ingredient (all should be available so max=0): 4966
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 1,2 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 3 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Transakcja zosta³a ustalona.
+
+Number of chefs available: 2744
+Maximum missing weight of ingredient (all should be available so max=0): 4966
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 1,26 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 4 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Transakcja zosta³a ustalona.
+
+Number of chefs available: 2744
+Maximum missing weight of ingredient (all should be available so max=0): 4966
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 1,22 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 5 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Transakcja zosta³a ustalona.
+
+Number of chefs available: 2744
+Maximum missing weight of ingredient (all should be available so max=0): 4966
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 1,25 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+

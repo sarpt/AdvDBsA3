@@ -1,3 +1,8 @@
+ALTER TABLE supply_request
+ADD ingr_sr XMLTYPE;
+
+UPDATE supply_request s
+SET (ingr_sr) = (
 SELECT XMLElement("ingredient", 
             XMLAttributes(t1.INGRSTOCKID AS "ingrid",
                         t2.TITLE AS "title"
@@ -13,4 +18,5 @@ SELECT XMLElement("ingredient",
 FROM supply_request t1
 INNER JOIN ingredient_stock t2
 ON t1.INGRSTOCKID = t2.INGRSTOCKID
-GROUP BY t1.INGRSTOCKID, t2.TITLE
+WHERE s.INGRSTOCKID = t1.INGRSTOCKID
+GROUP BY t1.INGRSTOCKID, t2.TITLE);

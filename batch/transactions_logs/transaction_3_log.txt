@@ -1,0 +1,175 @@
+normal number 1 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 19,34 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 2 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 19,82 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 3 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 19,78 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 4 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 19,64 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 5 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 20,19 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+

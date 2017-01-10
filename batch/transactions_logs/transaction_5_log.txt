@@ -1,0 +1,215 @@
+normal number 1 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Sesja zosta³a zmieniona.
+
+
+Sesja zosta³a zmieniona.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+Total salaries with new one: 289088196
+Total resources available: 4045883898
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 1,1 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 2 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Sesja zosta³a zmieniona.
+
+
+Sesja zosta³a zmieniona.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+Total salaries with new one: 289088196
+Total resources available: 4045883898
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 1,06 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 3 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Sesja zosta³a zmieniona.
+
+
+Sesja zosta³a zmieniona.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+Total salaries with new one: 289088196
+Total resources available: 4045883898
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 1,12 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 4 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Sesja zosta³a zmieniona.
+
+
+Sesja zosta³a zmieniona.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+Total salaries with new one: 289088196
+Total resources available: 4045883898
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 1,27 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 5 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Sesja zosta³a zmieniona.
+
+
+Sesja zosta³a zmieniona.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+Total salaries with new one: 289088196
+Total resources available: 4045883898
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 1,17 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+

@@ -1,0 +1,185 @@
+normal number 1 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+Total cost of the supply: 17954833
+Total resources available: 10778612206
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 25,83 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 2 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+Total cost of the supply: 17954833
+Total resources available: 10778612206
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 28,04 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 3 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+Total cost of the supply: 17954833
+Total resources available: 10778612206
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 28,03 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 4 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+Total cost of the supply: 17954833
+Total resources available: 10778612206
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 27,89 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+normal number 5 
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+System zosta³ zmieniony.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+
+Transakcja zosta³a ustalona.
+
+Total cost of the supply: 17954833
+Total resources available: 10778612206
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
+
+Zatwierdzanie zosta³o ukoñczone.
+
+Execution time 25,62 sec
+
+Procedura PL/SQL zosta³a zakoñczona pomyœlnie.
+
