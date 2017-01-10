@@ -1,9 +1,0 @@
-SELECT emp.EMPLOYEEID, emp.LASTNAME, pos.TITLE, pos.SALARY, ckl.DATESOLD, ckl.AMOUNT
-FROM employee emp 
-INNER JOIN position pos
-ON emp.POSITIONID = pos.POSITIONID	 
-INNER JOIN recipe_duty rd
-ON emp.EMPLOYEEID = rd.EMPLOYEEID
-INNER JOIN cook_log ckl
-ON rd.RECIPEID = ckl.RECIPEID
-ORDER BY emp.EMPLOYEEID
