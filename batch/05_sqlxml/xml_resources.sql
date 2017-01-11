@@ -36,14 +36,14 @@ END;
 /
 
 ALTER TABLE resources
-ADD resources_xml XMLTYPE;
+ADD resources_xml CLOB;
 
 UPDATE resources r
 SET (resources_xml) = (
-SELECT XMLElement("resource",
+SELECT XMLSerialize(DOCUMENT XMLElement("resource",
             XMLAttributes('http://www.w3.org/2001/XMLschema' AS "xmlns:xs",
                           'http://xmlns.oracle.com/xdb/documentation/resources.xsd' AS "xs:xsr"),
             XMLForest(t.TYPE, t.DATERECEIVED, t.TOTAL)
-        )
+        ))
 FROM RESOURCES t
 WHERE r.RESOURCEID = t.RESOURCEID);
